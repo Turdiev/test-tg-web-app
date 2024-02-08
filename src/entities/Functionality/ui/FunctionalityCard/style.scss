@@ -1,0 +1,71 @@
+.functionality-card {
+  position: relative;
+  height: 143px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 96px;
+    height: 96px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 0 0 12px 0;
+  }
+
+  &_search {
+    &:before {
+      background-image: url("@/shared/assets/image/icon-search.png");
+
+    }
+  }
+
+  &_subscriptions {
+    &:before {
+      background-image: url("@/shared/assets/image/icon-subscriptions.png");
+    }
+  }
+
+  &_favorites {
+    &:before {
+      background-image: url("@/shared/assets/image/icon-favorites.png");
+    }
+  }
+
+  &_purchased-content {
+    &:before {
+      background-image: url("@/shared/assets/image/icon-purchased-content.png");
+    }
+  }
+
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 4px;
+    width: 100%;
+  }
+
+  &__title {
+
+    & span {
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 20px;
+      color: $black;
+    }
+  }
+
+  &__description {
+
+    & span {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 17px;
+      color: $style3;
+    }
+  }
+}

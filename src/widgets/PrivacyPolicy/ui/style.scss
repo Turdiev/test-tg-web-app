@@ -1,0 +1,25 @@
+.privacy-policy {
+  width: 100%;
+  background: $style5;
+  padding-top: 12px;
+
+  &__stepper {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+    padding-bottom: 24px;
+  }
+
+  &__step {
+    flex: 1;
+    height: 4px;
+    border-radius: 90px;
+    background: $blue-light;
+
+    &_active {
+      background: $blue;
+    }
+  }
+
+}

@@ -1,0 +1,1 @@
+export { default as FunctionalityList } from './FunctionalityList.vue'

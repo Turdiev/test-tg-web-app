@@ -1,0 +1,26 @@
+.button-base {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  padding: 12px;
+  color: $style;
+  cursor: pointer;
+
+  &_default {
+    background: $blue;
+  }
+  &_red {
+    background: $red;
+  }
+  &_green {
+    background: $green;
+  }
+
+  &_disabled {
+    opacity: 40%;
+    pointer-events: none;
+  }
+}

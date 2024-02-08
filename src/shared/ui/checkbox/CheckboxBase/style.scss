@@ -1,0 +1,11 @@
+.checkbox-base {
+  position: relative;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  background: transparent;
+  user-select: none;
+  will-change: background-color;
+  transition: all .3s;
+  cursor: pointer;
+}

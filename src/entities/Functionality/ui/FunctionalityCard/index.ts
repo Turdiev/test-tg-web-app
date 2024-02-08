@@ -1,0 +1,1 @@
+export { default as FunctionalityCard } from './FunctionalityCard.vue'

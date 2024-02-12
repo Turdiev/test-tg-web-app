@@ -13,3 +13,47 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
+
+@mixin flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin flex-between-center {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+@mixin flex-start-center {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+@mixin flex-end-center {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+@mixin flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
+@mixin flex-align-center {
+	display: flex;
+	align-items: center;
+}
+
+@mixin flex-align-start {
+	display: flex;
+	align-items: flex-start;
+}
+
+@mixin flex-align-end {
+	display: flex;
+	align-items: flex-end;
+}

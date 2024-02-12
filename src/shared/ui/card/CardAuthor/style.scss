@@ -1,0 +1,40 @@
+.card-author {
+  @include flex-between-center;
+  width: 100%;
+
+  &__user {
+    @include flex-align-center;
+    gap: 12px;
+  }
+
+  &__wrapper {
+  }
+
+  &__salesman {
+    @include flex-center;
+    gap: 2px;
+    color: $style3;
+
+    & span {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 17px;
+    }
+
+    & svg path {
+      fill: currentColor;
+    }
+  }
+
+  &__username {
+    & span {
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 21px;
+      color: $style1;
+    }
+  }
+
+  &__button {
+  }
+}

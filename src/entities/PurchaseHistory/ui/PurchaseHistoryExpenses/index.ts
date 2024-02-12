@@ -1,0 +1,1 @@
+export { default as PurchaseHistoryExpenses } from './PurchaseHistoryExpenses.vue'

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import {CardLink} from '@/shared/ui/card';
+import {VCard} from '@/shared/ui/card';
 
 defineProps<{
   card: {
@@ -14,7 +14,8 @@ defineProps<{
 </script>
 
 <template>
-  <CardLink
+  <VCard
+    :is-link="true"
     class="functionality-card"
     :class="`functionality-card_${card.type}`"
   >
@@ -26,7 +27,7 @@ defineProps<{
         <span>{{ card.description }}</span>
       </div>
     </div>
-  </CardLink>
+  </VCard>
 </template>
 
 <style lang="scss" scoped>

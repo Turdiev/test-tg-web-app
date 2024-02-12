@@ -1,0 +1,36 @@
+.purchase-history-list {
+  @include flex-column;
+  gap: 16px;
+
+  margin-top: 16px;
+
+  &__data {
+    @include flex-column;
+    gap: 4px;
+  }
+
+  &__info {
+    @include flex-between-center;
+  }
+
+  &__info-total {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 21px;
+    color: $style3;
+  }
+
+  &__item {
+    position: relative;
+
+    &:not(:last-child):after {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 84%;
+      height: 0.5px;
+      background: rgba(60, 60, 67, 0.36);
+    }
+  }
+}

@@ -2,10 +2,20 @@
 
 import {IconClock} from '@/shared/ui/icons';
 import {ButtonRound} from '@/shared/ui/button';
+import {useRouter} from "vue-router";
+
+const router = useRouter()
+
+const goToPurchaseHistory = () => {
+  router.push({name: 'PurchaseHistory'})
+}
 </script>
 
 <template>
-  <ButtonRound label="История покупок">
+  <ButtonRound
+    label="История покупок"
+    @click="goToPurchaseHistory"
+  >
     <template #icon>
       <IconClock />
     </template>

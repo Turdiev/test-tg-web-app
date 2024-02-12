@@ -1,0 +1,35 @@
+.image-avatar {
+  @include flex-center;
+
+  &_default {
+    background: $style3;
+  }
+
+  &_blue {
+    background: $blue-light;
+  }
+
+  &_medium {
+    min-width: 40px;
+    height: 40px;
+  }
+
+  &_small {
+    min-width: 28px;
+    height: 28px;
+  }
+
+  &_square {
+    border-radius: 0;
+  }
+
+  &_round {
+    border-radius: 50%;
+  }
+
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

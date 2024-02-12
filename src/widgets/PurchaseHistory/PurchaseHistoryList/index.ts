@@ -1,0 +1,1 @@
+export { default as PurchaseHistoryList } from './PurchaseHistoryList.vue'

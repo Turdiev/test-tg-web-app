@@ -4,8 +4,7 @@ export const routes: RouteRecordRaw[] = [
     {
         path: '/',
         name: 'MainPage',
-        component:  () => import('@/pages/main'),
-        meta: { requiresAgreement: true }
+        component:  () => import('@/pages/main')
     },
     {
         path: '/catalog',
@@ -18,8 +17,13 @@ export const routes: RouteRecordRaw[] = [
         component: () => import('@/pages/support')
     },
     {
-        path: '/privacy-policy',
-        name: 'PrivacyPolicyPage',
-        component: () => import('@/pages/privacyPolicy')
+        path: '/purchase-history',
+        name: 'PurchaseHistory',
+        component: () => import('@/pages/purchase-history')
+    },
+    {
+        path: '/purchase-history/:id',
+        name: 'PurchaseHistoryDetails',
+        component: () => import('@/pages/purchase-history-details')
     }
 ]

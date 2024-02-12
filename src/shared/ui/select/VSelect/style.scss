@@ -1,0 +1,55 @@
+.v-select {
+  --vs-border-radius: 8px;
+
+  position: relative;
+  min-width: 100px;
+
+  .vs {
+    &__dropdown-toggle {
+      height: 29px;
+      background-color: $blue;
+      border: 1px solid $blue;
+      border-radius: 90px;
+      padding: 0;
+      color: $style;
+
+      &[aria-expanded="true"] {
+        width: 100%;
+        background-color: $blue;
+        border-color: $style;
+      }
+    }
+
+    &__dropdown-menu {
+      background: $style;
+      border: none;
+      color: $style1;
+    }
+
+    &__actions {
+      padding: 10px 11px 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    &__selected {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 13px;
+      color: $style;
+      margin: 0;
+      padding: 0 12px 0 8px;
+    }
+
+    &__search {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  &__arrow {
+    width: 10px;
+    height: 10px;
+  }
+}

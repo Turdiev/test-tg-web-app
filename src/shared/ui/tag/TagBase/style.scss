@@ -1,0 +1,23 @@
+.tag-base {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: max-content;
+  background: $style4;
+  border-radius: 90px;
+  padding: 8px 12px;
+  color: $style3;
+  cursor: pointer;
+
+  &_active {
+    background: $blue;
+    color: $style;
+  }
+
+  & span {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 13px;
+  }
+}

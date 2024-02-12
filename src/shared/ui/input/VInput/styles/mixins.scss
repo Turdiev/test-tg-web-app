@@ -1,0 +1,7 @@
+@mixin inputFocus () {
+  border-color: $blue;
+}
+
+@mixin inputHover () {
+  border-color: $blue;
+}

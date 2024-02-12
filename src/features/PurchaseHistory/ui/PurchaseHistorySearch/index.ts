@@ -1,0 +1,1 @@
+export { default as PurchaseHistorySearch } from './PurchaseHistorySearch.vue'

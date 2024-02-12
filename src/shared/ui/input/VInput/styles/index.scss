@@ -1,0 +1,84 @@
+@import 'mixins';
+
+.v-input {
+  position: relative;
+
+  &__label {
+    position: relative;
+    width: max-content;
+
+    &.required::after {
+      content: '*';
+      position: absolute;
+      top: 0;
+      right: -10px;
+      font-size: 20px;
+    }
+  }
+
+  &__field-wrap {
+    position: relative;
+  }
+
+  &__field {
+    width: 100%;
+    background-color: $style;
+    border: 1px solid $style4;
+    border-radius: 8px;
+    padding: 10px 10px 10px 36px;
+    font-size: 13px;
+    font-weight: 400;
+    color: $style1;
+
+    &::placeholder {
+      color: $style3;
+    }
+
+    &:focus-visible {
+      @include inputFocus;
+    }
+    &:hover {
+      @include inputHover;
+    }
+
+    &:disabled {
+      color: $style3;
+      border-color: $style3;
+      background-color: transparent;
+    }
+  }
+
+  &__error {
+    position: absolute;
+    top: 100%;
+  }
+
+  &.error {
+    .v-input__label {
+      color: $red;
+    }
+
+    .v-input__field {
+      color: $red;
+      border-color: $red;
+
+      &::placeholder {
+        color: $red;
+      }
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 30%;
+    left: 12px;
+    width: 12px;
+    height: 12px;
+  }
+
+  &.disabled {
+    .v-input__label {
+      color: $style3;
+    }
+  }
+}

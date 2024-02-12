@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import {FunctionalityCard} from '@/entities/Functionality/ui';
+import {FunctionalityCard} from "@/entities/Functionality/ui";
 
 const functionalityList = [
   {

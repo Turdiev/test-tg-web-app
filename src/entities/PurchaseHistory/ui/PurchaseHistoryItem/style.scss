@@ -1,0 +1,75 @@
+.purchase-history-item {
+  @include flex-align-center;
+  width: 100%;
+  padding: 12px 0;
+  gap: 12px;
+
+  &__wrapper {
+    @include flex-between-center;
+    width: 100%;
+  }
+
+  &__left {
+    @include flex-align-center;
+    gap: 12px;
+  }
+
+
+  &__user {
+    @include flex-column;
+    gap: 2px;
+  }
+
+  &__operation {
+    @include flex-start-center;
+
+    & span {
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 21px;
+      color: $style1;
+    }
+  }
+
+  &__user-name {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 21px;
+    color: $style1;
+  }
+
+  &__user-login {
+    @include flex-align-center;
+
+    & span {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 17px;
+      color: $style3;
+    }
+  }
+
+  &__right {
+    @include flex-column;
+    align-items: flex-end;
+    gap: 2px;
+  }
+
+  &__price {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 21px;
+    color: $style1;
+
+    &_color {
+      color: $green;
+    }
+  }
+
+  &__type {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 17px;
+    color: $style3;
+  }
+}

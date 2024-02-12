@@ -20,6 +20,14 @@ import {TheNavigation} from '@/widgets/TheNavigation'
   &__content {
     //height: 100%;
     height: 100vh;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $style4;
+      border-radius: 0;
+      border: 0;
+      transition: all 0.2s ease-in-out;
+    }
   }
 }
 </style>

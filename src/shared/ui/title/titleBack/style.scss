@@ -1,0 +1,23 @@
+.title-back {
+  @include flex-center;
+  padding: 16px 0;
+
+  &__button {
+    @include flex-start-center;
+    width: 24px;
+    height: 24px;
+    margin-right: auto;
+  }
+
+  &__title {
+    flex: 1;
+
+    &_center {
+      text-align: center;
+    }
+
+    &_right {
+      text-align: right;
+    }
+  }
+}

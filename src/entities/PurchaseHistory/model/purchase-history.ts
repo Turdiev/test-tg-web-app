@@ -1,7 +1,6 @@
 import {defineStore} from 'pinia';
-import {ref} from "vue";
-import type {IPurchaseHistory} from "@/entities/PurchaseHistory/model/types";
-import type {RouteParamValue} from "vue-router";
+import type {IPurchaseHistory} from '@/entities/PurchaseHistory/model/types';
+import type {RouteParamValue} from 'vue-router';
 
 const namespace = 'purchase-history'
 export const usePurchaseHistoryStore = defineStore(namespace, () => {
@@ -86,7 +85,7 @@ export const usePurchaseHistoryStore = defineStore(namespace, () => {
     const getHistoryById = (id: string | RouteParamValue[]) => {
         let currentHistory = null
         dataHistory.forEach((item: IPurchaseHistory) => {
-            let findHistory = item.history.find(history => history.id === id ? history : false)
+            const findHistory = item.history.find(history => history.id === id ? history : false)
             if (findHistory) {
                 currentHistory = findHistory
             }

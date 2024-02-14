@@ -4,6 +4,7 @@ export { default as IconDots } from './IconDots.vue';
 export { default as IconMessage } from './IconMessage.vue';
 export { default as IconPlus } from './IconPlus.vue';
 export { default as IconClock } from './IconClock.vue';
+export { default as IconCheck } from './IconCheck.vue';
 export { default as IconArrowLeft } from './IconArrowLeft.vue';
 export { default as IconArrowRight } from './IconArrowRight.vue';
 export { default as IconArrowDown } from './IconArrowDown.vue';

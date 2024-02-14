@@ -1,0 +1,1 @@
+export {default as ButtonSticky} from './ButtonSticky.vue'

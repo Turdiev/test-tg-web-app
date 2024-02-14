@@ -1,0 +1,11 @@
+.support-page {
+  position: relative;
+  @include flex-column-stretch;
+  background: #F4F4F4;
+  height: 100%;
+  padding-top: 16px;
+
+  &__faq {
+    margin: 16px 0 24px;
+  }
+}

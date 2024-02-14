@@ -1,0 +1,17 @@
+.support-faq-page {
+  padding-bottom: 20px;
+
+  &__list {
+    @include flex-column;
+    gap: 24px;
+    margin-top: 16px;
+    margin-bottom: 32px;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      border-bottom: 0.5px solid rgba(60, 60, 67, 0.3);
+      padding-bottom: 24px;
+    }
+  }
+}

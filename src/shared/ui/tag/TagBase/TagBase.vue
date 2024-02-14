@@ -1,15 +1,14 @@
 <script setup lang="ts">
 
-import IconClose from "@/shared/ui/icons/IconClose.vue";
-import {IconArrowDown} from "@/shared/ui/icons";
-import type {ITags} from "@/entities/PurchaseHistory/model/types";
+import IconClose from '@/shared/ui/icons/IconClose.vue';
+import type {ITags} from '@/entities/PurchaseHistory/model/types';
 
 defineProps<{
   tag: ITags
   active: ITags | null
 }>()
 
-const emit = defineEmits(['click'])
+defineEmits(['click'])
 </script>
 
 <template>

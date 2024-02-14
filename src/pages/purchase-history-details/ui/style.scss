@@ -1,9 +1,6 @@
 .purchase-history-details-page {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: stretch;
+  @include flex-column-stretch;
   background: #F4F4F4;
   height: 100%;
 
@@ -11,22 +8,7 @@
     //height: 98%;
   }
 
-  &__head {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 16px 0;
-  }
-
-  &__back {
-    width: 24px;
-    margin-right: auto;
-  }
-
   &__title {
-    flex: 1;
-    text-align: end;
-
     & span {
       font-size: 15px;
       font-weight: 400;
@@ -36,18 +18,7 @@
   }
 
   &__button {
-    position: sticky;
-    bottom: 0;
     @include flex-center;
-    min-height: 80px;
-    background: $style;
-    border-radius: 16px 16px 0 0;
-    padding: 0 16px;
-    margin-top: 10px;
-
-    &-wrap {
-      @include flex-center;
-      gap: 6px;
-    }
+    gap: 6px;
   }
 }

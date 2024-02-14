@@ -4,7 +4,7 @@ import {ref} from 'vue';
 
 const namespace = 'privacy-policy'
 export const usePrivacyPolicyStore = defineStore(namespace, () => {
-    const agreementAccepted = ref<string>(localStorage.getItem('agreementAccepted') || null)
+    const agreementAccepted = ref<string | null>(localStorage.getItem('agreementAccepted') || null)
     const verificationAge = ref(false)
     const privacyPolicyCheckbox = ref(false)
     const termsOfUseCheckbox = ref(false)

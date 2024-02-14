@@ -1,12 +1,13 @@
 <script setup lang="ts">
 
-import {IconArrowLeft, IconArrowRight} from "@/shared/ui/icons";
-import {PurchaseHistoryDetails} from "@/widgets/PurchaseHistory/PurchaseHistoryDetails";
-import {useRoute} from "vue-router";
-import {usePurchaseHistoryStore} from "@/entities/PurchaseHistory/model/purchase-history";
-import {computed, onBeforeMount, ref} from "vue";
-import type {IHistory} from "@/entities/PurchaseHistory/model/types";
-import {ButtonBase} from "@/shared/ui/button/ButtonBase";
+import {IconArrowRight} from '@/shared/ui/icons';
+import {PurchaseHistoryDetails} from '@/widgets/PurchaseHistory/PurchaseHistoryDetails';
+import {useRoute} from 'vue-router';
+import {usePurchaseHistoryStore} from '@/entities/PurchaseHistory/model/purchase-history';
+import {computed, onBeforeMount, ref} from 'vue';
+import type {IHistory} from '@/entities/PurchaseHistory/model/types';
+import {TitleBack} from '@/shared/ui/title';
+import {ButtonSticky} from '@/shared/ui/button/ButtonSticky';
 
 const router = useRoute()
 const purchaseHistoryStore = usePurchaseHistoryStore()
@@ -27,28 +28,19 @@ onBeforeMount(() => {
 <template>
   <div class="purchase-history-details-page">
     <div class="container purchase-history-details-page__content">
-      <div class="purchase-history-details-page__head">
-        <router-link to="/purchase-history">
-          <div class="purchase-history-details-page__back">
-            <icon-arrow-left />
-          </div>
-        </router-link>
+      <title-back path="/purchase-history" text-align="right">
         <div class="purchase-history-details-page__title">
           <span>Чек операции</span>
         </div>
-      </div>
+      </title-back>
       <PurchaseHistoryDetails />
     </div>
-    <div class="purchase-history-details-page__button">
-      <button-base
-        color="default"
-      >
-        <div class="purchase-history-details-page__button-wrap">
-          <span>{{ titleButton }}</span>
-          <icon-arrow-right />
-        </div>
-      </button-base>
-    </div>
+    <button-sticky color="default">
+      <div class="purchase-history-details-page__button">
+        <span>{{ titleButton }}</span>
+        <icon-arrow-right />
+      </div>
+    </button-sticky>
   </div>
 </template>
 

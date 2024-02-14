@@ -43,6 +43,13 @@
 	flex-direction: column;
 }
 
+@mixin flex-column-stretch {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: stretch;
+}
+
 @mixin flex-align-center {
 	display: flex;
 	align-items: center;

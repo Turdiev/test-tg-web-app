@@ -1,9 +1,9 @@
 <script setup lang="ts">
 
-import type {IHistory} from "@/entities/PurchaseHistory/model/types";
-import {IconCoins, IconUser} from "@/shared/ui/icons";
-import {ImageAvatar} from "@/shared/ui/image/ImageAvatar";
-import {computed} from "vue";
+import type {IHistory} from '@/entities/PurchaseHistory/model/types';
+import {IconCoins, IconUser} from '@/shared/ui/icons';
+import {ImageAvatar} from '@/shared/ui/image/ImageAvatar';
+import {computed} from 'vue';
 
 const props = defineProps<{
   item: IHistory

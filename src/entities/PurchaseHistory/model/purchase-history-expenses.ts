@@ -1,6 +1,6 @@
 
 import {defineStore} from 'pinia';
-import {markRaw, ref} from 'vue';
+import {ref} from 'vue';
 import type {ITags} from './types';
 
 const namespace = 'purchase-history-expenses'

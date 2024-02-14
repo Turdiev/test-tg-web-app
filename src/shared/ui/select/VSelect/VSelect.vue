@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import VueSelect from 'vue-select';
 import type { IVSelect } from './types'
-import {computed} from "vue";
-import {IconArrowDown, IconArrowLeft, IconArrowRight, IconCalendar} from "@/shared/ui/icons";
+import {computed} from 'vue';
+import {IconArrowDown} from '@/shared/ui/icons';
 
 const emit = defineEmits(['update:modelValue'])
 

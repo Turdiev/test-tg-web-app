@@ -1,13 +1,13 @@
 <script setup lang="ts">
 
-import {computed, onBeforeMount, ref} from "vue";
-import {useRoute} from "vue-router";
-import {usePurchaseHistoryStore} from "@/entities/PurchaseHistory/model/purchase-history";
-import {CardAuthor} from "@/shared/ui/card/CardAuthor";
-import {VCard} from "@/shared/ui/card";
-import {ImageAvatar} from "@/shared/ui/image/ImageAvatar";
-import type {IHistory} from "@/entities/PurchaseHistory/model/types";
-import {IconArrowRight, IconCalendar, IconCoins, IconCreditCard} from "@/shared/ui/icons";
+import {computed, onBeforeMount, ref} from 'vue';
+import {useRoute} from 'vue-router';
+import {usePurchaseHistoryStore} from '@/entities/PurchaseHistory/model/purchase-history';
+import {CardAuthor} from '@/shared/ui/card/CardAuthor';
+import {VCard} from '@/shared/ui/card';
+import {ImageAvatar} from '@/shared/ui/image/ImageAvatar';
+import type {IHistory} from '@/entities/PurchaseHistory/model/types';
+import {IconArrowRight, IconCalendar, IconCoins, IconCreditCard} from '@/shared/ui/icons';
 
 const router = useRoute()
 const purchaseHistoryStore = usePurchaseHistoryStore()

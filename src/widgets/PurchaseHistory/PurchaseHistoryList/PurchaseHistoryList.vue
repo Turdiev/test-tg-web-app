@@ -1,8 +1,8 @@
 <script setup lang="ts">
 
-import {usePurchaseHistoryStore} from "@/entities/PurchaseHistory/model/purchase-history";
-import {PurchaseHistoryItem} from "@/entities/PurchaseHistory/ui";
-import {TitleH3} from "@/shared/ui/title/h3";
+import {usePurchaseHistoryStore} from '@/entities/PurchaseHistory/model/purchase-history';
+import {PurchaseHistoryItem} from '@/entities/PurchaseHistory/ui';
+import {TitleH3} from '@/shared/ui/title';
 
 const purchaseHistoryStore = usePurchaseHistoryStore()
 const { dataHistory } = purchaseHistoryStore

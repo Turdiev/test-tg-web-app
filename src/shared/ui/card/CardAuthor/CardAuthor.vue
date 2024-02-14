@@ -1,8 +1,8 @@
 <script setup lang="ts">
 
-import {VCard} from "@/shared/ui/card";
-import {IconArrowRight, IconUser} from "@/shared/ui/icons";
-import {ImageAvatar} from "@/shared/ui/image/ImageAvatar";
+import {VCard} from '@/shared/ui/card';
+import {IconArrowRight, IconUser} from '@/shared/ui/icons';
+import {ImageAvatar} from '@/shared/ui/image/ImageAvatar';
 </script>
 
 <template>

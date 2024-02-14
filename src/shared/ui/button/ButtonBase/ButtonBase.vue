@@ -14,9 +14,9 @@ defineEmits(['click'])
 
 <template>
   <button
-      class="button-base"
-      :class="[`button-base_${color}`, {'button-base_disabled': disabled}]"
-      @click="$emit('click')"
+    class="button-base"
+    :class="[`button-base_${color}`, {'button-base_disabled': disabled}]"
+    @click="$emit('click')"
   >
     <slot />
   </button>

@@ -1,0 +1,10 @@
+.button-sticky {
+  position: sticky;
+  bottom: 0;
+  @include flex-center;
+  min-height: 80px;
+  background: $style;
+  border-radius: 16px 16px 0 0;
+  padding: 0 16px;
+  margin-top: 10px;
+}

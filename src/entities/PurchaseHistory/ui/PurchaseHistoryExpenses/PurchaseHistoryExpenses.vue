@@ -1,17 +1,17 @@
 <script setup lang="ts">
 
-import {usePurchaseHistoryStore} from "@/entities/PurchaseHistory/model/purchase-history-expenses";
-import {TagBase} from "@/shared/ui/tag/TagBase";
-import {VSelect} from "@/shared/ui/select";
-import {storeToRefs} from "pinia";
-import {computed} from "vue";
+import {usePurchaseHistoryStore} from '@/entities/PurchaseHistory/model/purchase-history-expenses';
+import {TagBase} from '@/shared/ui/tag/TagBase';
+import {VSelect} from '@/shared/ui/select';
+import {storeToRefs} from 'pinia';
+import {computed} from 'vue';
 
 const purchaseHistoryStore = usePurchaseHistoryStore()
 const { activeTag, selectedMonth } = storeToRefs(purchaseHistoryStore)
 const { tags, handleTag, selectOptions } = purchaseHistoryStore
 
-defineProps<{
-}>()
+// defineProps<{
+// }>()
 
 const titleExpenses = computed(() => {
   if (activeTag.value?.value === 'content') {

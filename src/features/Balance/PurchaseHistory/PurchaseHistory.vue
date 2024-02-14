@@ -2,7 +2,7 @@
 
 import {IconClock} from '@/shared/ui/icons';
 import {ButtonRound} from '@/shared/ui/button';
-import {useRouter} from "vue-router";
+import {useRouter} from 'vue-router';
 
 const router = useRouter()
 

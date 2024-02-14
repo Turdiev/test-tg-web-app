@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import {BalanceAction} from '@/widgets/Balance';
-import {FunctionalityList} from "@/widgets/Functionality";
+import {FunctionalityList} from '@/widgets/Functionality';
 </script>
 
 <template>

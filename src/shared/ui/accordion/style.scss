@@ -1,0 +1,49 @@
+.v-accordion {
+
+  &__wrapper {
+    @include flex-between-center;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    transition: 300ms grid-template-rows linear;
+
+    &_is-open {
+      grid-template-rows: 1fr;
+      padding-top: 8px;
+    }
+  }
+
+  &__content-wrapper {
+    background: transparent;
+    min-height: 0;
+
+    & span {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 21px;
+      color: $style2;
+    }
+  }
+
+  &__icon {
+    width: 12px;
+    height: 100%;
+    color: black;
+    transition: transform 300ms linear;
+
+    &_rotate {
+      transform: rotate(180deg);
+    }
+
+    & svg {
+      width: 100%;
+      height: 100%;
+      & path {
+        stroke: currentColor;
+      }
+    }
+  }
+}

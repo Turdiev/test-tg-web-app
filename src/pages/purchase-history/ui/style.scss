@@ -2,23 +2,6 @@
   background: #F4F4F4;
   //height: 100%;
 
-  &__head {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 16px 0;
-  }
-
-  &__back {
-    width: 24px;
-    margin-right: auto;
-  }
-
-  &__title {
-    flex: 1;
-    text-align: center;
-  }
-
   &__search {
     margin-bottom: 8px;
   }

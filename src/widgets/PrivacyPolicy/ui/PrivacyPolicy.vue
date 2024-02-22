@@ -3,7 +3,7 @@
 import {ref, watch} from 'vue';
 import {storeToRefs} from 'pinia';
 import {ProcessingData, VerificationAge} from '@/entities/PrivacyPolicy';
-import {usePrivacyPolicyStore} from '@/entities/PrivacyPolicy/ProcessingData/model/store';
+import {usePrivacyPolicyStore} from '@/entities/PrivacyPolicy/ProcessingData/model/privacy-policy';
 
 const privacyPolicyStore = usePrivacyPolicyStore()
 const { verificationAge } = storeToRefs(privacyPolicyStore)

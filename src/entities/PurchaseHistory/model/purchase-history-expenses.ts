@@ -4,7 +4,7 @@ import {ref} from 'vue';
 import type {ITags} from './types';
 
 const namespace = 'purchase-history-expenses'
-export const usePurchaseHistoryStore = defineStore(namespace, () => {
+export const usePurchaseHistoryExpensesStore = defineStore(namespace, () => {
     const selectedMonth: string = ref('февраль')
     const selectOptions: string[] = [
         'январь',

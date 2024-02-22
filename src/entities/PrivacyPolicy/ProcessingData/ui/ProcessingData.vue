@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import {CheckboxBase} from '@/shared/ui/checkbox/CheckboxBase';
-import {usePrivacyPolicyStore} from '@/entities/PrivacyPolicy/ProcessingData/model/store';
+import {usePrivacyPolicyStore} from '@/entities/PrivacyPolicy/ProcessingData/model/privacy-policy';
 import {storeToRefs} from 'pinia';
 import {TitleH2} from '@/shared/ui/title';
 

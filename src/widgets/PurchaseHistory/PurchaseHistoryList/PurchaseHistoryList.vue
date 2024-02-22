@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import {usePurchaseHistoryStore} from '@/entities/PurchaseHistory/model/purchase-history';
+import {usePurchaseHistoryStore} from '@/entities/PurchaseHistory/model';
 import {PurchaseHistoryItem} from '@/entities/PurchaseHistory/ui';
 import {TitleH3} from '@/shared/ui/title';
 

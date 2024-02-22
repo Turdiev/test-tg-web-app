@@ -2,8 +2,9 @@
 import { RouterView } from 'vue-router'
 import {TheNavigation} from '@/widgets/TheNavigation'
 import {UsingTheBot} from '@/features/UsingTheBot';
-import {usePrivacyPolicyStore} from '@/entities/PrivacyPolicy/ProcessingData/model/store';
+import {usePrivacyPolicyStore} from '@/entities/PrivacyPolicy/ProcessingData/model/privacy-policy';
 import {storeToRefs} from 'pinia';
+import {ModalsContainer} from 'vue-final-modal';
 
 const privacyPolicyStore = usePrivacyPolicyStore()
 const { agreementAccepted, verificationAge } = storeToRefs(privacyPolicyStore)
@@ -18,6 +19,7 @@ const { agreementAccepted, verificationAge } = storeToRefs(privacyPolicyStore)
 
     <UsingTheBot v-if="verificationAge && !agreementAccepted" />
     <TheNavigation v-if="agreementAccepted" />
+    <modals-container />
   </div>
 </template>
 

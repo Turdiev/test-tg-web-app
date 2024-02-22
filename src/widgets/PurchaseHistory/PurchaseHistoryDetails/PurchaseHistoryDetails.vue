@@ -2,7 +2,7 @@
 
 import {computed, onBeforeMount, ref} from 'vue';
 import {useRoute} from 'vue-router';
-import {usePurchaseHistoryStore} from '@/entities/PurchaseHistory/model/purchase-history';
+import {usePurchaseHistoryStore} from '@/entities/PurchaseHistory/model';
 import {CardAuthor} from '@/shared/ui/card/CardAuthor';
 import {VCard} from '@/shared/ui/card';
 import {ImageAvatar} from '@/shared/ui/image/ImageAvatar';

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import {ButtonBase} from '@/shared/ui/button/ButtonBase';
-import {usePrivacyPolicyStore} from '@/entities/PrivacyPolicy/ProcessingData/model/store';
+import {usePrivacyPolicyStore} from '@/entities/PrivacyPolicy/ProcessingData/model/privacy-policy';
 import {storeToRefs} from 'pinia';
 import {useRouter} from 'vue-router';
 import {computed} from 'vue';

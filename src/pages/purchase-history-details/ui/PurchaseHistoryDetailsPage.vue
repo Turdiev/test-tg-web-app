@@ -3,7 +3,7 @@
 import {IconArrowRight} from '@/shared/ui/icons';
 import {PurchaseHistoryDetails} from '@/widgets/PurchaseHistory/PurchaseHistoryDetails';
 import {useRoute} from 'vue-router';
-import {usePurchaseHistoryStore} from '@/entities/PurchaseHistory/model/purchase-history';
+import {usePurchaseHistoryStore} from '@/entities/PurchaseHistory/model';
 import {computed, onBeforeMount, ref} from 'vue';
 import type {IHistory} from '@/entities/PurchaseHistory/model/types';
 import {TitleBack} from '@/shared/ui/title';

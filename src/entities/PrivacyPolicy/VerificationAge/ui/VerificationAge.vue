@@ -2,7 +2,7 @@
 
 import {TitleH2} from '@/shared/ui/title';
 import {ButtonBase} from '@/shared/ui/button/ButtonBase';
-import {usePrivacyPolicyStore} from '@/entities/PrivacyPolicy/ProcessingData/model/store';
+import {usePrivacyPolicyStore} from '@/entities/PrivacyPolicy/ProcessingData/model/privacy-policy';
 import {storeToRefs} from 'pinia';
 
 const privacyPolicyStore = usePrivacyPolicyStore()
@@ -22,14 +22,14 @@ const { verificationAge } = storeToRefs(privacyPolicyStore)
       <div class="verification-age__actions">
         <button-base
           color="red"
-class="verification-age__button"
+          class="verification-age__button"
           @click="verificationAge = !verificationAge"
         >
           Нет
         </button-base>
         <button-base
           color="green"
-class="verification-age__button"
+          class="verification-age__button"
           @click="verificationAge = !verificationAge"
         >
           Да

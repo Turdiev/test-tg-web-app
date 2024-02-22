@@ -1,0 +1,1 @@
+export { default as CardArrow } from './CardArrow.vue'

@@ -1,22 +1,57 @@
 
-export interface IPurchaseHistory {
+export interface PurchaseHistoryByDate {
     date: string,
-    total: string,
-    history: IHistory[]
+    totalAmount: string,
+    history: PurchaseHistory[]
 }
 
-export interface IHistory {
+export interface PurchaseHistory {
+    postId?: string,
+    postPreview?: string,
+    channelId: string,
+    channelTitle: string,
+    channelLink: string,
+    botSellerName: string,
+    botSellerUsername: string,
+    botSellerLink: string,
+    amount: number,
+    createdAt: string,
+    type: 'SUBSCRIPTION' | 'SINGLE_POST'
+}
+
+export interface PurchaseHistoryPrivateChannel {
     id: string,
-    avatar?: string,
-    name?: string,
-    username?: string,
-    type: IType,
-    price: string
+    createdAt: string,
+    channelId: string,
+    title: string,
+    username: string | null,
+    about: string,
+    type: string,
+    link: string,
+    userId: string,
+    botAdminId: string,
+    isTrial: boolean,
+    trialPeriod: number,
+    cost: string,
+    costType: string,
+    preview: string,
+    restrictSavingContent: boolean,
+    photo: string | null,
+    managerId: string | null,
+    categoryId: string | null,
+    subscribers: SubscriberChannel[],
+    paymentLink: string
 }
 
-interface IType {
-    name: string,
-    value: 'up-balance' | 'close-channel' | 'content'
+export interface SubscriberChannel {
+    id: string,
+    createdAt: string,
+    telegramId: string,
+    dateStart: string,
+    dateEnd: string,
+    isActive: boolean,
+    channelId: string,
+    subscriberId: string
 }
 
 

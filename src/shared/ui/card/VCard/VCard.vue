@@ -6,6 +6,9 @@ withDefaults(defineProps<{
 }>(), {
   path: ''
 })
+
+const emit = defineEmits(['click'])
+
 </script>
 
 <template>
@@ -19,6 +22,7 @@ withDefaults(defineProps<{
   <div
     v-else
     class="v-card"
+    @click="emit('click')"
   >
     <slot />
   </div>

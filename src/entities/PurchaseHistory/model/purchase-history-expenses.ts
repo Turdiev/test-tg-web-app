@@ -2,39 +2,28 @@
 import {defineStore} from 'pinia';
 import {ref} from 'vue';
 import type {ITags} from './types';
+import {MONTHS_LIST_MOCKUPS} from "@/shared/utils";
+import type {OptionItem} from "@/shared/types";
 
 const namespace = 'purchase-history-expenses'
 export const usePurchaseHistoryExpensesStore = defineStore(namespace, () => {
-    const selectedMonth: string = ref('февраль')
-    const selectOptions: string[] = [
-        'январь',
-        'февраль',
-        'март',
-        'апрель',
-        'май',
-        'июнь',
-        'июль',
-        'август',
-        'сентябрь',
-        'октябрь',
-        'ноябрь',
-        'декабрь',
-    ]
+    const selectOptions = ref<OptionItem[]>(MONTHS_LIST_MOCKUPS)
     const tags: ITags[] = [
         {
-            type: 'default',
+            type: 'SINGLE_POST',
             label: 'Контент',
-            value: 'content'
+            value: 'POST'
         },
         {
-            type: 'default',
+            type: 'SUBSCRIPTION',
             label: 'Закрытый канал',
-            value: 'close-channel'
+            value: 'CHANNEL'
         }
     ]
     const activeTag = ref<ITags | null>(null)
+    const selectedMonth = ref<OptionItem>(selectOptions.value[new Date().getMonth()])
 
-    const handleTag = (payload: ITags) => {
+    const changeActiveTag = (payload: ITags) => {
         if (!activeTag.value) {
             activeTag.value = payload
         } else {
@@ -48,6 +37,6 @@ export const usePurchaseHistoryExpensesStore = defineStore(namespace, () => {
         selectOptions,
         activeTag,
         tags,
-        handleTag
+        changeActiveTag
     }
 })

@@ -1,14 +1,25 @@
 <script setup lang="ts">
-import {computed, ref} from 'vue'
+import {computed, onMounted, ref, watch} from 'vue'
 import type { IVInput } from './types'
+import {useFocus} from "@vueuse/core";
 
-const emit = defineEmits(['update:modelValue', 'blur', 'change'])
+const vInput = ref<HTMLInputElement>()
+const { focused } = useFocus(vInput)
 
 const props = withDefaults(defineProps<IVInput>(), {
-  modelValue: '',
   inputType: 'text',
-  placeholder: ''
+  placeholder: '',
+  isButtonClose: false
 })
+
+const emit = defineEmits(['update:modelValue', 'focus', 'change', 'close'])
+
+watch(focused, (value) => {
+  if (value) {
+    emit('focus', value)
+  }
+})
+
 
 const inputValue = ref(props.modelValue)
 
@@ -18,22 +29,16 @@ const classes = computed(() => ({
 }))
 
 const onInput = (event: Event) => {
-  inputValue.value = getValue(event)
-
-  emit('update:modelValue', inputValue)
-}
-
-const onBlur = () => {
-  emit('blur', inputValue.value)
+  emit('update:modelValue', inputValue.value)
 }
 
 const onChange = () => {
   emit('change', inputValue.value)
 }
 
-const getValue = (event: Event) => {
-  const target = event.target as HTMLInputElement
-  return target.value.trim()
+const onClose = () => {
+  inputValue.value = ''
+  emit('close', false)
 }
 </script>
 
@@ -51,13 +56,13 @@ const getValue = (event: Event) => {
     </label>
 
     <div class="v-input__field-wrap">
-      <div class="v-input__icon">
-        <slot name="icon"/>
+      <div class="v-input__icon v-input__icon_left">
+        <slot name="icon-left"/>
       </div>
 
       <input
-        ref="v-input"
-        :value="modelValue"
+        ref="vInput"
+        v-model="inputValue"
         class="v-input__field"
         :type="inputType"
         :name="name"
@@ -65,9 +70,16 @@ const getValue = (event: Event) => {
         :disabled="isDisabled"
         autocomplete="false"
         @input="onInput"
-        @blur="onBlur"
         @change="onChange"
       />
+
+      <div
+        v-if="isButtonClose"
+        class="v-input__icon v-input__icon_right"
+        @click="onClose"
+      >
+        <slot name="icon-right"/>
+      </div>
     </div>
 
     <small

@@ -2,23 +2,33 @@
 
 import {VCard} from '@/shared/ui/card';
 import {IconArrowRight, IconUser} from '@/shared/ui/icons';
-import {ImageAvatar} from '@/shared/ui/image/ImageAvatar';
+
+const props = withDefaults(defineProps<{
+  userName: string
+  link?: string
+}>(), {
+  userName: '',
+  link: '',
+})
+
+const emit = defineEmits(['click'])
 </script>
 
 <template>
   <v-card
-    :is-link="true"
+    :is-link="false"
     class="card-author"
+    @click="emit('click')"
   >
     <div class="card-author__user">
-      <image-avatar background="default" />
+<!--      <image-avatar background="default" />-->
       <div class="card-author__wrapper">
         <div class="card-author__salesman">
           <icon-user />
           <span>Продавец контента</span>
         </div>
         <div class="card-author__username">
-          <span>@ilyasaitkulov_bot</span>
+          <span>{{ userName }}</span>
         </div>
       </div>
     </div>

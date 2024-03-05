@@ -1,6 +1,7 @@
+import type {OptionItem} from "@/shared/types";
 
 export interface IVSelect {
-    modelValue?: string | number
+    modelValue?: OptionItem
     label?: string
-    options: string[]
+    options: OptionItem[]
 }

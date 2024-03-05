@@ -21,4 +21,8 @@
     @include flex-center;
     gap: 6px;
   }
+
+  &__loading {
+    height: 100%;
+  }
 }

@@ -5,15 +5,9 @@ import {UsingTheBot} from '@/features/UsingTheBot';
 import {usePrivacyPolicyStore} from '@/entities/PrivacyPolicy/ProcessingData/model/privacy-policy';
 import {storeToRefs} from 'pinia';
 import {ModalsContainer} from 'vue-final-modal';
-import {onMounted} from "vue";
 
 const privacyPolicyStore = usePrivacyPolicyStore()
 const { agreementAccepted, verificationAge } = storeToRefs(privacyPolicyStore)
-
-onMounted(() => {
-  const tg = window.Telegram.WebApp
-  console.log('TELEGRAM', tg)
-})
 </script>
 
 <template>

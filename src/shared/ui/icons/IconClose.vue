@@ -6,7 +6,7 @@ fill="none"
 xmlns="http://www.w3.org/2000/svg"
 >
     <path d="M7 1.5L1 7.5M1 1.5L7 7.5"
-stroke="white"
+stroke="currentColor"
 stroke-width="1.25"
 stroke-linecap="round"
 stroke-linejoin="round"

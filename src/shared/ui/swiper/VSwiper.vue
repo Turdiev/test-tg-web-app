@@ -4,8 +4,8 @@ import { register } from 'swiper/element/bundle';
 register();
 
 withDefaults(defineProps<{
-  slidesPerView?: number | 'auto',
-  spaceBetween?: number,
+  slidesPerView?: number,
+  spaceBetween?: number | 'auto',
   isPagination?: boolean,
   centeredSlides?: boolean,
 }>(), {
@@ -27,17 +27,26 @@ withDefaults(defineProps<{
 
 <template>
   <swiper-container
-    slides-per-view="auto"
+    :slides-per-view="slidesPerView"
     :space-between="spaceBetween"
     :centered-slides="centeredSlides"
     :pagination="isPagination"
-    class="v-swiper"
+    :breakpoints="{
+      320: {
+        slidesPerView: 1.9,
+      },
+      340: {
+        slidesPerView: 2,
+      },
+      768: {
+        slidesPerView: 3,
+      },
+    }"
   >
     <slot name="swiper-slide"/>
   </swiper-container>
 </template>
 
-<style lang="scss">
-@import 'swiper/css';
+<style lang="scss" scoped>
 @import "style";
 </style>

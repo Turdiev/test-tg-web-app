@@ -1,101 +1,114 @@
-import {defineStore} from 'pinia';
-import type {IPurchaseHistory} from '@/entities/PurchaseHistory/model/types';
-import type {RouteParamValue} from 'vue-router';
+import {computed, ref, watch} from "vue";
+import {defineStore, storeToRefs} from 'pinia';
+import type {
+    PurchaseHistory,
+    PurchaseHistoryByDate,
+    PurchaseHistoryPrivateChannel
+} from '@/entities/PurchaseHistory/model/types';
+import type {LocationQueryValue} from 'vue-router';
+import {api} from '@/entities/PurchaseHistory/api';
+import {useDebounceFn} from "@vueuse/core";
+import {useLoadingWrap} from "@/shared/lib/use";
+import {usePurchaseHistoryExpensesStore} from "@/entities/PurchaseHistory/model/purchase-history-expenses";
 
 const namespace = 'purchase-history'
 export const usePurchaseHistoryStore = defineStore(namespace, () => {
-    const dataHistory: IPurchaseHistory[] = [
-        {
-            date: 'Сегодня',
-            total: '6 300 ₽',
-            history: [
-                {
-                    id: '1',
-                    avatar: '',
-                    name: 'Пост #137',
-                    username: '@channel_id',
-                    type: {
-                        name: 'Контент',
-                        value: 'content'
-                    },
-                    price: '- 2 100 ₽'
-                },
-                {
-                    id: '2',
-                    avatar: '',
-                    name: 'InternSheep 18+',
-                    username: '@internsheep_bot',
-                    type: {
-                        name: 'Закрытый канал',
-                        value: 'close-channel'
-                    },
-                    price: '- 2 100 ₽'
-                },
-                {
-                    id: '3',
-                    avatar: '',
-                    name: 'QTIM Private',
-                    username: '@qtim_bot',
-                    type: {
-                        name: 'Закрытый канал',
-                        value: 'close-channel'
-                    },
-                    price: '- 2 100 ₽'
-                }
-            ]
-        },
-        {
-            date: 'Вчера',
-            total: '4 200 ₽',
-            history: [
-                {
-                    id: '4',
-                    price: '+2 100 ₽ ',
-                    type: {
-                        name: 'Пополнение баланса',
-                        value: 'up-balance'
-                    }
-                },
-                {
-                    id: '5',
-                    avatar: '',
-                    name: 'InternSheep 18+',
-                    username: '@internsheep_bot',
-                    type: {
-                        name: 'Закрытый канал',
-                        value: 'close-channel'
-                    },
-                    price: '- 2 100 ₽'
-                },
-                {
-                    id: '6',
-                    avatar: '',
-                    name: 'Пост #281',
-                    username: '@veronika_bot',
-                    type: {
-                        name: 'Контент',
-                        value: 'content'
-                    },
-                    price: '- 2 100 ₽'
-                }
-            ]
-        }
-    ]
+    const contentType: string = ref<string>('ALL')
+    const purchaseHistoryData = ref<PurchaseHistory[]>([])
+    const currentPurchaseHistoryDetails = ref<PurchaseHistory | PurchaseHistoryPrivateChannel>()
+    const totalPurchaseExpenses = ref<number>(0)
 
-    const getHistoryById = (id: string | RouteParamValue[]) => {
-        let currentHistory = null
-        dataHistory.forEach((item: IPurchaseHistory) => {
-            const findHistory = item.history.find(history => history.id === id ? history : false)
-            if (findHistory) {
-                currentHistory = findHistory
+    const purchaseHistoryExpensesStore = usePurchaseHistoryExpensesStore()
+    const { selectedMonth } = storeToRefs(purchaseHistoryExpensesStore)
+    const { isLoading, runWithLoading } = useLoadingWrap()
+
+    const groupPurchaseHistoryByDate = computed(() => {
+        let totalAmount = 0
+
+        const groupHistory = purchaseHistoryData.value.reduce((acc: PurchaseHistoryByDate[], curr: PurchaseHistory) => {
+            const createdAt: string = parseCreatedAt(curr.createdAt);
+            const existingItem: PurchaseHistoryByDate | undefined = acc.find((item: PurchaseHistoryByDate) => item.createdAt === createdAt);
+
+            if (existingItem) {
+                existingItem.totalAmount += curr.amount
+                existingItem.history.push(curr);
+            } else {
+                acc.push({
+                    date: createdAt,
+                    totalAmount: curr.amount,
+                    history: [curr]
+                });
             }
-        })
 
-        return currentHistory
+            if (contentType.value === 'ALL') {
+                totalAmount += curr.amount
+            }
+
+            return acc;
+        }, []);
+
+        if (contentType.value === 'ALL') {
+            totalPurchaseExpenses.value = totalAmount
+        }
+
+        return groupHistory
+    })
+
+    const fetchPurchaseHistory = async () => {
+        try {
+            const {response: response} = await api.getPurchaseHistory(contentType.value, selectedMonth.value) as {
+                response: PurchaseHistory[]
+            }
+
+            purchaseHistoryData.value = response
+        } catch (e) {
+            throw new Error(`ERROR: ${e}`)
+        }
+    }
+
+    const fetchPurchaseHistoryDebounce = useDebounceFn(fetchPurchaseHistory, 1000)
+
+    watch([contentType, selectedMonth], async () => {
+       await runWithLoading(fetchPurchaseHistoryDebounce)
+    })
+
+    const fetchPurchaseHistoryChannelDetails = async (channelId: string) => {
+        try {
+            const {response: response} = await api.getPurchaseHistoryDetails(channelId) as {
+                response: PurchaseHistoryPrivateChannel[]
+            }
+
+            currentPurchaseHistoryDetails.value = response
+        } catch (e) {
+            throw new Error(`ERROR: ${e}`)
+        }
+    }
+
+    const getPurchaseHistoryPostDetails = (postId: string) => {
+        currentPurchaseHistoryDetails.value = purchaseHistoryData.value.find(history => history.postId === postId)
+    }
+
+    const getDetailedPurchaseHistory = async (isPost: boolean, id: string | null | LocationQueryValue[]) => {
+        if (isPost) {
+            getPurchaseHistoryPostDetails(id)
+        } else {
+            await fetchPurchaseHistoryChannelDetails(id)
+        }
+    }
+
+    const parseCreatedAt = (createdAt: string) => {
+        return createdAt.split('T')[0];
     }
 
     return {
-        dataHistory,
-        getHistoryById
+        contentType,
+        purchaseHistoryData,
+        groupPurchaseHistoryByDate,
+        currentPurchaseHistoryDetails,
+        totalPurchaseExpenses,
+        isLoadingData: isLoading,
+        fetchPurchaseHistory,
+        getDetailedPurchaseHistory,
+        fetchPurchaseHistoryChannelDetails
     }
 })

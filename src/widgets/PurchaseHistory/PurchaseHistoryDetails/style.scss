@@ -4,6 +4,7 @@
     @include flex-start-center;
     gap: 12px;
     margin-top: 8px;
+    padding: 12px;
 
     &-content {
       @include flex-column;
@@ -30,6 +31,7 @@
     @include flex-column;
     gap: 24px;
     margin-top: 16px;
+    padding: 12px;
 
     &-price {
       @include flex-between-center;
@@ -94,6 +96,7 @@
     @include flex-between-center;
     width: 100%;
     margin-top: 8px;
+    padding: 12px;
 
     &-wrapper {
       @include flex-start-center;
@@ -112,6 +115,7 @@
       font-weight: 400;
       line-height: 21px;
       color: $style3;
+      text-align: end;
     }
   }
 
@@ -119,6 +123,7 @@
     @include flex-between-center;
     width: 100%;
     margin-top: 8px;
+    padding: 12px;
 
     &-wrapper {
       @include flex-start-center;

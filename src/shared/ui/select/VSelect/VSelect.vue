@@ -3,11 +3,15 @@ import VueSelect from 'vue-select';
 import type { IVSelect } from './types'
 import {computed} from 'vue';
 import {IconArrowDown} from '@/shared/ui/icons';
+import type {OptionItem} from "@/shared/types";
 
 const emit = defineEmits(['update:modelValue'])
 
 const props = withDefaults(defineProps<IVSelect>(), {
-  label: ''
+  label: '',
+  options () {
+    return []
+  },
 })
 
 const model = computed({
@@ -27,6 +31,7 @@ const model = computed({
     :label="label"
     :clearable="false"
     :searchable="false"
+    :getOptionLabel="(option: OptionItem) => option.label"
     class="v-select"
   >
     <template #open-indicator="{ attributes }">

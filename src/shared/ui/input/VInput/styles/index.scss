@@ -71,9 +71,17 @@
   &__icon {
     position: absolute;
     top: 30%;
-    left: 12px;
     width: 12px;
     height: 12px;
+
+    &_left {
+      left: 12px;
+    }
+
+    &_right {
+      right: 12px;
+      cursor: pointer;
+    }
   }
 
   &.disabled {

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 
-import {SearchBar} from '@/features/SearchBar';
 import {TitleBack, TitleH3} from '@/shared/ui/title';
 import {PurchaseHistoryExpenses} from '@/entities/PurchaseHistory/ui';
+import {PurchaseHistorySearch} from "@/entities/PurchaseHistory/ui";
 import {PurchaseHistoryList} from '@/widgets/PurchaseHistory/PurchaseHistoryList';
 </script>
 
@@ -12,7 +12,7 @@ import {PurchaseHistoryList} from '@/widgets/PurchaseHistory/PurchaseHistoryList
       <title-back path="/" text-align="center">
         <title-h3>История покупок</title-h3>
       </title-back>
-      <SearchBar class="purchase-history-page__search" />
+      <PurchaseHistorySearch class="purchase-history-page__search" />
       <PurchaseHistoryExpenses />
       <PurchaseHistoryList />
     </div>

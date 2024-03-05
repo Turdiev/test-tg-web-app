@@ -40,36 +40,34 @@ const saveTransitionFrom = () => {
       <div class="catalog-listing__head">
         <span class="catalog-listing__title">{{ category.title }}</span>
         <router-link
-            :to="`/catalog/category/${category.name}`"
-            class="catalog-listing__route"
-            @click="saveTransitionFrom"
+          :to="`/catalog/category/${category.name}`"
+          class="catalog-listing__route"
+          @click="saveTransitionFrom"
         >
           <span>{{ category.channels.length }} каналов</span>
           <icon-arrow-right />
         </router-link>
       </div>
     </div>
-    <div class="catalog-listing__carousel-wrap">
-      <v-swiper
-        slides-per-view="auto"
-        :space-between="12"
-        :centered-slides="false"
-        class="catalog-listing__carousel"
-      >
-        <template #swiper-slide>
-          <swiper-slide
-              v-for="channel in category.channels"
-              :key="channel.id"
-              class="catalog-listing__item"
-          >
-            <ChannelCard
-                :channel="channel"
-                @click="showModal(channel)"
-            />
-          </swiper-slide>
-        </template>
-      </v-swiper>
-    </div>
+    <v-swiper
+      :slides-per-view="1.8"
+      :space-between="12"
+      :centered-slides="false"
+      class="catalog-listing__carousel"
+    >
+      <template #swiper-slide>
+        <swiper-slide
+          v-for="channel in category.channels"
+          :key="channel.id"
+          class="catalog-listing__item"
+        >
+          <ChannelCard
+            :channel="channel"
+            @click="showModal(channel)"
+          />
+        </swiper-slide>
+      </template>
+    </v-swiper>
   </div>
 </template>
 

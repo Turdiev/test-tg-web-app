@@ -1,20 +1,41 @@
 <script setup lang="ts">
 
-import type {IHistory} from '@/entities/PurchaseHistory/model/types';
-import {IconCoins, IconUser} from '@/shared/ui/icons';
-import {ImageAvatar} from '@/shared/ui/image/ImageAvatar';
+import type {PurchaseHistory} from '@/entities/PurchaseHistory/model/types';
+import {IconUser} from '@/shared/ui/icons';
 import {computed} from 'vue';
 
-const props = defineProps<{
-  item: IHistory
-}>()
+const props = withDefaults(defineProps<{
+  item: PurchaseHistory
+}>(), {})
+
+const types = {
+  SUBSCRIPTION: 'Закрытый канал',
+  SINGLE_POST: 'Контент'
+}
 
 const goTo = computed(() => {
-  if (props.item.type.value === 'up-balance') {
-    return ''
-  }
-  return `/purchase-history/${props.item.id}`
+  const routeChannel = `/purchase-history/${props.item.channelId}`
+  const routeChannelContent = `${routeChannel}?post_id=${props.item.postId}`
+  return props.item.type === 'SUBSCRIPTION' ? routeChannel : routeChannelContent
 })
+
+const formattedTitle = (type: string, channelTitle: string, postPreview: string) => {
+  if (type === 'SUBSCRIPTION') {
+    return `<span class="purchase-history-item__user-name">
+              ${ channelTitle }
+            </span>`
+  } else {
+    return postPreview
+  }
+}
+
+const formattedName = (type: string, botSellerName: string, channelTitle: string) => {
+  if (type === 'SUBSCRIPTION') {
+    return botSellerName
+  } else {
+    return channelTitle
+  }
+}
 
 </script>
 
@@ -23,44 +44,22 @@ const goTo = computed(() => {
     :to="goTo"
     class="purchase-history-item"
   >
-    <image-avatar
-      :background="item.type.value === 'up-balance' ? 'blue' : 'default'"
-    >
-      <icon-coins v-if="item.type.value === 'up-balance'"/>
-    </image-avatar>
     <div class="purchase-history-item__wrapper">
       <div class="purchase-history-item__left">
-        <div
-          v-if="item.type.value !== 'up-balance'"
-          class="purchase-history-item__user"
-        >
-        <span class="purchase-history-item__user-name">
-          {{ item.name }}
-        </span>
+        <div class="purchase-history-item__user">
+          <div class="purchase-history-item__user-name" v-html="formattedTitle(item.type, item.channelTitle, item.postPreview)"></div>
           <div class="purchase-history-item__user-login">
             <icon-user />
-            <span>{{ item.username }}</span>
+            <span>{{ formattedName(item.type, item.botSellerName, item.channelTitle) }}</span>
           </div>
-        </div>
-        <div
-          v-else
-          class="purchase-history-item__operation"
-        >
-          <span>{{ item.type.name }}</span>
         </div>
       </div>
       <div class="purchase-history-item__right">
-        <span
-          class="purchase-history-item__price"
-          :class="{'purchase-history-item__price_color': item.type.value === 'up-balance'}"
-        >
-          {{ item.price }}
+        <span class="purchase-history-item__price">
+          {{ item.amount }} ₽
         </span>
-        <span
-          v-if="item.type.value !== 'up-balance'"
-          class="purchase-history-item__type"
-        >
-        {{ item.type.name }}
+        <span class="purchase-history-item__type">
+        {{ types[item.type] }}
       </span>
       </div>
     </div>

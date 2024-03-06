@@ -26,10 +26,13 @@ export default defineConfig({
       }
     }
   },
-  proxy: {
-    '/api': {
-      target: 'http://45.141.79.166:3003/',
-      changeOrigin: true
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://45.141.79.166:3003/',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
     }
   }
 })

@@ -1,4 +1,4 @@
-import {computed, ref, watch} from "vue";
+import {computed, ref, watch} from 'vue';
 import {defineStore, storeToRefs} from 'pinia';
 import type {
     PurchaseHistory,
@@ -7,9 +7,9 @@ import type {
 } from '@/entities/PurchaseHistory/model/types';
 import type {LocationQueryValue} from 'vue-router';
 import {api} from '@/entities/PurchaseHistory/api';
-import {useDebounceFn} from "@vueuse/core";
-import {useLoadingWrap} from "@/shared/lib/use";
-import {usePurchaseHistoryExpensesStore} from "@/entities/PurchaseHistory/model/purchase-history-expenses";
+import {useDebounceFn} from '@vueuse/core';
+import {useLoadingWrap} from '@/shared/lib/use';
+import {usePurchaseHistoryExpensesStore} from '@/entities/PurchaseHistory/model/purchase-history-expenses';
 
 const namespace = 'purchase-history'
 export const usePurchaseHistoryStore = defineStore(namespace, () => {

@@ -3,7 +3,7 @@
 import {VCard} from '@/shared/ui/card';
 import {IconArrowRight, IconUser} from '@/shared/ui/icons';
 
-const props = withDefaults(defineProps<{
+withDefaults(defineProps<{
   userName: string
   link?: string
 }>(), {

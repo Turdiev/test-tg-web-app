@@ -1,4 +1,4 @@
-import type {OptionItem} from "@/shared/types";
+import type {OptionItem} from '@/shared/types';
 
 export const MONTHS_LIST_MOCKUPS: OptionItem[] = [
     { label: 'Январь', key: 1 },

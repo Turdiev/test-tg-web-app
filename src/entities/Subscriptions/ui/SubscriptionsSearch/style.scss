@@ -1,0 +1,18 @@
+.subscriptions-search {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 84px);
+  background: $style5;
+  z-index: 1;
+
+  &__item {
+  }
+
+  &__not-results {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+}

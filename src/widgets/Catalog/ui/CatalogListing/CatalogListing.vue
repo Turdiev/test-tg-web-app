@@ -49,25 +49,27 @@ const saveTransitionFrom = () => {
         </router-link>
       </div>
     </div>
-    <v-swiper
-      :slides-per-view="1.8"
-      :space-between="12"
-      :centered-slides="false"
-      class="catalog-listing__carousel"
-    >
-      <template #swiper-slide>
-        <swiper-slide
-          v-for="channel in category.channels"
-          :key="channel.id"
-          class="catalog-listing__item"
-        >
-          <ChannelCard
-            :channel="channel"
-            @click="showModal(channel)"
-          />
-        </swiper-slide>
-      </template>
-    </v-swiper>
+    <div class="catalog-listing__carousel-wrap">
+      <v-swiper
+        slides-per-view="auto"
+        :space-between="12"
+        :centered-slides="false"
+        class="catalog-listing__carousel"
+      >
+        <template #swiper-slide>
+          <swiper-slide
+            v-for="channel in category.channels"
+            :key="channel.id"
+            class="catalog-listing__item"
+          >
+            <ChannelCard
+              :channel="channel"
+              @click="showModal(channel)"
+            />
+          </swiper-slide>
+        </template>
+      </v-swiper>
+    </div>
   </div>
 </template>
 

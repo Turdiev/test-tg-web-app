@@ -1,8 +1,8 @@
 
 import {defineStore} from 'pinia';
 import {ref} from 'vue';
-import {api} from "@/entities/PurchaseHistory/api";
-import type {PurchaseHistory} from "@/entities/PurchaseHistory/model/types";
+import {api} from '@/entities/PurchaseHistory/api';
+import type {PurchaseHistory} from '@/entities/PurchaseHistory/model/types';
 
 const namespace = 'purchase-history-search'
 export const usePurchaseHistorySearchStore = defineStore(namespace, () => {

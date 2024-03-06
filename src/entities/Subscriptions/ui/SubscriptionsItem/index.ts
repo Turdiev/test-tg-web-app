@@ -1,0 +1,1 @@
+export {default as SubscriptionsItem} from './SubscriptionsItem.vue'

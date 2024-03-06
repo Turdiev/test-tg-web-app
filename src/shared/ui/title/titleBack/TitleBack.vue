@@ -19,6 +19,10 @@ defineProps<{
     >
       <slot />
     </div>
+
+    <div class="title-back__right">
+      <slot name="right"/>
+    </div>
   </div>
 </template>
 

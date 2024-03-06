@@ -3,11 +3,11 @@
 import {usePurchaseHistoryStore} from '@/entities/PurchaseHistory/model';
 import {PurchaseHistoryItem} from '@/entities/PurchaseHistory/ui';
 import {TitleH3} from '@/shared/ui/title';
-import {computed, onBeforeMount, ref, watch} from "vue";
-import {storeToRefs} from "pinia";
-import {definitionsDate} from "@/shared/lib/helpers";
-import {VLoader} from "@/shared/ui/loaders";
-import {useLoadingWrap} from "@/shared/lib/use";
+import {computed, onBeforeMount} from 'vue';
+import {storeToRefs} from 'pinia';
+import {definitionsDate} from '@/shared/lib/helpers';
+import {VLoader} from '@/shared/ui/loaders';
+import {useLoadingWrap} from '@/shared/lib/use';
 
 const purchaseHistoryStore = usePurchaseHistoryStore()
 const { fetchPurchaseHistory } = purchaseHistoryStore

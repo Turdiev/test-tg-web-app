@@ -3,9 +3,13 @@
 import {CardArrow} from '@/shared/ui/card/CardArrow';
 import type {ICategoryListing} from '@/entities/Catalog';
 
-defineProps<{
+withDefaults(defineProps<{
   category: ICategoryListing
-}>()
+}>(), {
+  category() {
+    return null
+  },
+})
 
 
 </script>

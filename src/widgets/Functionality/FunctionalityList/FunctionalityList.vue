@@ -1,8 +1,9 @@
 <script setup lang="ts">
 
 import {FunctionalityCard} from '@/entities/Functionality/ui';
+import type {FunctionalityList} from '@/entities/Functionality';
 
-const functionalityList = [
+const functionalityList: FunctionalityList[] = [
   {
     title: 'Поиск',
     description: 'по авторам',
@@ -12,7 +13,7 @@ const functionalityList = [
   {
     title: 'Подписки',
     description: 'на каналы',
-    path: '/',
+    path: '/subscriptions',
     type: 'subscriptions'
   },
   {

@@ -7,9 +7,9 @@ import {usePurchaseHistoryStore} from '@/entities/PurchaseHistory/model';
 import {computed, onBeforeMount, onMounted, ref} from 'vue';
 import {TitleBack} from '@/shared/ui/title';
 import {ButtonSticky} from '@/shared/ui/button/ButtonSticky';
-import {VLoader} from "@/shared/ui/loaders";
-import {storeToRefs} from "pinia";
-import {useTelegram} from "@/shared/lib/use";
+import {VLoader} from '@/shared/ui/loaders';
+import {storeToRefs} from 'pinia';
+import {useTelegram} from '@/shared/lib/use';
 
 const tg = useTelegram()
 const { webApp } = tg

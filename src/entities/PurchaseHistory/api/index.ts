@@ -1,5 +1,5 @@
 import { REQUEST } from '@/shared/api'
-import type {OptionItem} from "@/shared/types";
+import type {OptionItem} from '@/shared/types';
 
 const API_PURCHASE_HISTORY: string = '/api/web-bot/profile/purchase-history'
 const API_PURCHASE_HISTORY_DETAILS: string = `${API_PURCHASE_HISTORY}/channel`

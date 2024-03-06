@@ -1,15 +1,14 @@
 <script setup lang="ts">
 
-import {storeToRefs} from "pinia";
-import {useRoute} from 'vue-router';
-import {computed, onBeforeMount} from 'vue';
+import {storeToRefs} from 'pinia';
+import {computed} from 'vue';
 import {usePurchaseHistoryStore} from '@/entities/PurchaseHistory/model';
 import {CardAuthor} from '@/shared/ui/card/CardAuthor';
 import {VCard} from '@/shared/ui/card';
 import {ImageAvatar} from '@/shared/ui/image/ImageAvatar';
 import {IconArrowRight, IconCalendar, IconCoins, IconCreditCard} from '@/shared/ui/icons';
-import {formatDateTime} from "@/shared/lib/helpers";
-import {useTelegram} from "@/shared/lib/use";
+import {formatDateTime} from '@/shared/lib/helpers';
+import {useTelegram} from '@/shared/lib/use';
 
 
 const tg = useTelegram()

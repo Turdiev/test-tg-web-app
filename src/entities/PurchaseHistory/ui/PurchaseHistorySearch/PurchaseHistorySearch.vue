@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import {SearchBar} from "@/shared/ui/search";
-import {useSearchBarStore} from "@/features/SearchBar";
-import {storeToRefs} from "pinia";
-import {usePurchaseHistorySearchStore} from "@/entities/PurchaseHistory/model/purchase-history-search";
-import {watch} from "vue";
-import {PurchaseHistoryItem} from "@/entities/PurchaseHistory/ui";
+import {SearchBar} from '@/shared/ui/search';
+import {useSearchBarStore} from '@/features/SearchBar';
+import {storeToRefs} from 'pinia';
+import {usePurchaseHistorySearchStore} from '@/entities/PurchaseHistory/model/purchase-history-search';
+import {watch} from 'vue';
+import {PurchaseHistoryItem} from '@/entities/PurchaseHistory/ui';
 
 const searchBarStore = useSearchBarStore()
 const { searchQuery } = storeToRefs(searchBarStore)

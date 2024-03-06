@@ -2,7 +2,7 @@
 
 import {TitleBack, TitleH3} from '@/shared/ui/title';
 import {PurchaseHistoryExpenses} from '@/entities/PurchaseHistory/ui';
-import {PurchaseHistorySearch} from "@/entities/PurchaseHistory/ui";
+import {PurchaseHistorySearch} from '@/entities/PurchaseHistory/ui';
 import {PurchaseHistoryList} from '@/widgets/PurchaseHistory/PurchaseHistoryList';
 </script>
 

@@ -2,6 +2,7 @@
 
 import {IconArrowRight} from '@/shared/ui/icons';
 import {computed} from 'vue';
+import {pluralize} from '@/shared/lib/helpers';
 
 const props = withDefaults(defineProps<{
   title: string,
@@ -18,7 +19,9 @@ const props = withDefaults(defineProps<{
 defineEmits(['click'])
 
 const definitionWord = computed(() => {
-  return props.amountChannel ? `${props.amountChannel} каналов` : `${props.subscribers} подписчиков`
+  return props.amountChannel ?
+      pluralize(props.amountChannel, 'канал', 'канала', 'каналов') :
+      pluralize(props.subscribers, 'подписчик', 'подписчика', 'подписчиков')
 })
 </script>
 

@@ -2,8 +2,8 @@
 import {defineStore} from 'pinia';
 import {ref} from 'vue';
 import type {ITags} from './types';
-import {MONTHS_LIST_MOCKUPS} from "@/shared/utils";
-import type {OptionItem} from "@/shared/types";
+import {MONTHS_LIST_MOCKUPS} from '@/shared/utils';
+import type {OptionItem} from '@/shared/types';
 
 const namespace = 'purchase-history-expenses'
 export const usePurchaseHistoryExpensesStore = defineStore(namespace, () => {

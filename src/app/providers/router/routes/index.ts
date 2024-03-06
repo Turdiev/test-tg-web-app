@@ -5,6 +5,7 @@ import { categoryRoute, catalogRoute, categoryDetailsRoute} from './catalog'
 import { route as privacyPolicyRoute } from './privacy-policy'
 import { supportRoute, supportFaqRoute, supportArticleRoute } from './support';
 import { purchaseHistoryRoute, purchaseHistoryDetailsRoute } from './purchase-history';
+import { route as subscriptionsRoute } from './subscriptions'
 
 export const routes: readonly RouteRecordRaw[] = [
     mainRoute,
@@ -16,5 +17,6 @@ export const routes: readonly RouteRecordRaw[] = [
     supportFaqRoute,
     supportArticleRoute,
     purchaseHistoryRoute,
-    purchaseHistoryDetailsRoute
+    purchaseHistoryDetailsRoute,
+    subscriptionsRoute
 ] as const

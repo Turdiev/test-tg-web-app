@@ -3,7 +3,7 @@ import VueSelect from 'vue-select';
 import type { IVSelect } from './types'
 import {computed} from 'vue';
 import {IconArrowDown} from '@/shared/ui/icons';
-import type {OptionItem} from "@/shared/types";
+import type {OptionItem} from '@/shared/types';
 
 const emit = defineEmits(['update:modelValue'])
 

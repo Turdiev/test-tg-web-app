@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import {computed, onMounted, ref, watch} from 'vue'
+import {computed, ref, watch} from 'vue'
 import type { IVInput } from './types'
-import {useFocus} from "@vueuse/core";
+import {useFocus} from '@vueuse/core';
 
 const vInput = ref<HTMLInputElement>()
 const { focused } = useFocus(vInput)
@@ -28,7 +28,7 @@ const classes = computed(() => ({
   error: props.error
 }))
 
-const onInput = (event: Event) => {
+const onInput = () => {
   emit('update:modelValue', inputValue.value)
 }
 

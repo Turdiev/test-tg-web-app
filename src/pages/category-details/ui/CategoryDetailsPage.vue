@@ -5,6 +5,7 @@ import {useRoute} from 'vue-router';
 import {useCatalogStore} from '@/entities/Catalog';
 import {TitleBack, TitleH3} from '@/shared/ui/title';
 import {CategoryDetails} from '@/widgets/Category/ui/CategoryDetails';
+import {pluralize} from '@/shared/lib/helpers';
 
 const route = useRoute()
 
@@ -29,7 +30,7 @@ onBeforeMount(() => {
         <div class="category-details-page__title">
           <title-h3>{{ currentCategory.title }}</title-h3>
           <span class="category-details-page__amount-channel">
-            {{ currentCategory.channels.length }} каналов
+            {{ pluralize(currentCategory.channels.length, 'канал', 'канала', 'каналов') }}
           </span>
         </div>
       </title-back>

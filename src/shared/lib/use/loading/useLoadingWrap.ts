@@ -1,4 +1,4 @@
-import {useIsLoading} from "@/shared/lib/use";
+import {useIsLoading} from '@/shared/lib/use';
 import type { Ref } from 'vue'
 
 interface IUseLoadingWrap {

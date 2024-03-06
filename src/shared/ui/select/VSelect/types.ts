@@ -1,4 +1,4 @@
-import type {OptionItem} from "@/shared/types";
+import type {OptionItem} from '@/shared/types';
 
 export interface IVSelect {
     modelValue?: OptionItem

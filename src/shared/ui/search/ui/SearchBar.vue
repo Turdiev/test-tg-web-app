@@ -4,11 +4,19 @@ import {IconSearch} from '@/shared/ui/icons';
 import {VInput} from '@/shared/ui/input';
 import {useSearchBarStore} from '@/features/SearchBar';
 import {storeToRefs} from 'pinia';
-import {onMounted, ref, watch} from "vue";
-import IconClose from "@/shared/ui/icons/IconClose.vue";
+import {ref} from 'vue';
+import IconClose from '@/shared/ui/icons/IconClose.vue';
 
 const searchBarStore = useSearchBarStore()
 const { searchQuery } = storeToRefs(searchBarStore)
+
+withDefaults(defineProps<{
+  isShowBtnClose?: boolean
+}>(), {
+  isShowBtnClose: false
+})
+
+const emit = defineEmits(['close'])
 
 const isFocusedSearch = ref(false)
 
@@ -18,6 +26,7 @@ const onFocusInput = (event: boolean) => {
 
 const onCloseSearchBar = (event: boolean) => {
   isFocusedSearch.value = event
+  emit('close')
 }
 </script>
 
@@ -30,7 +39,7 @@ const onCloseSearchBar = (event: boolean) => {
       v-model="searchQuery"
       placeholder="Поиск"
       type="text"
-      :is-button-close="isFocusedSearch"
+      :is-button-close="isFocusedSearch || isShowBtnClose"
       class="search-bar__input"
       @focus="onFocusInput"
       @close="onCloseSearchBar"

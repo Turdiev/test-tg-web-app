@@ -10,8 +10,7 @@ defineProps<{
 
 <template>
   <v-card
-    :is-link="true"
-    path=""
+    :is-link="false"
     class="channel-card"
   >
     <div class="channel-card__wrapper">

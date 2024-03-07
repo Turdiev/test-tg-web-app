@@ -6,7 +6,7 @@ import {SubscriptionsListing} from '@/widgets/Subscriptions/SubscriptionsListing
 import {useSubscriptionsStore} from '@/entities/Subscriptions/model';
 import {storeToRefs} from 'pinia';
 import {pluralize} from '@/shared/lib/helpers';
-import {SubscriptionsSearch} from '@/entities/Subscriptions/ui/SubscriptionsSearch';
+import {SubscriptionsSearch} from "@/entities/Subscriptions/ui";
 
 const subscriptionsStorage = useSubscriptionsStore()
 const { channelSubscriptions, isShowSearchBar } = storeToRefs(subscriptionsStorage)

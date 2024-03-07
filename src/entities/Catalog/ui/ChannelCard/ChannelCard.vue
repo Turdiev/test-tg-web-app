@@ -6,12 +6,15 @@ import type {IChannel} from '@/entities/Catalog';
 defineProps<{
   channel: IChannel
 }>()
+
+const emit = defineEmits(['click'])
 </script>
 
 <template>
   <v-card
     :is-link="false"
     class="channel-card"
+    @click="emit('click')"
   >
     <div class="channel-card__wrapper">
       <div class="channel-card__image">

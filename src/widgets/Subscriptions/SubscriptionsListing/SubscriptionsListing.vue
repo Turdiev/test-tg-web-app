@@ -27,7 +27,7 @@ const routeToChannel = (link: string) => {
 </script>
 
 <template>
-  <div class="subscriptions-list">
+  <div class="subscriptions-listing">
     <v-loader v-model="isLoading"/>
 
     <template v-if="!isLoading && channelSubscriptions.length !== 0">
@@ -35,13 +35,13 @@ const routeToChannel = (link: string) => {
         v-for="channel in channelSubscriptions"
         :key="channel.id"
         :channel="channel"
-        class="subscriptions-list__item"
+        class="subscriptions-listing__item"
         @click="routeToChannel(channel.link)"
       />
     </template>
     <div
       v-if="!isLoading && channelSubscriptions.length === 0"
-      class="subscriptions-list__not-subscribers"
+      class="subscriptions-listing__not-subscribers"
     >
       <span>Нет подписок</span>
     </div>

@@ -58,6 +58,11 @@
     color: $style3;
   }
 
+  &__icons {
+    @include flex-center;
+    gap: 6px;
+  }
+
   &__icon {
     @include flex-end-center;
     width: 24px;

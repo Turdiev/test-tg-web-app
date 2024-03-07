@@ -19,7 +19,7 @@ const functionalityList: FunctionalityList[] = [
   {
     title: 'Избранное',
     description: '0 ботов',
-    path: '/',
+    path: '/favorites',
     type: 'favorites'
   },
   {

@@ -1,0 +1,1 @@
+export {default as FavoritesListing} from './FavoritesListing.vue'

@@ -3,6 +3,7 @@
 import {IconArrowRight} from '@/shared/ui/icons';
 import {computed} from 'vue';
 import {pluralize} from '@/shared/lib/helpers';
+import IconBookmark from "@/shared/ui/icons/IconBookmark.vue";
 
 const props = withDefaults(defineProps<{
   title: string,
@@ -10,13 +11,15 @@ const props = withDefaults(defineProps<{
   image?: string,
   amountChannel?: number,
   subscribers?: number,
+  isBookmark?: boolean,
 }>(), {
   path: '',
   amountChannel: 0,
-  subscribers: 0
+  subscribers: 0,
+  isBookmark: false,
 })
 
-defineEmits(['click'])
+const emit = defineEmits(['click', 'click:bookmark'])
 
 const definitionWord = computed(() => {
   return props.amountChannel ?
@@ -50,8 +53,18 @@ const definitionWord = computed(() => {
           </span>
         </div>
       </div>
-      <div class="card-arrow__icon">
-        <icon-arrow-right />
+      <div class="card-arrow__icons">
+        <div
+          v-if="isBookmark"
+          class="card-arrow__icons"
+          @click="emit('click:bookmark')"
+        >
+          <icon-bookmark />
+        </div>
+
+        <div class="card-arrow__icon">
+          <icon-arrow-right />
+        </div>
       </div>
     </div>
   </router-link>

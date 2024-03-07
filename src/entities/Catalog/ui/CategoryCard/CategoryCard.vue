@@ -11,6 +11,7 @@ withDefaults(defineProps<{
   },
 })
 
+const emit = defineEmits(['click'])
 
 </script>
 
@@ -20,7 +21,7 @@ withDefaults(defineProps<{
     :title="category.title"
     :amount-channel="category.channels.length"
     class="category-card"
-    @click="$emit('click')"
+    @click="emit('click')"
   />
 </template>
 

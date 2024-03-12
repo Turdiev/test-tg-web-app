@@ -16,3 +16,9 @@ export interface IFavoritesChannel {
     channelCount: number,
     isFavorite: boolean
 }
+
+export interface IFavoritesChange {
+    botId: string,
+    subscriberId: string,
+    isFavorite: boolean
+}

@@ -3,10 +3,9 @@
   }
 
   &__not-subscribers {
-    display: flex;
-    justify-content: center;
+    @include flex-center;
     width: 100%;
-    margin-top: 50%;
+    height: calc(100vh - 154px);
 
     & span {
       font-size: 16px;

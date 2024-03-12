@@ -1,17 +1,14 @@
 .navigation {
   position: sticky;
   bottom: 0;
-  display: flex;
-  align-items: center;
+  @include flex-align-center;
   background: $style;
   width: 100%;
   min-height: 84px;
   //border-top: 1px solid $style3;
 
   & ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flex-between-center;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -31,8 +28,7 @@
     }
 
     & a {
-      display: flex;
-      flex-direction: column;
+      @include flex-column;
       align-items: center;
       gap: 4px;
     }

@@ -3,7 +3,7 @@
 import {defineStore} from 'pinia';
 import {ref} from 'vue';
 import {api} from "@/entities/Favorites/api";
-import type {IFavoritesChannel} from "@/entities/Favorites/model/types";
+import type {IFavoritesChange, IFavoritesChannel} from "@/entities/Favorites/model/types";
 
 
 const namespace = 'favorites'
@@ -24,9 +24,22 @@ export const useFavoritesStore = defineStore(namespace, () => {
         }
     }
 
+    const fetchChangeFavorites = async (botId: string): Promise<void> => {
+        try {
+            const {response: response} = await api.changeFavoritesChannel(botId) as {
+                response: IFavoritesChange
+            }
+
+            return response
+        } catch (e) {
+            throw new Error(`ERROR: ${e}`)
+        }
+    }
+
 
     return {
         channelFavorites,
-        fetchFavoritesChannel
+        fetchFavoritesChannel,
+        fetchChangeFavorites
     }
 })

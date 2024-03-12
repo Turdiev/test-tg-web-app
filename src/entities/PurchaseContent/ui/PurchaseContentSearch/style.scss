@@ -1,0 +1,26 @@
+.purchase-content-search {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 84px);
+  background: $style5;
+  z-index: 1;
+
+  &__item {
+  }
+
+  &__results {
+    @include flex-justify-between;
+    flex-wrap: wrap;
+    height: calc(100vh - 155px);
+    overflow: scroll;
+    gap: 16px;
+    padding: 16px 0;
+  }
+
+  &__not-results {
+    @include flex-align-center;
+    margin-top: 30px;
+  }
+}

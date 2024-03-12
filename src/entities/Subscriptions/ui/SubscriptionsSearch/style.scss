@@ -11,8 +11,7 @@
   }
 
   &__not-results {
-    display: flex;
-    justify-content: center;
+    @include flex-justify-center;
     margin-top: 30px;
   }
 }

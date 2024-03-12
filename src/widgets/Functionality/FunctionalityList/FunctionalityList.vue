@@ -25,7 +25,7 @@ const functionalityList: FunctionalityList[] = [
   {
     title: 'Купленный контент',
     description: '0 покупок',
-    path: '/',
+    path: '/purchase-content',
     type: 'purchased-content'
   }
 ]

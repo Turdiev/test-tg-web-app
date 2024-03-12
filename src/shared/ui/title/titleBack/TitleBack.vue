@@ -4,7 +4,8 @@ import {IconArrowLeft} from '@/shared/ui/icons';
 
 defineProps<{
   path: string,
-  textAlign: 'center' | 'right'
+  iconLabel?: string
+  textAlign: 'center' | 'right' | 'left'
 }>()
 </script>
 
@@ -12,6 +13,7 @@ defineProps<{
   <div class="title-back">
     <router-link :to="path" class="title-back__button">
       <icon-arrow-left />
+      <span v-if="iconLabel">{{ iconLabel }}</span>
     </router-link>
     <div
       class="title-back__title"

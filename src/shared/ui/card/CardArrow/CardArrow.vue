@@ -6,11 +6,14 @@ import {pluralize} from '@/shared/lib/helpers';
 import IconBookmark from "@/shared/ui/icons/IconBookmark.vue";
 
 const props = withDefaults(defineProps<{
-  title: string,
+  title?: string,
+  postName?: string,
   path?: string,
   image?: string,
   amountChannel?: number,
   subscribers?: number,
+  price?: number,
+  channelName?: string
   isBookmark?: boolean,
 }>(), {
   path: '',
@@ -43,14 +46,30 @@ const definitionWord = computed(() => {
         ></div>
         <div class="card-arrow__info">
           <span
+            v-if="title"
             class="card-arrow__title"
             :class="{'card-arrow__title_font-weight': image}"
           >
             {{ title }}
           </span>
-          <span class="card-arrow__text">
+          <span
+            v-if="postName"
+            class="card-arrow__post-name"
+            v-html="postName"
+          ></span>
+          <span
+            v-if="amountChannel || subscribers"
+            class="card-arrow__text"
+          >
             {{ definitionWord }}
           </span>
+          <div
+            v-else
+            class="card-arrow__details"
+          >
+            <span class="card-arrow__text card-arrow__text_color">{{ price }} ₽</span>
+            <span class="card-arrow__text">{{ channelName }}</span>
+          </div>
         </div>
       </div>
       <div class="card-arrow__icons">

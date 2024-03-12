@@ -1,13 +1,10 @@
 .button-round {
-  display: flex;
-  flex-direction: column;
+  @include flex-column;
   align-items: center;
   gap: 8px;
 
   & button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
     width: 48px;
     height: 48px;
     background: $style;

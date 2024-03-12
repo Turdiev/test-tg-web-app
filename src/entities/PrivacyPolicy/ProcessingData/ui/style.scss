@@ -15,8 +15,7 @@
   }
 
   &__wrapper {
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
     gap: 16px;
     width: 100%;
     background: $style;
@@ -25,9 +24,7 @@
     margin-bottom: 8px;
 
     &-item {
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
+      @include flex-start;
       gap: 8px;
 
       & p {
@@ -45,8 +42,7 @@
   }
 
   &__cookie {
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
     gap: 16px;
     width: 100%;
     background: $style;

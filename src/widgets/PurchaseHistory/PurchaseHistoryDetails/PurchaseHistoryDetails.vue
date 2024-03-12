@@ -11,8 +11,7 @@ import {formatDateTime} from '@/shared/lib/helpers';
 import {useTelegram} from '@/shared/lib/use';
 
 
-const tg = useTelegram()
-const { webApp } = tg
+const { webApp } = useTelegram()
 
 const purchaseHistoryStore = usePurchaseHistoryStore()
 const { currentPurchaseHistoryDetails } = storeToRefs(purchaseHistoryStore)

@@ -1,0 +1,11 @@
+.add-to-favorite {
+  &__icon {
+
+    &_is-not-favorites {
+      & path {
+        fill: transparent;
+        stroke: $blue;
+      }
+    }
+  }
+}

@@ -1,7 +1,5 @@
 .button-base {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex-center;
   width: 100%;
   border-radius: 8px;
   border: none;

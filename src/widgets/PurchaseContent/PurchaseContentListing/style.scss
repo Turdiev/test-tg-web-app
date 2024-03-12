@@ -1,0 +1,59 @@
+.purchase-content-listing {
+  &__tabs {
+    @include flex-between-center;
+    width: 100%;
+    height: 40px;
+    gap: 4px;
+    background: transparent;
+    border: 1px solid rgba(141, 146, 154, 0.3);
+    border-radius: 8px;
+    padding: 4px;
+    margin: 16px 0;
+  }
+
+  &__tab {
+    @include flex-center;
+    flex: 1;
+    height: 100%;
+    border-radius: 6px;
+    background: transparent;
+    color: $style3;
+    transition: all .3s linear;
+    cursor: pointer;
+
+    &_active {
+      background: $style;
+      color: $style2;
+      pointer-events: none;
+    }
+
+    & span {
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 16px;
+    }
+  }
+
+  &__content {
+    @include flex-justify-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 10px;
+  }
+
+  &__item {
+
+  }
+
+  &__not-subscribers {
+    @include flex-center;
+    width: 100%;
+    height: calc(100vh - 154px);
+
+    & span {
+      font-size: 16px;
+      font-weight: 500;
+      color: $style1;
+    }
+  }
+}

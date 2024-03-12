@@ -3,8 +3,7 @@
 
   &__content {
     position: relative;
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
     width: calc(100% - 32px);
     background: $style;
     border-radius: 12px;

@@ -1,0 +1,1 @@
+export {default as PurchaseContentDetailsListing} from './PurchaseContentDetailsListing.vue'

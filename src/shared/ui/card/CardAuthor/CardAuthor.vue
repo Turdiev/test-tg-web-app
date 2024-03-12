@@ -32,8 +32,12 @@ const emit = defineEmits(['click'])
         </div>
       </div>
     </div>
-    <div class="card-author__button">
-      <icon-arrow-right />
+    <div class="card-author__buttons">
+      <slot name="bookmark"/>
+
+      <div class="card-author__button">
+        <icon-arrow-right />
+      </div>
     </div>
   </v-card>
 </template>

@@ -1,6 +1,5 @@
 .purchase-history-expenses {
-  display: flex;
-  flex-direction: column;
+  @include flex-column;
   gap: 12px;
   width: 100%;
   padding: 16px;
@@ -8,15 +7,13 @@
   background: $style;
 
   &__tags {
-    display: flex;
-    align-items: center;
+    @include flex-align-center;
     flex-wrap: wrap;
     gap: 8px;
   }
 
   &__balance {
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
     align-items: flex-start;
     gap: 4px;
 

@@ -1,0 +1,1 @@
+export {default as PurchaseContentSearch} from './PurchaseContentSearch.vue'

@@ -37,6 +37,11 @@
     }
   }
 
+  &__buttons {
+    @include flex-end-center;
+    gap: 22px;
+  }
+
   &__button {
   }
 }

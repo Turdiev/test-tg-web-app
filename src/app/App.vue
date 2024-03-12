@@ -5,25 +5,16 @@ import {UsingTheBot} from '@/features/UsingTheBot';
 import {usePrivacyPolicyStore} from '@/entities/PrivacyPolicy/ProcessingData/model/privacy-policy';
 import {storeToRefs} from 'pinia';
 import {ModalsContainer} from 'vue-final-modal';
-import {onMounted} from "vue";
-import {useTelegram} from "@/shared/lib/use";
 
 const privacyPolicyStore = usePrivacyPolicyStore()
 const { agreementAccepted, verificationAge } = storeToRefs(privacyPolicyStore)
-
-const { webApp, initData } = useTelegram()
-
-onMounted(() => {
-  console.log('TELEGRAM', webApp)
-  console.log('TELEGRAM initData', initData)
-})
 </script>
 
 <template>
   <div class="app page">
 
     <main class="app__content">
-      <RouterView />
+      <router-view />
     </main>
 
     <UsingTheBot v-if="verificationAge && !agreementAccepted" />

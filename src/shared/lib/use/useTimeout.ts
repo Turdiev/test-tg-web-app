@@ -1,5 +1,5 @@
 interface IUseTimeout {
-    setTimeoutId: () => void
+    setTimeoutId: (newValue: string) => void
     clearTimeoutId: () => void
 }
 

@@ -8,9 +8,6 @@ import {useTelegram, useTimeout} from '@/shared/lib/use';
 import {ref, watch} from 'vue';
 import {useSearchBarStore} from '@/features/SearchBar';
 
-const tg = useTelegram()
-const { webApp } = tg
-
 const subscriptionsStorage = useSubscriptionsStore()
 const { foundChannelSubscriptions, isShowSearchBar } = storeToRefs(subscriptionsStorage)
 const { fetchSearchChannelSubscriptions } = subscriptionsStorage
@@ -18,6 +15,7 @@ const { fetchSearchChannelSubscriptions } = subscriptionsStorage
 const searchBarStore = useSearchBarStore()
 const { searchQuery } = storeToRefs(searchBarStore)
 
+const { webApp } = useTelegram()
 const {setTimeoutId, clearTimeoutId} = useTimeout(fetchSearchChannelSubscriptions, 800)
 
 const isSearch = ref(false)

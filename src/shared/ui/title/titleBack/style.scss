@@ -4,6 +4,7 @@
 
   &__button {
     @include flex-start-center;
+    gap: 13px;
     //width: 24px;
     height: 24px;
     margin-right: auto;
@@ -18,6 +19,10 @@
 
     &_right {
       text-align: right;
+    }
+
+    &_left {
+      text-align: left;
     }
   }
 }

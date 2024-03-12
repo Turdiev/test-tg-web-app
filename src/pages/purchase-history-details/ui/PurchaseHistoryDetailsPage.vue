@@ -11,8 +11,7 @@ import {VLoader} from '@/shared/ui/loaders';
 import {storeToRefs} from 'pinia';
 import {useTelegram} from '@/shared/lib/use';
 
-const tg = useTelegram()
-const { webApp } = tg
+const { webApp } = useTelegram()
 
 const router = useRoute()
 

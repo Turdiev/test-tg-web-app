@@ -1,7 +1,5 @@
 .tag-base {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex-center;
   gap: 8px;
   width: max-content;
   background: $style4;

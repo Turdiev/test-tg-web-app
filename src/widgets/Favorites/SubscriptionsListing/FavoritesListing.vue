@@ -7,8 +7,7 @@ import {VLoader} from '@/shared/ui/loaders';
 import {FavoritesItem} from "@/entities/Favorites/ui";
 import {useFavoritesStore} from "@/entities/Favorites/model";
 
-const tg = useTelegram()
-const { webApp } = tg
+const { webApp } = useTelegram()
 
 const favoritesStorage = useFavoritesStore()
 const { channelFavorites } = storeToRefs(favoritesStorage)

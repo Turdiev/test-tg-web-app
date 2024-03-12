@@ -1,0 +1,1 @@
+export {default as PurchaseContentItem} from './PurchaseContentItem.vue'

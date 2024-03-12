@@ -7,8 +7,7 @@ import {onBeforeMount} from 'vue';
 import {useLoadingWrap, useTelegram} from '@/shared/lib/use';
 import {VLoader} from '@/shared/ui/loaders';
 
-const tg = useTelegram()
-const { webApp } = tg
+const { webApp } = useTelegram()
 
 const subscriptionsStorage = useSubscriptionsStore()
 const { channelSubscriptions, isShowSearchBar } = storeToRefs(subscriptionsStorage)

@@ -18,8 +18,15 @@ withDefaults(defineProps<{
     :is-link="true"
     :path="card.path"
     class="functionality-card"
-    :class="`functionality-card_${card.type}`"
+    :class="`functionality-card_${card.type} functionality-card_gradient`"
   >
+    <div class="functionality-card__component">
+      <component
+        :is="card.icon"
+        class="functionality-card__component-icon"
+      />
+    </div>
+
     <div class="functionality-card__content">
       <div class="functionality-card__title">
         <span>{{ card.title }}</span>
@@ -31,6 +38,6 @@ withDefaults(defineProps<{
   </VCard>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 @import "style";
 </style>

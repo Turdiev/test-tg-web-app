@@ -18,7 +18,7 @@
     @include flex-column;
     gap: 16px;
     width: 100%;
-    background: $section_bg_color;
+    background: $secondary_bg_color;
     border-radius: 16px;
     padding: 16px;
     margin-bottom: 8px;
@@ -45,7 +45,7 @@
     @include flex-column;
     gap: 16px;
     width: 100%;
-    background: $style;
+    background: $secondary_bg_color;
     border-radius: 16px;
     padding: 16px 24px;
     margin-bottom: 10px;

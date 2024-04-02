@@ -2,7 +2,7 @@
   position: sticky;
   bottom: 0;
   @include flex-align-center;
-  background: $style;
+  background: $secondary_bg_color;
   width: 100%;
   min-height: 84px;
   //border-top: 1px solid $style3;
@@ -16,15 +16,15 @@
 
   &__item {
     flex: 1;
-    color: $style3;
+    color: $hint_color;
     transition: color .3s linear;
 
     &:hover {
-      color: $blue;
+      color: $button_color;
     }
 
     &_active {
-      color: $blue;
+      color: $button_color;
     }
 
     & a {

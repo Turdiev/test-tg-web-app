@@ -21,3 +21,6 @@ export { default as IconBulletList } from './IconBulletList.vue';
 export { default as IconInfoCircle } from './IconInfoCircle.vue';
 export { default as IconAlignCenter } from './IconAlignCenter.vue';
 export { default as IconPlay } from './IconPlay.vue';
+export { default as IconFolder } from './IconFolder.vue';
+export { default as IconBookmark } from './IconBookmark.vue';
+export { default as IconUsers } from './IconUsers.vue';

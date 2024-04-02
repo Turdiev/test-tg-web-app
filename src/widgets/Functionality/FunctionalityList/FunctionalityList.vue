@@ -2,31 +2,36 @@
 
 import {FunctionalityCard} from '@/entities/Functionality/ui';
 import type {FunctionalityList} from '@/entities/Functionality';
+import {IconBookmark, IconFolder, IconSearch, IconUsers} from "@/shared/ui/icons";
 
 const functionalityList: FunctionalityList[] = [
   {
     title: 'Поиск',
     description: 'по авторам',
     path: '/',
-    type: 'search'
+    type: 'search',
+    icon: IconSearch
   },
   {
     title: 'Подписки',
     description: 'на каналы',
     path: '/subscriptions',
-    type: 'subscriptions'
+    type: 'subscriptions',
+    icon: IconUsers
   },
   {
     title: 'Избранное',
     description: '0 ботов',
     path: '/favorites',
-    type: 'favorites'
+    type: 'favorites',
+    icon: IconBookmark
   },
   {
     title: 'Купленный контент',
     description: '0 покупок',
     path: '/purchase-content',
-    type: 'purchased-content'
+    type: 'purchased-content',
+    icon: IconFolder
   }
 ]
 </script>

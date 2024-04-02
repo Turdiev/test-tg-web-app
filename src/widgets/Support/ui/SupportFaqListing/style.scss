@@ -6,7 +6,7 @@
 
 
   &__item {
-    border-bottom: 0.5px solid rgba(60, 60, 67, 0.3);
+    border-bottom: 0.5px solid $hint_color;
     padding-bottom: 24px;
     //&:not(:last-child) {
     //

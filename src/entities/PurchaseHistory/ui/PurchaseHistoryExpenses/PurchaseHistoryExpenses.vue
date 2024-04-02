@@ -68,7 +68,7 @@ const handleClickTag = (tag: ITags) => {
       <span>{{ titleExpenses }}</span>
       <div class="purchase-history-expenses__balance-calc">
         <p>{{ activeTag ? costCalculation : totalExpenses }}</p>
-        <p v-if="activeTag && totalPurchaseExpenses > 0" class="purchase-history-expenses__balance-calc_total">{{ totalPurchaseExpenses }}</p>
+        <p v-if="activeTag && totalPurchaseExpenses > 0" class="purchase-history-expenses__balance-calc_total">из {{ totalPurchaseExpenses }}</p>
       </div>
     </div>
   </div>

@@ -74,7 +74,8 @@ const goToChannel = () => {
             Перейти в канал
           </button-base>
           <button-base
-            color="black"
+            v-if="channel.botAdmin"
+            color="hint"
             @click="goToBotPage"
           >
             Перейти к боту с материалами

@@ -8,6 +8,10 @@
     //width: 24px;
     height: 24px;
     margin-right: auto;
+
+    & span {
+      color: $hint_color;
+    }
   }
 
   &__title {

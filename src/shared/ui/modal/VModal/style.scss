@@ -5,7 +5,7 @@
     position: relative;
     @include flex-column;
     width: calc(100% - 32px);
-    background: $style;
+    background: $bg_color;
     border-radius: 12px;
     padding: 16px;
   }
@@ -16,7 +16,7 @@
     right: 16px;
     width: 12px;
     height: 12px;
-    color: $style3;
+    color: $hint_color;
     user-select: none;
     cursor: pointer;
 

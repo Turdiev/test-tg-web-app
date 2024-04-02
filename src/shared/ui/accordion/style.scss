@@ -28,14 +28,14 @@
       font-size: 15px;
       font-weight: 400;
       line-height: 21px;
-      color: $style2;
+      color: $text_color;
     }
   }
 
   &__icon {
     width: 12px;
     height: 100%;
-    color: black;
+    color: $hint_color;
     transition: transform 300ms linear;
 
     &_rotate {

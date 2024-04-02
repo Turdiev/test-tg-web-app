@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 withDefaults(defineProps<{
-  color?: 'default' | 'red' | 'green' | 'black' | 'blue-light',
+  color?: 'default' | 'red' | 'green' | 'hint' | 'blue-light',
   disabled?: boolean
 }>(), {
   color: 'default',

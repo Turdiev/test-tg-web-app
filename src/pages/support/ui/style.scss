@@ -1,7 +1,7 @@
 .support-page {
   position: relative;
   @include flex-column-stretch;
-  background: #F4F4F4;
+  background: $bg_color;
   height: 100%;
   padding-top: 16px;
 

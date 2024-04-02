@@ -2,7 +2,7 @@
   @include flex-center;
 
   &_default {
-    background: $style3;
+    background: $hint_color;
   }
 
   &_blue {
@@ -10,7 +10,7 @@
   }
 
   &_blue-light {
-    background: $blue-light;
+    background: $button_secondary_color;
   }
 
   &_x-large {

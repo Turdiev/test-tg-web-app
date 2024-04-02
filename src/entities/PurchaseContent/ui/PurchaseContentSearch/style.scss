@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   height: calc(100vh - 84px);
-  background: $style5;
+  background: $bg_color;
   z-index: 1;
 
   &__item {
@@ -22,5 +22,11 @@
   &__not-results {
     @include flex-align-center;
     margin-top: 30px;
+
+    & span {
+      font-size: 14px;
+      font-weight: 500;
+      color: $text_color;
+    }
   }
 }

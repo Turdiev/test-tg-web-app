@@ -15,14 +15,14 @@
       font-size: 13px;
       font-weight: 400;
       line-height: 17px;
-      color: $style3;
+      color: $hint_color;
     }
 
     &-name {
       font-size: 15px;
       font-weight: 500;
       line-height: 21px;
-      color: $style1;
+      color: $text_color;
     }
   }
 
@@ -47,14 +47,14 @@
       font-size: 15px;
       font-weight: 400;
       line-height: 21px;
-      color: $style1;
+      color: $text_color;
     }
 
     &-price-text {
       font-size: 15px;
       font-weight: 500;
       line-height: 21px;
-      color: $style1;
+      color: $text_color;
     }
 
     &-date-expired {
@@ -65,20 +65,19 @@
         font-size: 13px;
         font-weight: 400;
         line-height: 17px;
-        color: $style3;
+        color: $hint_color;
       }
     }
 
     &-button {
       @include flex-align-center;
       gap: 6px;
-      color: $blue;
 
       & span {
         font-size: 15px;
         font-weight: 400;
         line-height: 21px;
-        color: $blue;
+        color: $button_color;
       }
     }
 
@@ -88,7 +87,7 @@
       right: 0;
       width: calc(100% - 16px);
       height: 0.5px;
-      background: rgba(60, 60, 67, 0.36)
+      background: $hint_color;
     }
   }
 
@@ -107,14 +106,14 @@
       font-size: 15px;
       font-weight: 400;
       line-height: 21px;
-      color: $style1;
+      color: $text_color;
     }
 
     &-text {
       font-size: 15px;
       font-weight: 400;
       line-height: 21px;
-      color: $style3;
+      color: $hint_color;
       text-align: end;
     }
   }
@@ -134,14 +133,21 @@
       font-size: 15px;
       font-weight: 400;
       line-height: 21px;
-      color: $style1;
+      color: $text_color;
     }
 
     &-text {
       font-size: 15px;
       font-weight: 400;
       line-height: 21px;
-      color: $green;
+
+      &_success {
+        color: $success_text_color;
+      }
+
+      &_error {
+        color: $destructive_text_color;
+      }
     }
   }
 }

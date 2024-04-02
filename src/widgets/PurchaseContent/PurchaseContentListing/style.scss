@@ -22,8 +22,8 @@
     cursor: pointer;
 
     &_active {
-      background: $bg_color;
-      color: $text_color;
+      background: $text_color;
+      color: $bg_color;
       pointer-events: none;
     }
 

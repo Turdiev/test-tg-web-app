@@ -7,15 +7,15 @@
   .vs {
     &__dropdown-toggle {
       height: 29px;
-      background-color: $blue;
-      border: 1px solid $blue;
+      background-color: $button_color;
+      border: 1px solid $button_color;
       border-radius: 90px;
       padding: 0;
       color: $style;
 
       &[aria-expanded="true"] {
         width: 100%;
-        background-color: $blue;
+        background-color: $button_color;
         border-color: $style;
       }
     }

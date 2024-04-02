@@ -53,7 +53,6 @@ const closeSearchBar = () => {
   emit('close')
 }
 const focused = () => {
-  console.log('FOCUS')
   emit('focus')
 }
 

@@ -132,8 +132,17 @@ const openTelegramLink = (link: string) => {
         </image-avatar>
         <span class="purchase-history-details__status-title">Статус</span>
       </div>
-      <span class="purchase-history-details__status-text">
-        {{ currentPurchaseHistoryDetails?.amount || currentPurchaseHistoryDetails?.cost ? 'Оплачено' : 'Не опалчено'  }}
+      <span
+        v-if="currentPurchaseHistoryDetails?.amount || currentPurchaseHistoryDetails?.cost"
+        class="purchase-history-details__status-text purchase-history-details__status-text_success"
+      >
+        Оплачено
+      </span>
+      <span
+        v-else
+        class="purchase-history-details__status-text purchase-history-details__status-text_error"
+      >
+        Не опалчено
       </span>
     </v-card>
   </div>

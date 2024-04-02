@@ -4,7 +4,7 @@
   width: 100%;
   padding: 16px;
   border-radius: 12px;
-  background: $style;
+  background: $secondary_bg_color;
 
   &__tags {
     @include flex-align-center;
@@ -21,13 +21,13 @@
       font-size: 13px;
       font-weight: 400;
       line-height: 17px;
-      color: $style3;
+      color: $text_color;
     }
 
     &-calc {
       @include flex-start-center;
       gap: 8px;
-      color: $black;
+      color: $text_color;
 
       & p {
         font-family: 'SF Pro Display', sans-serif;
@@ -40,7 +40,7 @@
         font-size: 15px;
         font-weight: 400;
         line-height: 21px;
-        color: $style3;
+        color: $hint_color;
       }
     }
   }

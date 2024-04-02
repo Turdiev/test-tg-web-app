@@ -3,7 +3,7 @@
   width: 100%;
   padding: 12px 0;
   gap: 12px;
-  border-bottom: 0.5px solid rgba(60, 60, 67, 0.36);
+  border-bottom: 0.5px solid $hint_color;
 
   &__wrapper {
     @include flex-between-center;
@@ -21,22 +21,11 @@
     gap: 2px;
   }
 
-  &__operation {
-    @include flex-start-center;
-
-    & span {
-      font-size: 15px;
-      font-weight: 500;
-      line-height: 21px;
-      color: $style1;
-    }
-  }
-
   &__user-name {
     font-size: 15px;
     font-weight: 500;
     line-height: 21px;
-    color: $style1;
+    color: $text_color;
   }
 
   &__user-login {
@@ -46,7 +35,7 @@
       font-size: 13px;
       font-weight: 400;
       line-height: 17px;
-      color: $style3;
+      color: $hint_color;
     }
   }
 
@@ -60,13 +49,13 @@
     font-size: 15px;
     font-weight: 500;
     line-height: 21px;
-    color: $style1;
+    color: $text_color;
   }
 
   &__type {
     font-size: 13px;
     font-weight: 400;
     line-height: 17px;
-    color: $style3;
+    color: $hint_color;
   }
 }

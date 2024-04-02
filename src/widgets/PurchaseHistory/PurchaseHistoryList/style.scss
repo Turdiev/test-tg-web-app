@@ -18,7 +18,7 @@
     font-size: 15px;
     font-weight: 500;
     line-height: 21px;
-    color: $style3;
+    color: $hint_color;
   }
 
   &__item {
@@ -31,7 +31,7 @@
       bottom: 0;
       width: calc(100% - 53px);
       height: 0.5px;
-      background: rgba(60, 60, 67, 0.36);
+      background: $hint_color;
     }
   }
 
@@ -44,7 +44,7 @@
       font-size: 15px;
       font-weight: 500;
       line-height: 21px;
-      color: $style1;
+      color: $text_color;
     }
   }
 

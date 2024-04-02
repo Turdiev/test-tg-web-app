@@ -2,14 +2,14 @@
   @include flex-center;
   gap: 8px;
   width: max-content;
-  background: $style4;
+  background: $bg_color;
   border-radius: 90px;
   padding: 8px 12px;
-  color: $style3;
+  color: $hint_color;
   cursor: pointer;
 
   &_active {
-    background: $blue;
+    background: $button_color;
     color: $style;
   }
 

@@ -15,7 +15,7 @@
   &__salesman {
     @include flex-center;
     gap: 2px;
-    color: $style3;
+    color: $hint_color;
 
     & span {
       font-size: 13px;
@@ -33,7 +33,7 @@
       font-size: 15px;
       font-weight: 500;
       line-height: 21px;
-      color: $style1;
+      color: $text_color;
     }
   }
 

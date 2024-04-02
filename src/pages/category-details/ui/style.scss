@@ -9,7 +9,7 @@
     font-size: 13px;
     font-weight: 400;
     line-height: 17px;
-    color: $style3;
+    color: $hint_color;
   }
 
   &__not-results {
@@ -22,7 +22,7 @@
       font-size: 15px;
       font-weight: 500;
       line-height: 21px;
-      color: $style1;
+      color: $text_color;
     }
   }
 }

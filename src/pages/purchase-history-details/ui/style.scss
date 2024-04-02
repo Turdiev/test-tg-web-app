@@ -1,7 +1,7 @@
 .purchase-history-details-page {
   position: relative;
   @include flex-column-stretch;
-  background: #F4F4F4;
+  background: $bg_color;
   height: 100%;
 
   &__content {
@@ -13,7 +13,7 @@
       font-size: 15px;
       font-weight: 400;
       line-height: 21px;
-      color: $blue;
+      color: $button_color;
     }
   }
 

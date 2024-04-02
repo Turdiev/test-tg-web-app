@@ -26,13 +26,13 @@
     font-size: 15px;
     font-weight: 500;
     line-height: 21px;
-    color: $style1;
+    color: $text_color;
   }
 
   &__amount_subscribers {
     font-size: 13px;
     font-weight: 400;
     line-height: 13px;
-    color: $style3;
+    color: $hint_color;
   }
 }

@@ -8,11 +8,9 @@ import {ref} from 'vue';
 const isShowListing = ref(false)
 
 const focused = () => {
-  console.log('FOCUS')
   isShowListing.value = true
 }
 const close = () => {
-  console.log('CLOSE')
   isShowListing.value = false
 }
 

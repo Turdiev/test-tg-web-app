@@ -3,29 +3,30 @@
 import {IconArrowRight} from '@/shared/ui/icons';
 import {computed} from 'vue';
 import {pluralize} from '@/shared/lib/helpers';
-import IconBookmark from "@/shared/ui/icons/IconBookmark.vue";
+import IconBookmark from '@/shared/ui/icons/IconBookmark.vue';
+import {ImageAvatar} from '@/shared/ui/image/ImageAvatar';
 
 const props = withDefaults(defineProps<{
   title?: string,
   postName?: string,
   path?: string,
   image?: string,
-  amountChannel?: number,
-  subscribers?: number,
+  amountChannel?: number | null,
+  subscribers?: number | null,
   price?: number,
   channelName?: string
   isBookmark?: boolean,
 }>(), {
   path: '',
-  amountChannel: 0,
-  subscribers: 0,
+  amountChannel: null,
+  subscribers: null,
   isBookmark: false,
 })
 
 const emit = defineEmits(['click', 'click:bookmark'])
 
 const definitionWord = computed(() => {
-  return props.amountChannel ?
+  return props.amountChannel !== null ?
       pluralize(props.amountChannel, 'канал', 'канала', 'каналов') :
       pluralize(props.subscribers, 'подписчик', 'подписчика', 'подписчиков')
 })
@@ -40,10 +41,13 @@ const definitionWord = computed(() => {
   >
     <div class="card-arrow__wrapper">
       <div class="card-arrow__content">
-        <div
+        <image-avatar
           v-if="image"
+          :title="title"
+          size="large"
+          background="blue"
           class="card-arrow__image"
-        ></div>
+        />
         <div class="card-arrow__info">
           <span
             v-if="title"
@@ -58,7 +62,7 @@ const definitionWord = computed(() => {
             v-html="postName"
           ></span>
           <span
-            v-if="amountChannel || subscribers"
+            v-if="amountChannel !== null || subscribers !== null"
             class="card-arrow__text"
           >
             {{ definitionWord }}

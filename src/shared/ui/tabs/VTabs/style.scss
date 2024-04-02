@@ -1,0 +1,32 @@
+.v-tabs {
+  display: grid;
+  gap: 4px;
+  padding: 4px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid rgba(141, 146, 154, 0.10);
+  background: $style4;
+
+  &__tab {
+    cursor: pointer;
+    user-select: none;
+    border-radius: 6px;
+    height: 100%;
+    display: flex;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    color: $style3;
+
+    &-icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    &--active {
+      background: $style;
+      color: $style2;
+    }
+  }
+}

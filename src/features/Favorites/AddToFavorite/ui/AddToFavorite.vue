@@ -1,9 +1,9 @@
 
 <script setup lang="ts">
 
-import IconBookmark from "@/shared/ui/icons/IconBookmark.vue";
-import {useAddToFavorite} from "@/features/Favorites/AddToFavorite/model";
-import {toRef} from "vue";
+import IconBookmark from '@/shared/ui/icons/IconBookmark.vue';
+import {useAddToFavorite} from '@/features/Favorites/AddToFavorite/model';
+import {toRef} from 'vue';
 
 const props = withDefaults(defineProps<{
   data: any[],

@@ -1,0 +1,1 @@
+export { default as SupportArticleSearch } from './SupportArticleSearch.vue'

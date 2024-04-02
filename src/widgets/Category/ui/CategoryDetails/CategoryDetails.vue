@@ -1,17 +1,17 @@
 <script setup lang="ts">
 
 import {useModal} from 'vue-final-modal';
-import {type IChannel} from '@/entities/Catalog';
+import {type ICatalogChannel} from '@/entities/Catalog';
 import {CardArrow} from '@/shared/ui/card/CardArrow';
 import {ChannelModal} from '@/entities/Catalog';
 import {vfm} from '@/shared/lib/plugins/vue-final-model';
 
 defineProps<{
-  channels: IChannel[]
+  channels: ICatalogChannel[]
 }>()
 
 
-const showModal = (channel: IChannel) => {
+const showModal = (channel: ICatalogChannel) => {
   const { open } = useModal({
     context: vfm,
     component: ChannelModal,
@@ -34,7 +34,7 @@ const showModal = (channel: IChannel) => {
       :key="channel.id"
       :title="channel.title"
       image="image"
-      :subscribers="channel.amount_subscribers"
+      :subscribers="channel.subscribersCount"
       class="category-details__channel"
       @click="showModal(channel)"
     />

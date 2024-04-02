@@ -40,15 +40,15 @@ export interface IPurchaseContentChannel {
 }
 
 export interface IPurchaseContentBotById {
-    "postId": string,
-    "postPreview": string,
-    "channelId": string,
-    "channelTitle": string,
-    "channelLink": string,
-    "botSellerName": string,
-    "botSellerUsername": string,
-    "botSellerLink": string,
-    "amount": number,
-    "createdAt": string,
-    "type": string,
+    'postId': string,
+    'postPreview': string,
+    'channelId': string,
+    'channelTitle': string,
+    'channelLink': string,
+    'botSellerName': string,
+    'botSellerUsername': string,
+    'botSellerLink': string,
+    'amount': number,
+    'createdAt': string,
+    'type': string,
 }

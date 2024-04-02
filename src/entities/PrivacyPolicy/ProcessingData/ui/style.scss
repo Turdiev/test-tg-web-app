@@ -4,13 +4,13 @@
     font-size: 15px;
     font-weight: 400;
     line-height: 21px;
-    color: $style3;
+    color: $hint_color;
     margin-top: 8px;
     margin-bottom: 16px;
 
     & a {
       display: inline;
-      color: $blue;
+      color: $link_color;
     }
   }
 
@@ -18,7 +18,7 @@
     @include flex-column;
     gap: 16px;
     width: 100%;
-    background: $style;
+    background: $section_bg_color;
     border-radius: 16px;
     padding: 16px;
     margin-bottom: 8px;
@@ -31,11 +31,11 @@
         font-size: 15px;
         font-weight: 400;
         line-height: 21px;
-        color: $style3;
+        color: $hint_color;
 
         & a {
           display: inline;
-          color: $blue;
+          color: $link_color;
         }
       }
     }
@@ -54,11 +54,11 @@
       font-size: 15px;
       font-weight: 400;
       line-height: 21px;
-      color: $style3;
+      color: $hint_color;
 
       & a {
         display: inline;
-        color: $blue;
+        color: $link_color;
       }
     }
   }

@@ -1,17 +1,31 @@
 <script setup lang="ts">
 
-import type {IChannel} from '@/entities/Catalog';
+import type {ICatalogChannel} from '@/entities/Catalog';
 import {VModal} from '@/shared/ui/modal';
 import {ButtonBase} from '@/shared/ui/button/ButtonBase';
 import {ImageAvatar} from '@/shared/ui/image/ImageAvatar';
+import {pluralize} from '@/shared/lib/helpers';
+import {useTelegram} from '@/shared/lib/use';
 
-defineProps<{
-  channel: IChannel,
+const props = defineProps<{
+  channel: ICatalogChannel,
 }>()
 
 const emit = defineEmits<{
   (e: 'update:modelValue', modelValue: boolean): void
 }>()
+
+const { webApp } = useTelegram()
+
+const goToBotPage = () => {
+  emit('update:modelValue', false)
+  const link = `https://t.me/${props.channel.botAdmin.username}?start=webapp`
+  webApp.openTelegramLink(link)
+}
+
+const goToChannel = () => {
+  webApp.openTelegramLink(props.channel.link)
+}
 
 </script>
 
@@ -23,16 +37,17 @@ const emit = defineEmits<{
     <template #modal-head>
       <div class="channel-modal__head">
         <image-avatar
-          size="medium"
-          background="default"
+          :title="channel.title"
+          size="large"
+          background="blue"
           class="channel-modal__head-avatar"
         />
         <div class="channel-modal__head-info">
           <span class="channel-modal__head-title">
             {{ channel.title }}
           </span>
-        <span class="channel-modal__head-amount">
-            {{ channel.amount_subscribers }} подписчиков
+          <span class="channel-modal__head-amount">
+            {{ pluralize(channel.subscribersCount, 'подписчик', 'подписчика', 'подписчиков') }}
           </span>
         </div>
       </div>
@@ -41,28 +56,26 @@ const emit = defineEmits<{
     <template #modal-body>
       <div class="channel-modal__body">
         <div class="channel-modal__body-tags">
-          <div
-              v-for="tag in channel.tags"
-              :key="tag"
-              class="channel-modal__body-tag"
-          >
-            <span>{{ tag }}</span>
+          <div class="channel-modal__body-tag">
+            <span>{{ channel.category ? channel.category.name : 'прочее' }}</span>
           </div>
         </div>
 
         <div class="channel-modal__body-description">
           <span>ОПИСАНИЕ</span>
-          <p>{{ channel.description }}</p>
+          <p>{{ channel.about || channel.preview }}</p>
         </div>
 
         <div class="channel-modal__body-buttons">
           <button-base
             color="default"
+            @click="goToChannel"
           >
             Перейти в канал
           </button-base>
           <button-base
             color="black"
+            @click="goToBotPage"
           >
             Перейти к боту с материалами
           </button-base>

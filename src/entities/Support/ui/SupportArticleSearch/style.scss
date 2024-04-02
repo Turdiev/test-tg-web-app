@@ -1,0 +1,11 @@
+.support-article-search {
+  &__item {
+    margin-bottom: 8px;
+  }
+
+  &__not-results {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+}

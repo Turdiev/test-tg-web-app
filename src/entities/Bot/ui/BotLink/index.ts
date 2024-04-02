@@ -1,0 +1,1 @@
+export { default as BotLink } from './BotLink.vue';

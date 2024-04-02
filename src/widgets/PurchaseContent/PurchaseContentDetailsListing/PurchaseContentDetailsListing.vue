@@ -2,8 +2,8 @@
 
 import {storeToRefs} from 'pinia';
 import {useTelegram} from '@/shared/lib/use';
-import {usePurchaseContentStore} from "@/entities/PurchaseContent/model";
-import {PurchaseContentDetailsItem} from "@/entities/PurchaseContent/ui/PurchaseContentDetailsItem";
+import {usePurchaseContentStore} from '@/entities/PurchaseContent/model';
+import {PurchaseContentDetailsItem} from '@/entities/PurchaseContent/ui/PurchaseContentDetailsItem';
 
 const purchaseContentStorage = usePurchaseContentStore()
 const { purchasingBotContent } = storeToRefs(purchaseContentStorage)

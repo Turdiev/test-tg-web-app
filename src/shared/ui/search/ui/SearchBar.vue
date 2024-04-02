@@ -16,12 +16,13 @@ withDefaults(defineProps<{
   isShowBtnClose: false
 })
 
-const emit = defineEmits(['close'])
+const emit = defineEmits(['close', 'focused'])
 
 const isFocusedSearch = ref(false)
 
 const onFocusInput = (event: boolean) => {
   isFocusedSearch.value = event
+  emit('focused')
 }
 
 const onCloseSearchBar = (event: boolean) => {

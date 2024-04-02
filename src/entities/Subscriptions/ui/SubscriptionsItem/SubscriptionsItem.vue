@@ -15,6 +15,7 @@ withDefaults(defineProps<{
 <template>
   <card-arrow
     path="#"
+    image="image"
     :title="channel.title"
     :subscribers="channel.subscribersCount"
     class="subscriptions-item"

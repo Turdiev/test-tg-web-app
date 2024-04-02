@@ -1,11 +1,11 @@
 <script setup lang="ts">
 
 import {storeToRefs} from 'pinia';
-import {onBeforeMount, ref, watch} from 'vue';
+import {onBeforeMount, watch} from 'vue';
 import {useLoadingWrap, useTelegram} from '@/shared/lib/use';
 import {VLoader} from '@/shared/ui/loaders';
-import {PurchaseContentItem} from "@/entities/PurchaseContent/ui";
-import {usePurchaseContentStore} from "@/entities/PurchaseContent/model";
+import {PurchaseContentItem} from '@/entities/PurchaseContent/ui';
+import {usePurchaseContentStore} from '@/entities/PurchaseContent/model';
 
 const purchaseContentStorage = usePurchaseContentStore()
 const { purchaseContentData, isShowSearchBar, purchaseContentTabs, activeTab } = storeToRefs(purchaseContentStorage)

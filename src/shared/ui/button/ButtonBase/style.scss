@@ -4,20 +4,24 @@
   border-radius: 8px;
   border: none;
   padding: 12px;
-  color: $style;
+  color: $button_text_color;
   cursor: pointer;
 
   &_default {
-    background: $blue;
+    background: $button_color;
   }
   &_red {
-    background: $red;
+    background: $destructive_text_color;
   }
   &_green {
-    background: $green;
+    background: $success_text_color;
   }
   &_black {
     background: $style1;
+  }
+  &_blue-light {
+    background: $blue-light;
+    color: $blue;
   }
 
   &_disabled {

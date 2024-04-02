@@ -3,6 +3,7 @@
 import type {PurchaseHistory} from '@/entities/PurchaseHistory/model/types';
 import {IconUser} from '@/shared/ui/icons';
 import {computed} from 'vue';
+import {ImageAvatar} from '@/shared/ui/image/ImageAvatar';
 
 const props = withDefaults(defineProps<{
   item: PurchaseHistory
@@ -44,6 +45,10 @@ const formattedName = (type: string, botSellerName: string, channelTitle: string
     :to="goTo"
     class="purchase-history-item"
   >
+    <image-avatar
+      :title="item.channelTitle"
+      background="default"
+    />
     <div class="purchase-history-item__wrapper">
       <div class="purchase-history-item__left">
         <div class="purchase-history-item__user">

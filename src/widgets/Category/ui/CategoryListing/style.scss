@@ -3,4 +3,18 @@
 
   &__card {
   }
+
+  &__not-results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 142px);
+
+    & span {
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 21px;
+      color: $style1;
+    }
+  }
 }

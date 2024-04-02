@@ -2,12 +2,11 @@
 
 import {ref, watch} from 'vue';
 import {storeToRefs} from 'pinia';
-import {useSubscriptionsStore} from '@/entities/Subscriptions/model';
-import {PurchaseContentItem} from "@/entities/PurchaseContent/ui";
+import {PurchaseContentItem} from '@/entities/PurchaseContent/ui';
 import {SearchBar} from '@/shared/ui/search';
 import {useTelegram, useTimeout} from '@/shared/lib/use';
-import {useSearchBarStore} from "@/shared/ui/search";
-import {usePurchaseContentStore} from "@/entities/PurchaseContent/model";
+import {useSearchBarStore} from '@/shared/ui/search';
+import {usePurchaseContentStore} from '@/entities/PurchaseContent/model';
 
 
 const purchaseContentStore = usePurchaseContentStore()

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 
-import type {IPurchaseContentBot} from "@/entities/PurchaseContent/model";
-import {CardAuthor} from "@/shared/ui/card/CardAuthor";
-import {useTelegram} from "@/shared/lib/use";
+import type {IPurchaseContentBot} from '@/entities/PurchaseContent/model';
+import {CardAuthor} from '@/shared/ui/card/CardAuthor';
+import {useTelegram} from '@/shared/lib/use';
 
 withDefaults(defineProps<{
   salesman: IPurchaseContentBot
@@ -12,7 +12,7 @@ withDefaults(defineProps<{
   },
 })
 
-const emit = defineEmits(['click'])
+defineEmits(['click'])
 
 const { webApp } = useTelegram()
 

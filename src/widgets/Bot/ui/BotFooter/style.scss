@@ -1,0 +1,66 @@
+.bot-footer {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  height: 52px;
+  padding: 8px 0;
+  background-color: $style1;
+  z-index: 1;
+
+  &__wrapper {
+    @include flex-between-center;
+    width: 100%;
+  }
+
+  &__left {
+    @include flex-start-center;
+    gap: 12px;
+  }
+
+  &__avatar {
+    border-radius: 8px;
+  }
+
+  &__balance {
+    @include flex-column;
+    justify-content: flex-start;
+    gap: 2.5px;
+  }
+
+  &__balance-link {
+    @include flex-between-center;
+    gap: 4px;
+    color: $style3;
+
+    &-icon {
+      width: 12px;
+      height: 12px;
+    }
+
+    & span {
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 11px;
+    }
+  }
+
+  &__balance-text {
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 20.29px;
+    color: $style;
+  }
+
+  &__right {
+  }
+
+  &__button {
+    height: 36px;
+
+    & span {
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 19px;
+    }
+  }
+}

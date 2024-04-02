@@ -1,0 +1,1 @@
+export { default as BotEmptyContent } from './BotEmptyContent.vue';

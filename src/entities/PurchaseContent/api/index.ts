@@ -7,7 +7,10 @@ const API_PURCHASE_CONTENT_CHANNEL: string = '/api/web-bot/subscriber/purchases/
 
 const getPurchaseContentBot = async () => {
     try {
-        return await REQUEST('GET', API_PURCHASE_CONTENT_BOT, {})
+        return await REQUEST({
+            method: 'GET',
+            url: API_PURCHASE_CONTENT_BOT
+        })
     } catch (e) {
         throw new Error(`ERROR: ${e}`)
     }
@@ -15,7 +18,10 @@ const getPurchaseContentBot = async () => {
 
 const getPurchaseContentBotById = async (id: string) => {
     try {
-        return await REQUEST('GET', `${API_PURCHASE_CONTENT_BOT_ID}/${id}`, {})
+        return await REQUEST({
+            method: 'GET',
+            url: `${API_PURCHASE_CONTENT_BOT_ID}/${id}`
+        })
     } catch (e) {
         throw new Error(`ERROR: ${e}`)
     }
@@ -23,7 +29,10 @@ const getPurchaseContentBotById = async (id: string) => {
 
 const getPurchaseContentBotCount = async () => {
     try {
-        return await REQUEST('GET', API_PURCHASE_CONTENT_BOT_COUNT, {})
+        return await REQUEST({
+            method: 'GET',
+            url: API_PURCHASE_CONTENT_BOT_COUNT
+        })
     } catch (e) {
         throw new Error(`ERROR: ${e}`)
     }
@@ -31,7 +40,10 @@ const getPurchaseContentBotCount = async () => {
 
 const getPurchaseContentChannel = async () => {
     try {
-        return await REQUEST('GET', API_PURCHASE_CONTENT_CHANNEL, {})
+        return await REQUEST({
+            method: 'GET',
+            url: API_PURCHASE_CONTENT_CHANNEL
+        })
     } catch (e) {
         throw new Error(`ERROR: ${e}`)
     }
@@ -41,8 +53,9 @@ const getSearchPurchaseContent = async (searchQuery: string, contentType: string
     try {
         const apiSearchContent = contentType === 'content' ? API_PURCHASE_CONTENT_BOT : API_PURCHASE_CONTENT_CHANNEL
 
-        return await REQUEST('GET', apiSearchContent, {
-            search: searchQuery
+        return await REQUEST({
+            method: 'GET',
+            url: apiSearchContent
         })
     } catch (e) {
         throw new Error(`ERROR: ${e}`)

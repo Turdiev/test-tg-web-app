@@ -1,10 +1,12 @@
 <script setup lang="ts">
 
 import {VCard} from '@/shared/ui/card';
-import type {IChannel} from '@/entities/Catalog';
+import type {ICatalogChannel} from '@/entities/Catalog';
+import {pluralize} from '../../../../shared/lib/helpers';
+import {ImageAvatar} from '@/shared/ui/image/ImageAvatar';
 
 defineProps<{
-  channel: IChannel
+  channel: ICatalogChannel
 }>()
 
 const emit = defineEmits(['click'])
@@ -17,11 +19,16 @@ const emit = defineEmits(['click'])
     @click="emit('click')"
   >
     <div class="channel-card__wrapper">
-      <div class="channel-card__image">
-      </div>
+      <image-avatar
+        :title="channel.title"
+        background="blue"
+        class="channel-card__image"
+      />
       <div class="channel-card__info">
         <p class="channel-card__title">{{ channel.title }}</p>
-        <p class="channel-card__amount_subscribers"> {{ channel.amount_subscribers }} подписчиков</p>
+        <p class="channel-card__amount_subscribers">
+          {{ pluralize(channel.subscribersCount, 'подписчик', 'подписчика', 'подписчиков') }}
+        </p>
       </div>
     </div>
   </v-card>

@@ -1,0 +1,8 @@
+.bot-header {
+  position: sticky;
+  top: 0;
+  @include flex-align-center;
+  width: 100%;
+  background: $style;
+  z-index: 10;
+}

@@ -4,6 +4,10 @@
     @include flex-between-center;
   }
 
+  &__title {
+    width: 94%;
+  }
+
   &__content {
     display: grid;
     grid-template-rows: 0fr;

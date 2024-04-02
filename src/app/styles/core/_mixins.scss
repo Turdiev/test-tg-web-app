@@ -1,7 +1,7 @@
 
 //Adaptive
 @mixin adaptive($media-width) {
-	@media screen and (max-width: #{$media-width}px) {
+	@media screen and (min-width: #{$media-width}px) {
 		@content;
 	}
 }

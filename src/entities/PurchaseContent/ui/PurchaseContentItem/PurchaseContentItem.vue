@@ -1,9 +1,9 @@
 <script setup lang="ts">
 
-import {VCard} from "@/shared/ui/card";
-import {pluralize} from "@/shared/lib/helpers";
-import type {IPurchaseContentBot, IPurchaseContentChannel} from "@/entities/PurchaseContent/model";
-import {ImageAvatar} from "@/shared/ui/image/ImageAvatar";
+import {VCard} from '@/shared/ui/card';
+import {pluralize} from '@/shared/lib/helpers';
+import type {IPurchaseContentBot, IPurchaseContentChannel} from '@/entities/PurchaseContent/model';
+import {ImageAvatar} from '@/shared/ui/image/ImageAvatar';
 
 withDefaults(defineProps<{
   content: IPurchaseContentBot | IPurchaseContentChannel,
@@ -25,11 +25,16 @@ const emit = defineEmits(['click'])
     @click="!isBot ? emit('click') : ''"
   >
     <div class="purchase-content-item__body">
-      <image-avatar />
+      <image-avatar
+        :title="content.title || content.name"
+        size="large"
+        background="blue"
+        class="purchase-content-item__avatar"
+      />
 
       <div class="purchase-content-item__info">
         <div class="purchase-content-item__name">
-          <span>{{ content.title || `@${content.name}`}}</span>
+          <span>{{ content.title || `@${content.name}` }}</span>
         </div>
         <div
           v-if="isBot"

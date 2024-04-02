@@ -3,8 +3,9 @@ import {SearchBar} from '@/shared/ui/search';
 import {useSearchBarStore} from '@/features/SearchBar';
 import {storeToRefs} from 'pinia';
 import {usePurchaseHistorySearchStore} from '@/entities/PurchaseHistory/model/purchase-history-search';
-import {watch} from 'vue';
+import {ref, watch} from 'vue';
 import {PurchaseHistoryItem} from '@/entities/PurchaseHistory/ui';
+import {useTimeout} from '@/shared/lib/use';
 
 const searchBarStore = useSearchBarStore()
 const { searchQuery } = storeToRefs(searchBarStore)
@@ -13,30 +14,49 @@ const purchaseHistorySearchStore = usePurchaseHistorySearchStore()
 const { foundPurchaseHistories } = storeToRefs(purchaseHistorySearchStore)
 const { fetchPurchaseHistorySearch } = purchaseHistorySearchStore
 
-let searchTimeout: string | number | NodeJS.Timeout | null = null;
+const {setTimeoutId, clearTimeoutId} = useTimeout(fetchPurchaseHistorySearch, 800)
+
+const isSearch = ref(false)
 
 watch(searchQuery, (newValue) => {
+  clearTimeoutId()
   if ( newValue !== '') {
-    clearTimeout(searchTimeout)
-    searchTimeout = setTimeout(async () => {
-      await fetchPurchaseHistorySearch(newValue)
-    }, 800)
+    setTimeoutId(newValue)
+    setTimeout(() => {
+      if (foundPurchaseHistories.value.length === 0) isSearch.value = true
+    }, 900)
   } else {
     foundPurchaseHistories.value = []
+    isSearch.value = false
   }
 })
+
+const closeSearchBar = () => {
+  searchQuery.value = ''
+  foundPurchaseHistories.value = []
+}
 </script>
 
 <template>
   <div class="purchase-history-search">
-    <search-bar>
+    <search-bar
+      @close="closeSearchBar"
+    >
       <template #results>
-        <PurchaseHistoryItem
-          v-for="history in foundPurchaseHistories"
-          :key="history.channelId"
-          :item="history"
-          class="purchase-history-search__item"
-        />
+        <template v-if="foundPurchaseHistories.length > 0">
+          <PurchaseHistoryItem
+            v-for="history in foundPurchaseHistories"
+            :key="history.channelId"
+            :item="history"
+            class="purchase-history-search__item"
+          />
+        </template>
+        <div
+            v-if="isSearch && foundPurchaseHistories.length === 0"
+            class="purchase-history-search__not-results"
+        >
+          <span>Нечего не найдено!</span>
+        </div>
       </template>
     </search-bar>
   </div>

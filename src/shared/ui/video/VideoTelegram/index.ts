@@ -1,0 +1,1 @@
+export { default as VideoTelegram } from './VideoTelegram.vue'

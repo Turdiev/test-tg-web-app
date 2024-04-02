@@ -6,7 +6,9 @@ register();
 withDefaults(defineProps<{
   slidesPerView?: number | 'auto',
   spaceBetween?: number,
-  isPagination?: boolean,
+  pagination?: {
+    type: string
+  },
   centeredSlides?: boolean,
 }>(), {
   slidesPerView: 2,
@@ -15,28 +17,23 @@ withDefaults(defineProps<{
   centeredSlides: true,
 })
 
-// const onProgress = (e) => {
-//   const [swiper, progress] = e.detail;
-//   console.log(progress)
-// };
 
-// const onSlideChange = (e) => {
-//   console.log('slide changed')
-// }
+
 </script>
 
 <template>
   <swiper-container
+    id="swiper"
     slides-per-view="auto"
     :space-between="spaceBetween"
     :centered-slides="centeredSlides"
-    :pagination="isPagination"
+    :pagination="pagination"
     class="v-swiper"
   >
     <slot name="swiper-slide"/>
   </swiper-container>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 @import "style";
 </style>

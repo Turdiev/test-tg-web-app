@@ -1,9 +1,10 @@
 <script setup lang="ts">
 
 withDefaults(defineProps<{
-  background?: 'default' | 'blue',
+  title?: string,
+  background?: 'default' | 'blue' | 'blue-light',
   form?: 'square' | 'round',
-  size?: 'medium' | 'small'
+  size?: 'x-large' | 'large' | 'medium' | 'small' | 'extra-small'
 }>(), {
   background: 'default',
   form: 'round',
@@ -20,6 +21,7 @@ withDefaults(defineProps<{
       `image-avatar_${size}`,
     ]"
   >
+    <span v-if="title" >{{ title.charAt(0).toUpperCase() }}</span>
     <slot />
   </div>
 </template>

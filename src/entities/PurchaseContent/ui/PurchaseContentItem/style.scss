@@ -3,6 +3,7 @@
   max-width: 171px;
   min-width: 155px;
   height: 143px;
+  cursor: pointer;
 
   &__body {
     @include flex-column;

@@ -1,0 +1,17 @@
+.bot-empty-content {
+  @include flex-center;
+  width: 100%;
+  height: calc(100vh - 342px);
+  background-color: $style4;
+  border-radius: 16px;
+  padding: 0 49px;
+  margin-bottom: 16px;
+
+  & span {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 21px;
+    color: $style2;
+    text-align: center;
+  }
+}

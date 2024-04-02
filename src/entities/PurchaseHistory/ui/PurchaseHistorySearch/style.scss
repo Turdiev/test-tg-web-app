@@ -1,47 +1,10 @@
-.purchase-history-expenses {
-  @include flex-column;
-  gap: 12px;
-  width: 100%;
-  padding: 16px;
-  border-radius: 12px;
-  background: $style;
-
-  &__tags {
-    @include flex-align-center;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  &__balance {
-    @include flex-column;
-    align-items: flex-start;
-    gap: 4px;
-
-    & span {
-      font-size: 13px;
-      font-weight: 400;
-      line-height: 17px;
-      color: $style3;
+.purchase-history-search {
+    &__item {
     }
 
-    &-calc {
-      @include flex-start-center;
-      gap: 8px;
-      color: $black;
-
-      & p {
-        font-family: 'SF Pro Display', sans-serif;
-        font-size: 25px;
-        font-weight: 500;
-        line-height: 29px;
-      }
-
-      &_total {
-        font-size: 15px;
-        font-weight: 400;
-        line-height: 21px;
-        color: $style3;
-      }
+    &__not-results {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
     }
-  }
 }

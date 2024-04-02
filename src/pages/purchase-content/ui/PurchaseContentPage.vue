@@ -3,11 +3,11 @@
 import {storeToRefs} from 'pinia';
 import {TitleBack, TitleH3} from '@/shared/ui/title';
 import {IconSearch} from '@/shared/ui/icons';
-import {PurchaseContentListing} from "@/widgets/PurchaseContent/PurchaseContentListing";
-import {PurchaseContentSearch} from "@/entities/PurchaseContent/ui";
+import {PurchaseContentListing} from '@/widgets/PurchaseContent/PurchaseContentListing';
+import {PurchaseContentSearch} from '@/entities/PurchaseContent/ui';
 import {pluralize} from '@/shared/lib/helpers';
-import {usePurchaseContentStore} from "@/entities/PurchaseContent/model";
-import {onBeforeMount, onMounted} from "vue";
+import {usePurchaseContentStore} from '@/entities/PurchaseContent/model';
+import {onBeforeMount} from 'vue';
 
 const purchaseContentStorage = usePurchaseContentStore()
 const { fetchPurchaseContentsCount } = purchaseContentStorage

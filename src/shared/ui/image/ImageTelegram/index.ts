@@ -1,0 +1,1 @@
+export { default as ImageTelegram } from './ImageTelegram.vue'

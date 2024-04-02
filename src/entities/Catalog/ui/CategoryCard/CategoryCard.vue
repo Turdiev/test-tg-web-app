@@ -1,10 +1,10 @@
 <script setup lang="ts">
 
 import {CardArrow} from '@/shared/ui/card/CardArrow';
-import type {ICategoryListing} from '@/entities/Catalog';
+import type {ICatalogCategories} from '@/entities/Catalog';
 
 withDefaults(defineProps<{
-  category: ICategoryListing
+  category: ICatalogCategories
 }>(), {
   category() {
     return null
@@ -17,9 +17,9 @@ const emit = defineEmits(['click'])
 
 <template>
   <card-arrow
-    :path="`/catalog/category/${category.name}`"
-    :title="category.title"
-    :amount-channel="category.channels.length"
+    :path="category.channelsCount > 0 ? `/catalog/category/${category.name}` : ''"
+    :title="category.name"
+    :amount-channel="category.channelsCount"
     class="category-card"
     @click="emit('click')"
   />

@@ -28,7 +28,7 @@ onBeforeMount(() => {
     <div class="container">
       <title-back :path="transitionFrom" text-align="center">
         <div class="category-details-page__title">
-          <title-h3>{{ currentCategory.title }}</title-h3>
+          <title-h3>{{ currentCategory.name }}</title-h3>
           <span class="category-details-page__amount-channel">
             {{ pluralize(currentCategory.channels.length, 'канал', 'канала', 'каналов') }}
           </span>

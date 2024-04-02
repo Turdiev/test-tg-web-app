@@ -1,30 +1,26 @@
 <script setup lang="ts">
 
 import {TitleH3} from '@/shared/ui/title';
-import {VCard} from '@/shared/ui/card';
-import {IconArrowRight} from '@/shared/ui/icons';
-import {useSupportStore} from '@/widgets/Support/model/support';
+import {SupportArticlesItem} from '@/entities/Support/ui/SupportArticleItem';
+import {useSupportStore} from '@/entities/Support/model/support';
+import {storeToRefs} from 'pinia';
 
 const supportModel = useSupportStore()
-const { articleList } = supportModel
+const { supportArticleListing } = storeToRefs(supportModel)
+
 </script>
 
 <template>
   <div class="support-articles">
     <title-h3>Статьи</title-h3>
     <div class="support-articles__list">
-      <v-card
-        v-for="item in articleList"
+      <SupportArticlesItem
+        v-for="item in supportArticleListing"
         :key="item.id"
-        :is-link="true"
+        :title="item.title"
         :path="`/support/article/${item.id}`"
         class="support-articles__item"
-      >
-        <div class="support-articles__wrapper">
-          <span>{{ item.title }}</span>
-          <icon-arrow-right />
-        </div>
-      </v-card>
+      />
     </div>
   </div>
 </template>

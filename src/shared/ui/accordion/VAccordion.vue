@@ -18,7 +18,7 @@ const isOpen = ref<boolean>(false)
       class="v-accordion__wrapper"
       @click="isOpen = !isOpen"
     >
-      <title-h3>{{ label }}</title-h3>
+      <title-h3 class="v-accordion__title">{{ label }}</title-h3>
       <div
         class="v-accordion__icon"
         :class="{'v-accordion__icon_rotate': isOpen}"

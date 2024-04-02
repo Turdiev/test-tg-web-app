@@ -1,0 +1,24 @@
+.bot-actions {
+  @include flex-align-center;
+  width: 100%;
+  gap: 8px;
+
+  &__button {
+    height: 36px;
+
+    & span {
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 19px;
+    }
+  }
+
+  &__bookmark {
+    @include flex-center;
+    width: 48px;
+    height: 36px;
+    background: $blue-light;
+    padding: 2px 12px;
+    border-radius: 8px;
+  }
+}

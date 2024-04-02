@@ -84,6 +84,18 @@ export const usePurchaseHistoryStore = defineStore(namespace, () => {
         }
     }
 
+    const fetchPurchaseHistoryPaymentLink  = async (channelId: string) => {
+        try {
+            const {response: response} = await api.getPurchaseHistoryPaymentLink(channelId) as {
+                response: { url: string }
+            }
+
+            return response.url
+        } catch (e) {
+            throw new Error(`ERROR: ${e}`)
+        }
+    }
+
     const getPurchaseHistoryPostDetails = (postId: string) => {
         currentPurchaseHistoryDetails.value = purchaseHistoryData.value.find(history => history.postId === postId)
     }
@@ -109,6 +121,7 @@ export const usePurchaseHistoryStore = defineStore(namespace, () => {
         isLoadingData: isLoading,
         fetchPurchaseHistory,
         getDetailedPurchaseHistory,
-        fetchPurchaseHistoryChannelDetails
+        fetchPurchaseHistoryChannelDetails,
+        fetchPurchaseHistoryPaymentLink
     }
 })

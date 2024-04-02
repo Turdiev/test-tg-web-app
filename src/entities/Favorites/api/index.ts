@@ -5,8 +5,10 @@ const API_ADD_FAVORITES: string = '/api/web-bot/subscriber/bot'
 
 const getFavoritesChannel = async () => {
     try {
-        return await REQUEST('GET', API_FAVORITES, {}
-        )
+        return await REQUEST({
+            method: 'GET',
+            url: API_FAVORITES
+        })
     } catch (e) {
         throw new Error(`ERROR: ${e}`)
     }
@@ -14,8 +16,10 @@ const getFavoritesChannel = async () => {
 
 const changeFavoritesChannel = async (botId: string): Promise<void> => {
     try {
-         return await REQUEST('GET', `${API_ADD_FAVORITES}/${botId}/toggle-favorite`, {}
-        )
+        return await REQUEST({
+            method: 'GET',
+            url: `${API_ADD_FAVORITES}/${botId}/toggle-favorite`
+        })
     } catch (e) {
         throw new Error(`ERROR: ${e}`)
     }

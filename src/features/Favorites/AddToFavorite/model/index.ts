@@ -1,4 +1,4 @@
-import {useFavoritesStore} from "@/entities/Favorites/model";
+import {useFavoritesStore} from '@/entities/Favorites/model';
 
 
 export const useAddToFavorite = () => {

@@ -1,8 +1,7 @@
 <script setup lang="ts">
 
 import {CardArrow} from '@/shared/ui/card/CardArrow';
-import type {IChannelSubscriptions} from '@/entities/Subscriptions/model';
-import type {IFavoritesChannel} from "@/entities/Favorites/model";
+import type {IFavoritesChannel} from '@/entities/Favorites/model';
 
 withDefaults(defineProps<{
   channel: IFavoritesChannel
@@ -18,6 +17,7 @@ const emit = defineEmits(['click', 'click:bookmark'])
 <template>
   <card-arrow
     path="#"
+    image="image"
     :title="channel.username"
     :amount-channel="channel.channelCount"
     :is-bookmark="channel.isFavorite"

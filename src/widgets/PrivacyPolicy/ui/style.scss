@@ -1,6 +1,6 @@
 .privacy-policy {
   width: 100%;
-  background: $style5;
+  background: $bg_color;
   padding-top: 12px;
 
   &__stepper {
@@ -14,10 +14,10 @@
     flex: 1;
     height: 4px;
     border-radius: 90px;
-    background: $blue-light;
+    background: $button_secondary_color;
 
     &_active {
-      background: $blue;
+      background: $button_color;
     }
   }
 

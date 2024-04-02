@@ -6,9 +6,9 @@ import type {
     IPurchaseContentBot,
     IPurchaseContentBotById,
     IPurchaseContentChannel
-} from "@/entities/PurchaseContent/model/types";
-import {api} from "@/entities/PurchaseContent/api";
-import type {RouteParamValue} from "vue-router";
+} from '@/entities/PurchaseContent/model/types';
+import {api} from '@/entities/PurchaseContent/api';
+import type {RouteParamValue} from 'vue-router';
 
 const namespace = 'purchase-content'
 export const usePurchaseContentStore = defineStore(namespace, () => {

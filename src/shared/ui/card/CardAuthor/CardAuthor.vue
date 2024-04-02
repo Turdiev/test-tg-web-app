@@ -2,6 +2,7 @@
 
 import {VCard} from '@/shared/ui/card';
 import {IconArrowRight, IconUser} from '@/shared/ui/icons';
+import {ImageAvatar} from '@/shared/ui/image/ImageAvatar';
 
 withDefaults(defineProps<{
   userName: string
@@ -21,7 +22,10 @@ const emit = defineEmits(['click'])
     @click="emit('click')"
   >
     <div class="card-author__user">
-<!--      <image-avatar background="default" />-->
+      <image-avatar
+        :title="userName"
+        background="blue"
+      />
       <div class="card-author__wrapper">
         <div class="card-author__salesman">
           <icon-user />

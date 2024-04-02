@@ -3,8 +3,8 @@
 import {TitleBack, TitleH3} from '@/shared/ui/title';
 import {storeToRefs} from 'pinia';
 import {pluralize} from '@/shared/lib/helpers';
-import {FavoritesListing} from "@/widgets/Favorites/SubscriptionsListing";
-import {useFavoritesStore} from "@/entities/Favorites/model";
+import {FavoritesListing} from '@/widgets/Favorites/SubscriptionsListing';
+import {useFavoritesStore} from '@/entities/Favorites/model';
 
 const favoritesStorage = useFavoritesStore()
 const { channelFavorites } = storeToRefs(favoritesStorage)

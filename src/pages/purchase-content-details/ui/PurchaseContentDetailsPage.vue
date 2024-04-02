@@ -1,22 +1,21 @@
 <script setup lang="ts">
 
 import {TitleBack} from '@/shared/ui/title';
-import {usePurchaseContentStore} from "@/entities/PurchaseContent/model";
-import {computed, onMounted} from "vue";
-import {useRoute} from "vue-router";
-import {useIsLoading, useLoadingWrap} from "@/shared/lib/use";
-import {VLoader} from "@/shared/ui/loaders";
-import {CardArrow} from "@/shared/ui/card/CardArrow";
-import {storeToRefs} from "pinia";
+import {usePurchaseContentStore} from '@/entities/PurchaseContent/model';
+import {computed, onMounted} from 'vue';
+import {useRoute} from 'vue-router';
+import {useIsLoading} from '@/shared/lib/use';
+import {VLoader} from '@/shared/ui/loaders';
+import {storeToRefs} from 'pinia';
 import PurchaseContentSalesman
-  from "@/entities/PurchaseContent/ui/PurchaseContentSalesman.vue/PurchaseContentSalesman.vue";
-import {PurchaseContentDetailsListing} from "@/widgets/PurchaseContent/PurchaseContentDetailsListing";
-import {AddToFavorite} from "@/features/Favorites/AddToFavorite/ui";
+  from '@/entities/PurchaseContent/ui/PurchaseContentSalesman.vue/PurchaseContentSalesman.vue';
+import {PurchaseContentDetailsListing} from '@/widgets/PurchaseContent/PurchaseContentDetailsListing';
+import {AddToFavorite} from '@/features/Favorites/AddToFavorite/ui';
 
 const router = useRoute()
 
 const purchaseContentStorage = usePurchaseContentStore()
-const { fetchPurchaseContentsBotById, fetchPurchaseContentsBot } = purchaseContentStorage
+const { fetchPurchaseContentsBotById } = purchaseContentStorage
 const { purchaseContentData } = storeToRefs(purchaseContentStorage)
 
 const { isLoading, startLoading, finishLoading } = useIsLoading()

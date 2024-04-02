@@ -38,6 +38,7 @@ const routeToChannel = (link: string) => {
 }
 
 const closeSearchBar = () => {
+  searchQuery.value = ''
   isShowSearchBar.value = false
 }
 </script>

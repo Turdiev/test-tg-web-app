@@ -1,0 +1,58 @@
+.bot-content-post-item {
+  &__media {
+  }
+
+  &__carousel {
+  }
+
+  &__full-text {
+    padding: 0 16px;
+
+    & span {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 21px;
+      color: $style1;
+    }
+  }
+
+  &__item {
+  }
+
+  &__button {
+    width: 100%;
+    margin: 8px 0 40px;
+    padding: 0 16px;
+  }
+
+  &__button-base {
+    height: 40px;
+    padding: 2px 8px 2px 16px;
+  }
+
+  &__button-base-content {
+    @include flex-between-center;
+    width: 100%;
+
+    & span {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 15px;
+      color: $style;
+    }
+  }
+
+  &__button-base-price {
+    width: max-content;
+    background-color: $style1;
+    border-radius: 40px;
+    padding: 4px 9px;
+
+    & span {
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 17.9px;
+      color: $style;
+    }
+  }
+}

@@ -4,8 +4,8 @@ import {storeToRefs} from 'pinia';
 import {onBeforeMount} from 'vue';
 import {useLoadingWrap, useTelegram} from '@/shared/lib/use';
 import {VLoader} from '@/shared/ui/loaders';
-import {FavoritesItem} from "@/entities/Favorites/ui";
-import {useFavoritesStore} from "@/entities/Favorites/model";
+import {FavoritesItem} from '@/entities/Favorites/ui';
+import {useFavoritesStore} from '@/entities/Favorites/model';
 
 const { webApp } = useTelegram()
 

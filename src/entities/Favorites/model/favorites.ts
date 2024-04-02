@@ -2,8 +2,8 @@
 
 import {defineStore} from 'pinia';
 import {ref} from 'vue';
-import {api} from "@/entities/Favorites/api";
-import type {IFavoritesChange, IFavoritesChannel} from "@/entities/Favorites/model/types";
+import {api} from '@/entities/Favorites/api';
+import type {IFavoritesChannel} from '@/entities/Favorites/model/types';
 
 
 const namespace = 'favorites'

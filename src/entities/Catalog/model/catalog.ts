@@ -1,216 +1,108 @@
 import {defineStore} from 'pinia';
-import {ref} from 'vue';
-import type {ICategoryListing} from '@/entities/Catalog';
+import {computed, ref} from 'vue';
+import type {ICatalogCategories, ICatalogChannel, ICategoryListing} from '@/entities/Catalog';
+import {api} from '@/entities/Catalog/api';
 
 const namespace = 'catalog'
 export const useCatalogStore = defineStore(namespace, () => {
     const transitionFrom = ref('')
-    const categoryListing = ref<ICategoryListing[]>([
-        {
-            id: '1',
-            title: 'Дизайн',
-            name: 'design',
-            channels: [
-                {
-                    id: 'channel-1',
-                    title: 'Команда Fidsty',
-                    amount_subscribers: 100,
-                    subscribers: 122,
-                    description: 'Всем приветик, недавно на Fidsty короче зарегистрировался и сейчас тут продаю контент который мне нравится создавать именно для вас, и только на этой площадке) Йоу!',
-                    tags: ['Творчество', 'Дизайн', '18+', 'Motion', 'Инфобизнес', 'Криптовалюта']
-                },
-                {
-                    id: 'channel-2',
-                    title: 'QTIM Private',
-                    amount_subscribers: 200,
-                    subscribers: 122,
-                    description: 'Всем приветик, недавно на Fidsty короче зарегистрировался и сейчас тут продаю контент который мне нравится создавать именно для вас, и только на этой площадке) Йоу!',
-                    tags: ['Творчество', 'Дизайн', '18+', 'Motion', 'Инфобизнес', 'Криптовалюта']
-                },
-                {
-                    id: 'channel-3',
-                    title: 'Союз дизайнеров России',
-                    amount_subscribers: 3300,
-                    subscribers: 122,
-                    description: 'Всем приветик, недавно на Fidsty короче зарегистрировался и сейчас тут продаю контент который мне нравится создавать именно для вас, и только на этой площадке) Йоу!',
-                    tags: ['Творчество', 'Дизайн', '18+', 'Motion', 'Инфобизнес', 'Криптовалюта']
-                },
-                {
-                    id: 'channel-4',
-                    title: 'Ilyas Aitkulov Official 18+',
-                    amount_subscribers: 1300,
-                    subscribers: 122,
-                    description: 'Всем приветик, недавно на Fidsty короче зарегистрировался и сейчас тут продаю контент который мне нравится создавать именно для вас, и только на этой площадке) Йоу!',
-                    tags: ['Творчество', 'Дизайн', '18+', 'Motion', 'Инфобизнес', 'Криптовалюта']
-                },
-                {
-                    id: 'channel-5',
-                    title: 'Ilyas Aitkulov Official 18+',
-                    amount_subscribers: 1300,
-                    subscribers: 122,
-                    description: 'Всем приветик, недавно на Fidsty короче зарегистрировался и сейчас тут продаю контент который мне нравится создавать именно для вас, и только на этой площадке) Йоу!',
-                    tags: ['Творчество', 'Дизайн', '18+', 'Motion', 'Инфобизнес', 'Криптовалюта']
-                }
-            ]
-        },
-        {
-            id: '2',
-            title: '3D-графика',
-            name: '3D-graphics',
-            channels: [
-                {
-                    id: 'channel-1',
-                    title: 'Команда Fidsty',
-                    amount_subscribers: 100,
-                    subscribers: 122,
-                    description: 'Всем приветик, недавно на Fidsty короче зарегистрировался и сейчас тут продаю контент который мне нравится создавать именно для вас, и только на этой площадке) Йоу!',
-                    tags: ['Творчество', 'Дизайн', '18+', 'Motion', 'Инфобизнес', 'Криптовалюта']
-                },
-                {
-                    id: 'channel-2',
-                    title: 'QTIM Private',
-                    amount_subscribers: 200,
-                    subscribers: 122,
-                    description: 'Всем приветик, недавно на Fidsty короче зарегистрировался и сейчас тут продаю контент который мне нравится создавать именно для вас, и только на этой площадке) Йоу!',
-                    tags: ['Творчество', 'Дизайн', '18+', 'Motion', 'Инфобизнес', 'Криптовалюта']
-                },
-                {
-                    id: 'channel-3',
-                    title: 'Союз дизайнеров России',
-                    amount_subscribers: 3300,
-                    subscribers: 122,
-                    description: 'Всем приветик, недавно на Fidsty короче зарегистрировался и сейчас тут продаю контент который мне нравится создавать именно для вас, и только на этой площадке) Йоу!',
-                    tags: ['Творчество', 'Дизайн', '18+', 'Motion', 'Инфобизнес', 'Криптовалюта']
-                },
-                {
-                    id: 'channel-4',
-                    title: 'Ilyas Aitkulov Official 18+',
-                    amount_subscribers: 1300,
-                    subscribers: 122,
-                    description: 'Всем приветик, недавно на Fidsty короче зарегистрировался и сейчас тут продаю контент который мне нравится создавать именно для вас, и только на этой площадке) Йоу!',
-                    tags: ['Творчество', 'Дизайн', '18+', 'Motion', 'Инфобизнес', 'Криптовалюта']
-                },
-                {
-                    id: 'channel-4',
-                    title: 'Ilyas Aitkulov Official 18+',
-                    amount_subscribers: 1300,
-                    subscribers: 122,
-                    description: 'Всем приветик, недавно на Fidsty короче зарегистрировался и сейчас тут продаю контент который мне нравится создавать именно для вас, и только на этой площадке) Йоу!',
-                    tags: ['Творчество', 'Дизайн', '18+', 'Motion', 'Инфобизнес', 'Криптовалюта']
-                }
-            ]
-        },
-        {
-            id: '3',
-            title: 'Motion Design',
-            name: 'motion-design',
-            channels: [
-                {
-                    id: 'channel-1',
-                    title: 'Команда Fidsty',
-                    amount_subscribers: 100,
-                    subscribers: 122,
-                    description: 'Всем приветик, недавно на Fidsty короче зарегистрировался и сейчас тут продаю контент который мне нравится создавать именно для вас, и только на этой площадке) Йоу!',
-                    tags: ['Творчество', 'Дизайн', '18+']
-                },
-                {
-                    id: 'channel-2',
-                    title: 'QTIM Private',
-                    amount_subscribers: 200,
-                    subscribers: 122,
-                    description: 'Всем приветик, недавно на Fidsty короче зарегистрировался и сейчас тут продаю контент который мне нравится создавать именно для вас, и только на этой площадке) Йоу!',
-                    tags: ['Творчество', 'Дизайн', '18+', 'Motion', 'Инфобизнес', 'Криптовалюта']
-                },
-                {
-                    id: 'channel-3',
-                    title: 'Союз дизайнеров России',
-                    amount_subscribers: 3300,
-                    subscribers: 122,
-                    description: 'Всем приветик, недавно на Fidsty короче зарегистрировался и сейчас тут продаю контент который мне нравится создавать именно для вас, и только на этой площадке) Йоу!',
-                    tags: [ 'Motion', 'Инфобизнес', 'Криптовалюта']
-                },
-                {
-                    id: 'channel-4',
-                    title: 'Ilyas Aitkulov Official 18+',
-                    amount_subscribers: 1300,
-                    subscribers: 122,
-                    description: 'Всем приветик, недавно на Fidsty короче зарегистрировался и сейчас тут продаю контент который мне нравится создавать именно для вас, и только на этой площадке) Йоу!',
-                    tags: ['Творчество', 'Motion', 'Инфобизнес', 'Криптовалюта']
-                },
-                {
-                    id: 'channel-4',
-                    title: 'Ilyas Aitkulov Official 18+',
-                    amount_subscribers: 1300,
-                    subscribers: 122,
-                    description: 'Всем приветик, недавно на Fidsty короче зарегистрировался и сейчас тут продаю контент который мне нравится создавать именно для вас, и только на этой площадке) Йоу!',
-                    tags: ['Творчество', 'Motion', 'Инфобизнес', 'Криптовалюта']
-                },
-                {
-                    id: 'channel-4',
-                    title: 'Ilyas Aitkulov Official 18+',
-                    amount_subscribers: 1300,
-                    subscribers: 122,
-                    description: 'Всем приветик, недавно на Fidsty короче зарегистрировался и сейчас тут продаю контент который мне нравится создавать именно для вас, и только на этой площадке) Йоу!',
-                    tags: ['Творчество', 'Motion', 'Инфобизнес', 'Криптовалюта']
-                }
-            ]
-        },
-        {
-            id: '4',
-            title: '18+Sensitive Content',
-            name: '18+-Sensitive Content',
-            channels: [
-                {
-                    id: 'channel-1',
-                    title: 'Команда Fidsty',
-                    amount_subscribers: 100,
-                    subscribers: 122,
-                    description: 'Всем приветик, недавно на Fidsty короче зарегистрировался и сейчас тут продаю контент который мне нравится создавать именно для вас, и только на этой площадке) Йоу!',
-                    tags: ['18+', 'Motion', 'Инфобизнес', 'Криптовалюта']
-                },
-                {
-                    id: 'channel-2',
-                    title: 'QTIM Private',
-                    amount_subscribers: 200,
-                    subscribers: 122,
-                    description: 'Всем приветик, недавно на Fidsty короче зарегистрировался и сейчас тут продаю контент который мне нравится создавать именно для вас, и только на этой площадке) Йоу!',
-                    tags: ['Творчество', 'Дизайн', 'Инфобизнес', 'Криптовалюта']
-                },
-                {
-                    id: 'channel-3',
-                    title: 'Союз дизайнеров России',
-                    amount_subscribers: 3300,
-                    subscribers: 122,
-                    description: 'Всем приветик, недавно на Fidsty короче зарегистрировался и сейчас тут продаю контент который мне нравится создавать именно для вас, и только на этой площадке) Йоу!',
-                    tags: ['Творчество', 'Дизайн', '18+', 'Motion', 'Инфобизнес', 'Криптовалюта']
-                },
-                {
-                    id: 'channel-4',
-                    title: 'Ilyas Aitkulov Official 18+',
-                    amount_subscribers: 1300,
-                    subscribers: 122,
-                    description: 'Всем приветик, недавно на Fidsty короче зарегистрировался и сейчас тут продаю контент который мне нравится создавать именно для вас, и только на этой площадке) Йоу!',
-                    tags: ['Творчество', 'Дизайн', '18+', 'Motion', 'Инфобизнес', 'Криптовалюта']
-                },
-                {
-                    id: 'channel-4',
-                    title: 'Ilyas Aitkulov Official 18+',
-                    amount_subscribers: 1300,
-                    subscribers: 122,
-                    description: 'Всем приветик, недавно на Fidsty короче зарегистрировался и сейчас тут продаю контент который мне нравится создавать именно для вас, и только на этой площадке) Йоу!',
-                    tags: ['Творчество', 'Дизайн', '18+', 'Motion', 'Инфобизнес', 'Криптовалюта']
-                }
-            ]
-        },
-    ])
+    const channelsListing = ref<ICatalogChannel[]>([])
+    const foundChannelsListing = ref<ICatalogChannel[]>([])
+    const categoriesListing = ref<ICatalogCategories[]>([])
 
-    const getCurrentCategory = (name: string): ICategoryListing => {
-        return categoryListing.value.find((category: ICategoryListing) => category.name === name )
+
+    const creationOfCatalogs = computed<ICategoryListing[]>(() => {
+        return channelsListing.value?.reduce((acc: ICategoryListing[], curr: ICatalogChannel) => {
+            const currentCategory = curr.category
+            const findCategory: ICategoryListing | undefined = acc.find((item: ICategoryListing) => {
+                return item.id === currentCategory?.id || item.id === 'other'
+            });
+
+            if (findCategory) {
+                findCategory.channels.push(curr);
+            } else {
+                if (currentCategory && currentCategory.id) {
+                    acc?.push({
+                        id: currentCategory.id,
+                        name: currentCategory.name,
+                        channels: [curr]
+                    });
+                } else {
+                    acc?.push({
+                        id: 'other',
+                        name: 'Прочее',
+                        channels: [curr]
+                    });
+                }
+
+            }
+
+            return acc
+        }, [])
+    })
+
+    const fetchCatalogChannel = async () => {
+        try {
+            const {response: response} = await api.getCatalogChannel() as {
+                response: { results: ICatalogChannel[] }
+            }
+
+            channelsListing.value = response.results
+        } catch (e) {
+            throw new Error(`ERROR: ${e}`)
+        }
+    }
+
+    const fetchCatalogCategories = async () => {
+        try {
+            const {response: response} = await api.getCatalogCategories() as {
+                response: ICatalogCategories[]
+            }
+
+            categoriesListing.value = response
+        } catch (e) {
+            throw new Error(`ERROR: ${e}`)
+        }
+    }
+
+    const fetchCatalogChannelByCategoryId = async (categoryId: string) => {
+        try {
+            const {response: response} = await api.getCatalogCategories(categoryId) as {
+                response: ICatalogCategories[]
+            }
+
+            categoriesListing.value = response
+        } catch (e) {
+            throw new Error(`ERROR: ${e}`)
+        }
+    }
+
+    const fetchSearchCatalogChannel = async (searchQuery: string) => {
+        try {
+            const {response: response} = await api.getSearchCatalogChannel(searchQuery) as {
+                response: { results: ICatalogChannel[] }
+            }
+
+            foundChannelsListing.value = response.results
+        } catch (e) {
+            throw new Error(`ERROR: ${e}`)
+        }
+    }
+
+    const getCurrentCategory = (name: string | string[]): ICategoryListing => {
+        return creationOfCatalogs.value.find((category: ICategoryListing) => category.name === name )
     }
 
     return {
-        categoryListing,
+        channelsListing,
+        categoriesListing,
         transitionFrom,
-        getCurrentCategory
+        creationOfCatalogs,
+        foundChannelsListing,
+        getCurrentCategory,
+        fetchCatalogChannel,
+        fetchCatalogCategories,
+        fetchCatalogChannelByCategoryId,
+        fetchSearchCatalogChannel
     }
 })

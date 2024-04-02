@@ -15,6 +15,7 @@ const { webApp } = useTelegram()
 
 const purchaseHistoryStore = usePurchaseHistoryStore()
 const { currentPurchaseHistoryDetails } = storeToRefs(purchaseHistoryStore)
+const { fetchPurchaseHistoryPaymentLink } = purchaseHistoryStore
 
 const accessTo = computed(() => {
   return currentPurchaseHistoryDetails.value?.type === 'SINGLE_POST' ? 'Доступ к контенту' : 'Доступ к закрытому каналу'
@@ -27,8 +28,9 @@ const subscriberChannel = computed(() => {
   return currentPurchaseHistoryDetails.value?.subscribers[0]
 })
 
-const handleRenewSubscription = (paymentLink: string) => {
-  window.open(paymentLink, '_blank');
+const handleRenewSubscription = async (channelId: string) => {
+  const paymentLink = await fetchPurchaseHistoryPaymentLink(channelId)
+  webApp.openLink(paymentLink)
 }
 
 const openTelegramLink = (link: string) => {
@@ -72,9 +74,9 @@ const openTelegramLink = (link: string) => {
       <div class="purchase-history-details__content-price">
         <div class="purchase-history-details__content-price-wrap">
           <image-avatar
-            background="blue"
+            background="blue-light"
             form="square"
-            size="small"
+            size="extra-small"
           >
             <icon-coins />
           </image-avatar>
@@ -93,7 +95,7 @@ const openTelegramLink = (link: string) => {
         <span>Доступно до {{ formatDateTime(subscriberChannel?.dateEnd).split('в')[0] }}</span>
         <div
           class="purchase-history-details__content-button"
-          @click="handleRenewSubscription(currentPurchaseHistoryDetails.paymentLink)"
+          @click="handleRenewSubscription(currentPurchaseHistoryDetails.id)"
         >
           <span>Продлить</span>
           <icon-arrow-right />
@@ -106,9 +108,9 @@ const openTelegramLink = (link: string) => {
     >
       <div class="purchase-history-details__data-wrapper">
         <image-avatar
-            background="blue"
-            form="square"
-            size="small"
+          background="blue-light"
+          form="square"
+          size="extra-small"
         >
           <icon-calendar />
         </image-avatar>
@@ -122,9 +124,9 @@ const openTelegramLink = (link: string) => {
     >
       <div class="purchase-history-details__status-wrapper">
         <image-avatar
-          background="blue"
+          background="blue-light"
           form="square"
-          size="small"
+          size="extra-small"
         >
           <icon-credit-card />
         </image-avatar>

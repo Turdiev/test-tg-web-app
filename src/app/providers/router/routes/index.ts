@@ -8,8 +8,9 @@ import { purchaseHistoryRoute, purchaseHistoryDetailsRoute } from './purchase-hi
 import { route as subscriptionsRoute } from './subscriptions'
 import { route as favoritesRoute } from './favorites'
 import { purchaseContentRoute, purchaseContentDetailsRoute } from './purchase-content'
+import { botRoute, botAuthorChannelsRoute, botPostDetailsRoute } from './bot'
 
-export const routes: readonly RouteRecordRaw[] = [
+const mainRoutes: RouteRecordRaw[] = [
     mainRoute,
     catalogRoute,
     categoryRoute,
@@ -23,5 +24,26 @@ export const routes: readonly RouteRecordRaw[] = [
     subscriptionsRoute,
     favoritesRoute,
     purchaseContentRoute,
-    purchaseContentDetailsRoute
+    purchaseContentDetailsRoute,
+]
+
+const botRoutes: RouteRecordRaw[] = [
+    botRoute,
+    botAuthorChannelsRoute,
+    botPostDetailsRoute
+]
+
+export const routes: readonly RouteRecordRaw[] = [
+    {
+        path: '/',
+        name: 'MainLayout',
+        component: () => import('@/shared/ui/layouts/MainLayout'),
+        children: mainRoutes
+    },
+    {
+        path: '/',
+        name: 'BotLayout',
+        component: () => import('@/shared/ui/layouts/BotLayout'),
+        children: botRoutes
+    }
 ] as const

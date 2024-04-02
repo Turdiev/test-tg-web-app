@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
-import type {IPurchaseContentBotById} from "@/entities/PurchaseContent/model";
-import {CardArrow} from "@/shared/ui/card/CardArrow";
+import type {IPurchaseContentBotById} from '@/entities/PurchaseContent/model';
+import {CardArrow} from '@/shared/ui/card/CardArrow';
 
 withDefaults(defineProps<{
   content: IPurchaseContentBotById,

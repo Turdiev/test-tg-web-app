@@ -1,0 +1,24 @@
+.bot-author-channel-listing {
+  &__content {
+    @include flex-justify-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 10px;
+  }
+
+  &__item {
+
+  }
+
+  &__not-subscribers {
+    @include flex-center;
+    width: 100%;
+    height: calc(100vh - 154px);
+
+    & span {
+      font-size: 16px;
+      font-weight: 500;
+      color: $style1;
+    }
+  }
+}

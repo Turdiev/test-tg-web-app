@@ -1,21 +1,20 @@
 <script setup lang="ts">
 
 import {TitleBack, TitleH3} from '@/shared/ui/title';
-import {VAccordion} from '@/shared/ui/accordion';
-import {SupportStillQuestions} from '@/widgets/Support';
+import {VLoader} from '@/shared/ui/loaders';
+import {useLoadingWrap} from '@/shared/lib/use';
+import {useSupportStore} from '@/entities/Support/model/support';
+import SupportFaqListing from '@/widgets/Support/ui/SupportFaqListing/SupportFaqListing.vue';
+import {onBeforeMount} from 'vue';
 
-const faqList = [
-  {
-    id: '1',
-    title: 'Can I change my plan later?',
-    text: 'Yes, you can try us for free for 30 days. If you want, we’ll provide you with a free, personalized 30-minute onboarding call to get you up and running as soon as possible.'
-  },
-  {
-    id: '2',
-    title: 'Can I change my plan later?',
-    text: 'Yes, you can try us for free for 30 days. If you want, we’ll provide you with a free, personalized 30-minute onboarding call to get you up and running as soon as possible.'
-  }
-]
+const supportStorage = useSupportStore()
+const { fetchSupportsQuestions } = supportStorage
+
+const { isLoading, runWithLoading } = useLoadingWrap()
+
+onBeforeMount(() => {
+  runWithLoading(fetchSupportsQuestions)
+})
 
 </script>
 
@@ -25,17 +24,12 @@ const faqList = [
       <title-back path="/support" text-align="center">
         <title-h3>FAQ</title-h3>
       </title-back>
-      <div class="support-faq-page__list">
-        <v-accordion
-          v-for="item in faqList"
-          :key="item.id"
-          :label="item.title"
-          class="support-faq-page__item"
-        >
-          {{ item.text }}
-        </v-accordion>
-      </div>
-      <SupportStillQuestions />
+
+      <v-loader v-model="isLoading"/>
+
+      <SupportFaqListing v-if="!isLoading"/>
+
+<!--      <SupportStillQuestions />-->
     </div>
   </div>
 </template>

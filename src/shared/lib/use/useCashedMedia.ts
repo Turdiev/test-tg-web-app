@@ -10,7 +10,6 @@ export const useCachedMediaStore = defineStore('media-cash', () => {
     const cachedMedia = ref<CachedMedia[]>([])
 
     const setCachedMedia = (media: CachedMedia) => {
-        console.log('media', media)
         cachedMedia.value.push(media)
     }
 

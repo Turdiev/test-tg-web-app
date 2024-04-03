@@ -4,7 +4,7 @@ export function useTelegram() {
     const initData = webApp.initData
     const onClose = () => {
         console.log('close')
-        tg.close()
+        webApp.close()
     }
 
     return {

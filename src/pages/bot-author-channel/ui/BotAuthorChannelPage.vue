@@ -27,7 +27,7 @@ onBeforeMount(async () => {
 <template>
   <div class="bot-author-channel-page">
     <div class="container">
-      <title-back :path="`/bot/${botUsername}?channelId=${channelId}`" text-align="center">
+      <title-back :path="`/bot/${botUsername}`" text-align="center">
         <div class="bot-author-channel-page__title">
           <title-h3>Каналы автора</title-h3>
           <span class="bot-author-channel-page__amount-channel">

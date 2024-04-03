@@ -71,7 +71,7 @@ const definitionWord = computed(() => {
             v-else
             class="card-arrow__details"
           >
-            <span class="card-arrow__text card-arrow__text_color">{{ price }} ₽</span>
+            <span class="card-arrow__text card-arrow__text_color">{{ price }} $</span>
             <span class="card-arrow__text">{{ channelName }}</span>
           </div>
         </div>
@@ -80,7 +80,7 @@ const definitionWord = computed(() => {
         <div
           v-if="isBookmark"
           class="card-arrow__icons"
-          @click="emit('click:bookmark')"
+          @click="emit('click:bookmark', $event)"
         >
           <icon-bookmark />
         </div>

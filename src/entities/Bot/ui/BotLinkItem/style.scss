@@ -1,0 +1,12 @@
+.bot-link-item {
+  @include flex-center;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  background-color: $secondary_bg_color;
+
+  &__icon {
+    width: 16px;
+    height: 16px;
+  }
+}

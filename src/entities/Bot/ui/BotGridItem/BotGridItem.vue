@@ -35,11 +35,6 @@ const mediaPost = computed(() => {
     :to="`/bot/${botUsername}/post/${post.id}`"
     class="bot-grid-item"
   >
-<!--    <img-->
-<!--      v-if="mediaPost && mediaPost.type === 'IMAGE'"-->
-<!--      :src="mediaPost.telegramObject?.stripped"-->
-<!--      :alt="mediaPost.name"-->
-<!--    />-->
     <image-telegram
       v-if="mediaPost && mediaPost.type === 'IMAGE'"
       :hash="mediaPost.telegramObject?.hash"

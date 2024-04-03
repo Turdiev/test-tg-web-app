@@ -44,14 +44,14 @@ const byuPostChannel = async (postId: string) => {
 </script>
 
 <template>
-  <div class="bot-page">
+  <div class="bot-post-details-page">
     <BotHeader
       :back-path="`/bot/${botUsername}`"
       label-header="Назад"
-      class="bot-page__header"
+      class="bot-post-details-page__header"
     />
 
-    <div class="bot-page__content">
+    <div class="bot-post-details-page__content">
       <v-loader v-model="isLoading"/>
 
       <BotContentPostItem
@@ -59,7 +59,7 @@ const byuPostChannel = async (postId: string) => {
         :post="currentChannelPost"
         :channel-name="influenceBotInformation.name"
         :author-username="`${informationAuthorInfluenceBot?.firstName || ''} ${informationAuthorInfluenceBot?.lastName || ''}`"
-        class="bot-content__post-item"
+        class="bot-post-details-page__post-item"
         @click="byuPostChannel(currentChannelPost.id)"
       />
     </div>

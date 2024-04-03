@@ -28,7 +28,6 @@ const currentVideoCache = computed(() => {
 })
 
 onBeforeMount(async () => {
-  console.log('chash', currentVideoCache.value)
   if (currentVideoCache.value) {
     mediaDataImage.value = currentVideoCache.value.src
   } else {

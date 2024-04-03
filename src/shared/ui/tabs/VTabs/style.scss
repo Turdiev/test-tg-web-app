@@ -4,8 +4,8 @@
   padding: 4px;
   height: 40px;
   border-radius: 8px;
-  border: 1px solid rgba(141, 146, 154, 0.10);
-  background: $style4;
+  border: 1px solid $hint_color;
+  background: $secondary_bg_color;
 
   &__tab {
     cursor: pointer;
@@ -17,7 +17,7 @@
     justify-content: center;
     align-items: center;
     gap: 8px;
-    color: $style3;
+    color: $hint_color;
 
     &-icon {
       width: 16px;
@@ -25,8 +25,8 @@
     }
 
     &--active {
-      background: $style;
-      color: $style2;
+      background: $bg_color;
+      color: $text_color;
     }
   }
 }

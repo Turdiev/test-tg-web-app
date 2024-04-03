@@ -2,7 +2,7 @@
   @include flex-center;
   width: 100%;
   height: calc(100vh - 342px);
-  background-color: $style4;
+  background-color: $secondary_bg_color;
   border-radius: 16px;
   padding: 0 49px;
   margin-bottom: 16px;
@@ -11,7 +11,7 @@
     font-size: 15px;
     font-weight: 400;
     line-height: 21px;
-    color: $style2;
+    color: $hint_color;
     text-align: center;
   }
 }

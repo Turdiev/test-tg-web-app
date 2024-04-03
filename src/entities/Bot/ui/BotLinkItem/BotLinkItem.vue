@@ -13,10 +13,13 @@ const emit = defineEmits(['click'])
 
 <template>
   <div
-    class="bot-link"
+    class="bot-link-item"
     @click="emit('click')"
   >
-    <component :is="link.icon" />
+    <component
+      :is="link.icon"
+      class="bot-link__icon"
+    />
   </div>
 </template>
 

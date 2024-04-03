@@ -7,7 +7,6 @@ const API_WEB_BOT_INFLUENCE_BOT_TOGGLE_FAVORITE : string = `${API_WEB_BOT_INFLUE
 
 const getBotInfluenceInfoBot = async (botUsername: string) => {
     try {
-        console.log('bot', botUsername)
         return await REQUEST({
             method:'GET',
             url: API_WEB_BOT_INFLUENCE_BOT,

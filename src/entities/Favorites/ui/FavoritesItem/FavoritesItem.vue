@@ -23,7 +23,7 @@ const emit = defineEmits(['click', 'click:bookmark'])
     :is-bookmark="channel.isFavorite"
     class="favorites-item"
     @click="emit('click')"
-    @click:bookmark="emit('click:bookmark')"
+    @click:bookmark="emit('click:bookmark', $event)"
   />
 </template>
 

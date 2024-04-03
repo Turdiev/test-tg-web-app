@@ -27,8 +27,9 @@ const routeToChannel = (link: string) => {
   }
 }
 
-const handleBookmark = () => {
+const handleBookmark = (event: Event) => {
   // TODO добавить логику удаления из избранного
+  event.stopPropagation()
 }
 </script>
 
@@ -43,7 +44,7 @@ const handleBookmark = () => {
         :channel="channel"
         class="favorites-listing__item"
         @click="routeToChannel(channel.referralLink)"
-        @click:bookmark="handleBookmark"
+        @click:bookmark="handleBookmark($event)"
       />
     </template>
     <div

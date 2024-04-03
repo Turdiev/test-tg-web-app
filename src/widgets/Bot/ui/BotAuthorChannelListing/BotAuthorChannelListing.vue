@@ -50,7 +50,7 @@ const showModal = (channel: InfluenceBotChannel) => {
           v-if="allInfluenceBotChannels.length === 0"
           class="bot-author-channel-listing__not-subscribers"
       >
-        <span>Нет каналов!</span>
+        <span>Автор не привязал еще ни один канал к своему профилю Fidsty</span>
       </div>
     </div>
   </div>

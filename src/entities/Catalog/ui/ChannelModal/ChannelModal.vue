@@ -6,6 +6,7 @@ import {ButtonBase} from '@/shared/ui/button/ButtonBase';
 import {ImageAvatar} from '@/shared/ui/image/ImageAvatar';
 import {pluralize} from '@/shared/lib/helpers';
 import {useTelegram} from '@/shared/lib/use';
+import {router} from "@/app/providers";
 
 const props = defineProps<{
   channel: ICatalogChannel,
@@ -15,16 +16,19 @@ const emit = defineEmits<{
   (e: 'update:modelValue', modelValue: boolean): void
 }>()
 
-const { webApp } = useTelegram()
+const { webApp, onClose } = useTelegram()
 
 const goToBotPage = () => {
   emit('update:modelValue', false)
-  const link = `https://t.me/${props.channel.botAdmin.username}?start=webapp`
-  webApp.openTelegramLink(link)
+  // const link = `https://t.me/${props.channel.botAdmin.username}?start=webapp`
+  // webApp.openTelegramLink(link)
+
+  router.push(`/bot/${props.channel.botAdmin.username}`)
 }
 
 const goToChannel = () => {
   webApp.openTelegramLink(props.channel.link)
+  onClose()
 }
 
 </script>

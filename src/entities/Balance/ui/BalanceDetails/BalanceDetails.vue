@@ -1,5 +1,11 @@
 <script setup lang="ts">
 
+import {useProfileStore} from "@/entities/Balance/model";
+import {storeToRefs} from "pinia";
+import {CurrencyType} from "@/shared/types";
+
+const balanceStorage = useProfileStore()
+const { profileInfo } = storeToRefs(balanceStorage)
 </script>
 
 <template>
@@ -10,7 +16,7 @@
           Fidsty-баланс
         </h2>
         <div class="balance-details__amount">
-          <span>999 999 ₽</span>
+          <span>{{ profileInfo.balance?.amount }} {{ CurrencyType.USD }}</span>
         </div>
       </div>
       <div class="balance-details__actions">

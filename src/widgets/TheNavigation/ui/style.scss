@@ -5,7 +5,6 @@
   background: $secondary_bg_color;
   width: 100%;
   min-height: 84px;
-  //border-top: 1px solid $style3;
 
   & ul {
     @include flex-between-center;

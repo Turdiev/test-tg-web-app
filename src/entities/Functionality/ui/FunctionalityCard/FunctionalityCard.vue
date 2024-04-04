@@ -2,6 +2,9 @@
 
 import {VCard} from '@/shared/ui/card';
 import type {FunctionalityList} from '@/entities/Functionality';
+import {useTelegram} from "@/shared/lib/use";
+
+const { themeTelegram } = useTelegram()
 
 withDefaults(defineProps<{
   card: FunctionalityList
@@ -18,7 +21,7 @@ withDefaults(defineProps<{
     :is-link="true"
     :path="card.path"
     class="functionality-card"
-    :class="`functionality-card_${card.type} functionality-card_gradient`"
+    :class="`functionality-card_${card.type} functionality-card_gradient-${themeTelegram}`"
   >
     <div class="functionality-card__component">
       <component

@@ -14,9 +14,15 @@
     border-radius: 12px;
   }
 
-  &_gradient {
+  &_gradient-light {
     &:before {
-      background-image: url("@/shared/assets/image/gradient-card.png");
+      background-image: url("@/shared/assets/image/gradient-card-light.png");
+    }
+  }
+
+  &_gradient-dark {
+    &:before {
+      background-image: url("@/shared/assets/image/gradient-card-dark.png");
     }
   }
 

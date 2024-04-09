@@ -5,9 +5,9 @@ import {onMounted} from "vue";
 
 const { webApp } = useTelegram()
 
-onMounted(() => {
-  webApp.MainButton.show()
-})
+// onMounted(() => {
+//   webApp.MainButton.show()
+// })
 </script>
 
 <template>

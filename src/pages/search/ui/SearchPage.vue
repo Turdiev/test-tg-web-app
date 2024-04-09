@@ -12,7 +12,15 @@ const { webApp } = useTelegram()
 
 <template>
   <div class="params">
-    {{ webApp.themeParams }}
+    <p>themeParams: {{ webApp.themeParams }}</p>
+  </div>
+  <div>
+    <p>colorScheme: {{ webApp.colorScheme }}</p>
+    <p>backgroundColor: {{ webApp.backgroundColor }}</p>
+    <p>headerColor: {{ webApp.headerColor }}</p>
+    <p>viewportHeight: {{ webApp.viewportHeight }}</p>
+    <p>viewportHeight: {{ webApp.viewportHeight }}</p>
+    <p>viewportStableHeight: {{ webApp.viewportStableHeight }}</p>
   </div>
 </template>
 

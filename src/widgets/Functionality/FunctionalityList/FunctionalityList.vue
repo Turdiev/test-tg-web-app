@@ -8,7 +8,7 @@ const functionalityList: FunctionalityList[] = [
   {
     title: 'Поиск',
     description: 'по авторам',
-    path: '/',
+    path: '/search',
     type: 'search',
     icon: IconSearch
   },

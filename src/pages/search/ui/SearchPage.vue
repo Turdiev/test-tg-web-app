@@ -6,7 +6,7 @@ import {onMounted} from "vue";
 const { webApp } = useTelegram()
 
 onMounted(() => {
-  webApp.MainButton.isVisible = true
+  webApp.MainButton.show()
 })
 </script>
 

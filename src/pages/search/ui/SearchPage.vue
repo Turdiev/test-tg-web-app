@@ -1,8 +1,13 @@
 <script setup lang="ts">
 
 import {useTelegram} from "@/shared/lib/use";
+import {onMounted} from "vue";
 
 const { webApp } = useTelegram()
+
+onMounted(() => {
+  webApp.MainButton.isVisible = true
+})
 </script>
 
 <template>

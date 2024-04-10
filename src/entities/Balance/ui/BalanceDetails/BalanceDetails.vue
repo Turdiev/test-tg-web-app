@@ -36,7 +36,7 @@ onMounted(() => {
 })
 
 const show = () => {
-  webApp.showPopup()
+  webApp.showPopup({ title: 'DIldo', message: 'все гуд' })
 }
 </script>
 

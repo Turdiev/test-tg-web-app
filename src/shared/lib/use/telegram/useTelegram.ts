@@ -12,7 +12,7 @@ export function useTelegram() {
         console.log('bg_color', webApp.themeParams.bg_color)
         console.log('bg_colorBol', webApp.themeParams.bg_color === `#18222d`)
         console.log('bg_colorBol', typeof webApp.themeParams.bg_color, typeof `#18222d`)
-        return webApp.themeParams && webApp.themeParams.bg_color !== '#18222d' ? '#303d4f' : ''
+        return webApp.themeParams && webApp.themeParams.bg_color === '#18222d' ? '#303d4f' : ''
     })
     const onClose = () => {
         console.log('close')

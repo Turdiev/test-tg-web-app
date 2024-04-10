@@ -13,14 +13,16 @@ const { handleNavigation, navigationItems } = navigationStore
 </script>
 
 <template>
-  <nav class="navigation">
+  <nav
+      class="navigation"
+      :style="{ backgroundColor: darkThemeBgColor }"
+  >
     <ul>
       <li
         v-for="item in navigationItems"
         :key="item.name"
         class="navigation__item"
         :class="{'navigation__item_active': item.name === activeNav}"
-        :style="{ backgroundColor: darkThemeBgColor }"
         @click="handleNavigation(item.name)"
       >
         <router-link :to="item.path">

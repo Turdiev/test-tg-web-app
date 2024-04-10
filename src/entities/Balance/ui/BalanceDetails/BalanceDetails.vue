@@ -4,12 +4,14 @@ import {useProfileStore} from "@/entities/Balance/model";
 import {storeToRefs} from "pinia";
 import {CurrencyType} from "@/shared/types";
 import {useTelegram} from "@/shared/lib/use";
-import {onMounted, watch} from "vue";
+import {onMounted, ref, watch} from "vue";
 
 const { webApp, viewportHeightTelegram, viewportStableHeightTelegram  } = useTelegram()
 
 const balanceStorage = useProfileStore()
 const { profileInfo } = storeToRefs(balanceStorage)
+
+const mount = ref('dildo')
 
 watch([viewportHeightTelegram, viewportStableHeightTelegram], (val1, val2) => {
   console.log('change')
@@ -21,7 +23,10 @@ watch([viewportHeightTelegram, viewportStableHeightTelegram], (val1, val2) => {
 })
 
 onMounted(() => {
+  mount.value = 'is dildo'
+
   webApp.onEvent('viewportChanged', (event) => {
+    mount.value = event
     console.log('viewportChanged', event)
     console.log('viewportHeightTelegram', viewportHeightTelegram)
     console.log('viewportStableHeightTelegram', viewportStableHeightTelegram)
@@ -36,6 +41,7 @@ onMounted(() => {
         <h2 class="balance-details__title">
           Fidsty-баланс
         </h2>
+        <p>mount: {{ mount }}</p>
         <p>viewportHeightTelegram: {{ viewportHeightTelegram }}</p>
         <p>viewportStableHeightTelegram: {{ viewportStableHeightTelegram }}</p>
         <div class="balance-details__amount">

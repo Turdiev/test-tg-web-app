@@ -34,13 +34,20 @@ onMounted(() => {
     console.log('viewportStableHeightTelegram', viewportStableHeight)
   })
 })
+
+const show = () => {
+  webApp.showPopup()
+}
 </script>
 
 <template>
   <div class="balance-details">
     <div class="balance-details__wrapper">
       <div class="balance-details__info">
-        <h2 class="balance-details__title">
+        <h2
+            class="balance-details__title"
+            @click="show"
+        >
           Fidsty-баланс
         </h2>
         <p>mount: {{ mount }}</p>

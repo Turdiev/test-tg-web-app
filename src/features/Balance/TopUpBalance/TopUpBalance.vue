@@ -2,10 +2,9 @@
 
 import {IconPlus} from '@/shared/ui/icons';
 import {ButtonRound} from '@/shared/ui/button';
-import {ChannelModal, type ICatalogChannel} from "@/entities/Catalog";
-import {useModal} from "vue-final-modal";
-import {vfm} from "@/shared/lib/plugins/vue-final-model";
-import {BalanceModal} from "@/entities/Balance";
+import {useModal} from 'vue-final-modal';
+import {vfm} from '@/shared/lib/plugins/vue-final-model';
+import {BalanceModal} from '@/entities/Balance';
 
 const showModal = () => {
   const { open } = useModal({

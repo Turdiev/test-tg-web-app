@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {BotAuthorChannelItem, type InfluenceBotChannel, useBotStore} from '@/entities/Bot';
 import {storeToRefs} from 'pinia';
-import {useTelegram} from '@/shared/lib/use';
 import {computed} from 'vue';
 import {useRoute} from 'vue-router';
 import {useModal} from 'vue-final-modal';

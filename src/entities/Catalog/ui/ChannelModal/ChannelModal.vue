@@ -15,7 +15,7 @@ const emit = defineEmits<{
   (e: 'update:modelValue', modelValue: boolean): void
 }>()
 
-const { webApp } = useTelegram()
+const { webApp, secondaryThemeBgColor } = useTelegram()
 
 const goToBotPage = () => {
   emit('update:modelValue', false)
@@ -56,7 +56,10 @@ const goToChannel = () => {
     <template #modal-body>
       <div class="channel-modal__body">
         <div class="channel-modal__body-tags">
-          <div class="channel-modal__body-tag">
+          <div
+            class="channel-modal__body-tag"
+            :style="{ backgroundColor: secondaryThemeBgColor }"
+          >
             <span>{{ channel.category ? channel.category.name : 'прочее' }}</span>
           </div>
         </div>

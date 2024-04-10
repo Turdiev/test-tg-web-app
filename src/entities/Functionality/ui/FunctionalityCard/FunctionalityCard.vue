@@ -2,7 +2,7 @@
 
 import {VCard} from '@/shared/ui/card';
 import type {FunctionalityList} from '@/entities/Functionality';
-import {useTelegram} from "@/shared/lib/use";
+import {useTelegram} from '@/shared/lib/use';
 
 const { themeTelegram } = useTelegram()
 

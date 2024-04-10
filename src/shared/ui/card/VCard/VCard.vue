@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import {useTelegram} from "@/shared/lib/use";
+import {useTelegram} from '@/shared/lib/use';
 
 withDefaults(defineProps<{
   isLink: boolean,
@@ -11,7 +11,7 @@ withDefaults(defineProps<{
 
 const emit = defineEmits(['click'])
 
-const { darkThemeBgColor } = useTelegram()
+const { secondaryThemeBgColor } = useTelegram()
 
 </script>
 
@@ -20,7 +20,7 @@ const { darkThemeBgColor } = useTelegram()
     v-if="isLink"
     :to="path"
     class="v-card"
-    :style="{ backgroundColor: darkThemeBgColor }"
+    :style="{ backgroundColor: secondaryThemeBgColor }"
   >
     <slot />
   </router-link>

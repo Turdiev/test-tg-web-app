@@ -1,11 +1,11 @@
 .bot-footer {
-  position: sticky;
+  position: fixed;
   bottom: 0;
   width: 100%;
   height: 52px;
   padding: 8px 0;
   background-color: $secondary_bg_color;
-  z-index: 1;
+  z-index: 9999;
 
   &__wrapper {
     @include flex-between-center;

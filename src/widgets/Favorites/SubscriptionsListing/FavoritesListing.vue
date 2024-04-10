@@ -6,6 +6,7 @@ import {useLoadingWrap, useTelegram} from '@/shared/lib/use';
 import {VLoader} from '@/shared/ui/loaders';
 import {FavoritesItem} from '@/entities/Favorites/ui';
 import {useFavoritesStore} from '@/entities/Favorites/model';
+import {AddToFavorite} from '@/features/Favorites/AddToFavorite/ui';
 
 const { webApp } = useTelegram()
 
@@ -28,7 +29,6 @@ const routeToChannel = (link: string) => {
 }
 
 const handleBookmark = (event: Event) => {
-  // TODO добавить логику удаления из избранного
   event.stopPropagation()
 }
 </script>
@@ -45,7 +45,15 @@ const handleBookmark = (event: Event) => {
         class="favorites-listing__item"
         @click="routeToChannel(channel.referralLink)"
         @click:bookmark="handleBookmark($event)"
-      />
+      >
+        <template #bookmark>
+          <AddToFavorite
+            :id="channel.id"
+            :data="channelFavorites"
+            :is-favorites="channel?.isFavorite"
+          />
+        </template>
+      </FavoritesItem>
     </template>
     <div
       v-if="!isLoading && channelFavorites.length === 0"

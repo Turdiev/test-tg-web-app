@@ -1,4 +1,4 @@
-import {computed, ref, watch} from 'vue';
+import {computed, Ref, ref, watch} from 'vue';
 import {defineStore, storeToRefs} from 'pinia';
 import type {
     PurchaseHistory,
@@ -15,7 +15,7 @@ const namespace = 'purchase-history'
 export const usePurchaseHistoryStore = defineStore(namespace, () => {
     const contentType: string = ref<string>('ALL')
     const purchaseHistoryData = ref<PurchaseHistory[]>([])
-    const currentPurchaseHistoryDetails = ref<PurchaseHistory | PurchaseHistoryPrivateChannel>()
+    const currentPurchaseHistoryDetails: Ref<PurchaseHistory | PurchaseHistoryPrivateChannel> = ref<PurchaseHistory | PurchaseHistoryPrivateChannel>()
     const totalPurchaseExpenses = ref<number>(0)
 
     const purchaseHistoryExpensesStore = usePurchaseHistoryExpensesStore()
@@ -27,7 +27,7 @@ export const usePurchaseHistoryStore = defineStore(namespace, () => {
 
         const groupHistory = purchaseHistoryData.value.reduce((acc: PurchaseHistoryByDate[], curr: PurchaseHistory) => {
             const createdAt: string = parseCreatedAt(curr.createdAt);
-            const existingItem: PurchaseHistoryByDate | undefined = acc.find((item: PurchaseHistoryByDate) => item.createdAt === createdAt);
+            const existingItem: PurchaseHistoryByDate | undefined = acc.find((item: PurchaseHistoryByDate) => item.date === createdAt);
 
             if (existingItem) {
                 existingItem.totalAmount += curr.amount
@@ -87,10 +87,10 @@ export const usePurchaseHistoryStore = defineStore(namespace, () => {
     const fetchPurchaseHistoryPaymentLink  = async (channelId: string) => {
         try {
             const {response: response} = await api.getPurchaseHistoryPaymentLink(channelId) as {
-                response: { url: string }
+                response: { url: string, text: string }
             }
 
-            return response.url
+            return response
         } catch (e) {
             throw new Error(`ERROR: ${e}`)
         }

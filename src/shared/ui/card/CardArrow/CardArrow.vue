@@ -3,7 +3,6 @@
 import {IconArrowRight} from '@/shared/ui/icons';
 import {computed} from 'vue';
 import {pluralize} from '@/shared/lib/helpers';
-import IconBookmark from '@/shared/ui/icons/IconBookmark.vue';
 import {ImageAvatar} from '@/shared/ui/image/ImageAvatar';
 
 const props = withDefaults(defineProps<{
@@ -37,7 +36,7 @@ const definitionWord = computed(() => {
     :to="path"
     class="card-arrow"
     :class="{'card-arrow_border': image}"
-    @click="$emit('click')"
+    @click="emit('click')"
   >
     <div class="card-arrow__wrapper">
       <div class="card-arrow__content">
@@ -77,13 +76,15 @@ const definitionWord = computed(() => {
         </div>
       </div>
       <div class="card-arrow__icons">
-        <div
-          v-if="isBookmark"
-          class="card-arrow__icons"
-          @click="emit('click:bookmark', $event)"
-        >
-          <icon-bookmark />
-        </div>
+
+        <slot name="bookmark" />
+<!--        <div-->
+<!--          v-if="isBookmark"-->
+<!--          class="card-arrow__icons"-->
+<!--          @click="emit('click:bookmark')"-->
+<!--        >-->
+<!--          <icon-bookmark />-->
+<!--        </div>-->
 
         <div class="card-arrow__icon">
           <icon-arrow-right />

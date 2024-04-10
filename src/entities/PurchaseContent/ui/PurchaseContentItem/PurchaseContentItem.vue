@@ -46,7 +46,7 @@ const emit = defineEmits(['click'])
           v-else
           class="purchase-content-item__purchase"
         >
-          <span>{{ content.cost }}{{ content.costType }}/месяц</span>
+          <span>{{ content.cost || 0 }} {{ content.costType }}/месяц</span>
         </div>
       </div>
     </div>

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 
 import {VueFinalModal} from 'vue-final-modal';
-import IconClose from '@/shared/ui/icons/IconClose.vue';
 import {computed, onMounted, ref} from 'vue';
 import {useCachedMediaStore} from '@/shared/lib/use';
 import {api} from '@/shared/api';

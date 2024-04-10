@@ -1,4 +1,4 @@
-import {computed} from "vue";
+import {computed} from 'vue';
 
 export function useTelegram() {
     const webApp = window.Telegram.WebApp
@@ -8,19 +8,10 @@ export function useTelegram() {
         return webApp.colorScheme
     })
 
-    const viewportHeightTelegram = computed(() => {
-        return webApp.viewportHeight
-    })
+    const secondaryThemeBgColor = computed(() => {
+        const themeParams = webApp.themeParams
 
-    const viewportStableHeightTelegram = computed(() => {
-        return webApp.viewportStableHeight
-    })
-
-    const darkThemeBgColor = computed(() => {
-        console.log('bg_color', webApp.themeParams.bg_color)
-        console.log('bg_colorBol', webApp.themeParams.bg_color === `#18222d`)
-        console.log('bg_colorBol', typeof webApp.themeParams.bg_color, typeof `#18222d`)
-        return webApp.themeParams && webApp.themeParams.bg_color === '#18222d' ? '#303d4f' : ''
+        return themeParams && (themeParams.bg_color === themeParams.secondary_bg_color || themeParams.bg_color === '#18222d') ? '#303d4f' : ''
     })
     const onClose = () => {
         console.log('close')
@@ -31,9 +22,7 @@ export function useTelegram() {
         webApp,
         initData,
         themeTelegram,
-        darkThemeBgColor,
-        viewportHeightTelegram,
-        viewportStableHeightTelegram,
+        secondaryThemeBgColor,
         onClose
     }
 }

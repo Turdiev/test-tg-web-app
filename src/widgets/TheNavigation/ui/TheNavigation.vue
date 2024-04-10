@@ -2,9 +2,9 @@
 
 import {useNavigationStore} from '../model/navigation';
 import {storeToRefs} from 'pinia';
-import {useTelegram} from "@/shared/lib/use";
+import {useTelegram} from '@/shared/lib/use';
 
-const { darkThemeBgColor } = useTelegram()
+const { secondaryThemeBgColor } = useTelegram()
 
 const navigationStore = useNavigationStore()
 const { activeNav } = storeToRefs(navigationStore)
@@ -14,8 +14,8 @@ const { handleNavigation, navigationItems } = navigationStore
 
 <template>
   <nav
-      class="navigation"
-      :style="{ backgroundColor: darkThemeBgColor }"
+    class="navigation"
+    :style="{ backgroundColor: secondaryThemeBgColor }"
   >
     <ul>
       <li

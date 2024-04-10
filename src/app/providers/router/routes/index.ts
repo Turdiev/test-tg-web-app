@@ -1,7 +1,6 @@
 import type {RouteRecordRaw} from 'vue-router';
 
 import { route as mainRoute } from './main'
-import { route as searchRoute } from './search'
 import { categoryRoute, catalogRoute, categoryDetailsRoute} from './catalog'
 import { route as privacyPolicyRoute } from './privacy-policy'
 import { supportRoute, supportFaqRoute, supportArticleRoute } from './support';
@@ -26,7 +25,6 @@ const mainRoutes: RouteRecordRaw[] = [
     favoritesRoute,
     purchaseContentRoute,
     purchaseContentDetailsRoute,
-    searchRoute
 ]
 
 const botRoutes: RouteRecordRaw[] = [

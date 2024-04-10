@@ -5,6 +5,9 @@ import {TagBase} from '@/shared/ui/tag/TagBase';
 import {VSelect} from '@/shared/ui/select';
 import {storeToRefs} from 'pinia';
 import {computed} from 'vue';
+import {useTelegram} from '@/shared/lib/use';
+
+const { secondaryThemeBgColor } = useTelegram()
 
 const purchaseHistoryExpensesStore = usePurchaseHistoryExpensesStore()
 const { activeTag, selectedMonth } = storeToRefs(purchaseHistoryExpensesStore)
@@ -53,7 +56,10 @@ const handleClickTag = (tag: ITags) => {
 </script>
 
 <template>
-  <div class="purchase-history-expenses">
+  <div
+    class="purchase-history-expenses"
+    :style="{ backgroundColor: secondaryThemeBgColor }"
+  >
     <div class="purchase-history-expenses__tags">
       <v-select v-model="selectedMonth" :options="selectOptions"/>
       <tag-base
@@ -67,8 +73,8 @@ const handleClickTag = (tag: ITags) => {
     <div class="purchase-history-expenses__balance">
       <span>{{ titleExpenses }}</span>
       <div class="purchase-history-expenses__balance-calc">
-        <p>{{ activeTag ? costCalculation : totalExpenses }}</p>
-        <p v-if="activeTag && totalPurchaseExpenses > 0" class="purchase-history-expenses__balance-calc_total">из {{ totalPurchaseExpenses }}</p>
+        <p>{{ activeTag ? costCalculation : totalExpenses }} $</p>
+        <p v-if="activeTag && totalPurchaseExpenses > 0" class="purchase-history-expenses__balance-calc_total">из {{ totalPurchaseExpenses }} $</p>
       </div>
     </div>
   </div>

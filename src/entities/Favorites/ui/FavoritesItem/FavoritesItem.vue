@@ -24,7 +24,11 @@ const emit = defineEmits(['click', 'click:bookmark'])
     class="favorites-item"
     @click="emit('click')"
     @click:bookmark="emit('click:bookmark', $event)"
-  />
+  >
+    <template #bookmark>
+      <slot name="bookmark"/>
+    </template>
+  </card-arrow>
 </template>
 
 <style lang="scss" scoped>

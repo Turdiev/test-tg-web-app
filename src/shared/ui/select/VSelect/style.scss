@@ -26,6 +26,14 @@
       color: $style1;
     }
 
+    &__dropdown-option {
+
+      &--highlight {
+        background: $button_color;
+        color: $button_text_color
+      }
+    }
+
     &__actions {
       @include flex-align-center;
       gap: 4px;

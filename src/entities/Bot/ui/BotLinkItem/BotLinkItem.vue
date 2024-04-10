@@ -1,6 +1,7 @@
 <script setup lang="ts">
 
 import type { BotLink } from '@/entities/Bot'
+import { useTelegram } from '@/shared/lib/use';
 
 withDefaults(defineProps<{
   link: BotLink
@@ -9,11 +10,14 @@ withDefaults(defineProps<{
 })
 
 const emit = defineEmits(['click'])
+
+const { secondaryThemeBgColor } = useTelegram()
 </script>
 
 <template>
   <div
     class="bot-link-item"
+    :style="{ backgroundColor: secondaryThemeBgColor }"
     @click="emit('click')"
   >
     <component

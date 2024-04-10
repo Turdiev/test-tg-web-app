@@ -24,7 +24,7 @@ const isLoadingPage = ref(true);
 const routerParamsId = computed(() => router.params.id)
 const routerQueryPostId = computed(() => router.query.post_id)
 const titleButton = computed(() => {
-  return currentPurchaseHistoryDetails.value?.type === 'SINGLE_POST' ? 'Перейти к материалу' : 'Перейти к закрытому каналу'
+  return currentPurchaseHistoryDetails.value?.type === 'private' ? 'Перейти к закрытому каналу' : 'Перейти к материалу'
 })
 
 onBeforeMount(() => {
@@ -42,7 +42,7 @@ onMounted(() => {
 })
 
 const goToChannel = () => {
-  const link = currentPurchaseHistoryDetails.value?.link || currentPurchaseHistoryDetails.value?.channelLink
+  const link = currentPurchaseHistoryDetails.value?.link || currentPurchaseHistoryDetails.value?.botSellerLink
   webApp.openTelegramLink(link)
 }
 </script>
@@ -52,7 +52,7 @@ const goToChannel = () => {
     <div class="container purchase-history-details-page__content">
       <title-back path="/purchase-history" text-align="right">
         <div class="purchase-history-details-page__title">
-          <span>Чек операции</span>
+<!--          <span>Чек операции</span>-->
         </div>
       </title-back>
       <v-loader

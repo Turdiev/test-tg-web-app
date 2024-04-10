@@ -2,13 +2,13 @@
 
 import {FunctionalityCard} from '@/entities/Functionality/ui';
 import type {FunctionalityList} from '@/entities/Functionality';
-import {IconBookmark, IconFolder, IconSearch, IconUsers} from "@/shared/ui/icons";
+import {IconBookmark, IconFolder, IconSearch, IconUsers} from '@/shared/ui/icons';
 
 const functionalityList: FunctionalityList[] = [
   {
     title: 'Поиск',
     description: 'по авторам',
-    path: '/search',
+    path: '/',
     type: 'search',
     icon: IconSearch
   },

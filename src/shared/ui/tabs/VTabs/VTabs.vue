@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { TabItem } from '@/shared/ui/tabs/VTabs/types';
+import { useTelegram } from '@/shared/lib/use';
 
 withDefaults(defineProps<{
 	tabs: TabItem[],
@@ -14,13 +15,16 @@ withDefaults(defineProps<{
 const emit = defineEmits<{
 	(e: 'update:modelValue', modelValue: string): void
 }>()
+
+const { secondaryThemeBgColor } = useTelegram()
 </script>
 
 <template>
 	<div
 		class="v-tabs"
 		:style="{
-			gridTemplateColumns: `repeat(${tabs.length}, 1fr)`
+			gridTemplateColumns: `repeat(${tabs.length}, 1fr)`,
+			backgroundColor: secondaryThemeBgColor
 		}"
 	>
 		<div

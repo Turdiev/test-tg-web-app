@@ -2,6 +2,9 @@
 import {computed, ref, watch} from 'vue'
 import type { IVInput } from './types'
 import {useFocus} from '@vueuse/core';
+import {useTelegram} from '@/shared/lib/use';
+
+const { secondaryThemeBgColor } = useTelegram()
 
 const vInput = ref<HTMLInputElement>()
 const { focused } = useFocus(vInput)
@@ -64,6 +67,10 @@ const onClose = () => {
         ref="vInput"
         v-model="inputValue"
         class="v-input__field"
+        :style="{
+          backgroundColor: secondaryThemeBgColor,
+          border: `1px solid ${secondaryThemeBgColor}`
+        }"
         :type="inputType"
         :name="name"
         :placeholder="placeholder"

@@ -4,7 +4,7 @@ import {TitleBack} from '@/shared/ui/title';
 import {usePurchaseContentStore} from '@/entities/PurchaseContent/model';
 import {computed, onMounted} from 'vue';
 import {useRoute} from 'vue-router';
-import {useIsLoading} from '@/shared/lib/use';
+import {useIsLoading, useTelegram} from '@/shared/lib/use';
 import {VLoader} from '@/shared/ui/loaders';
 import {storeToRefs} from 'pinia';
 import PurchaseContentSalesman
@@ -12,6 +12,7 @@ import PurchaseContentSalesman
 import {PurchaseContentDetailsListing} from '@/widgets/PurchaseContent/PurchaseContentDetailsListing';
 import {AddToFavorite} from '@/features/Favorites/AddToFavorite/ui';
 
+const { secondaryThemeBgColor } = useTelegram()
 const router = useRoute()
 
 const purchaseContentStorage = usePurchaseContentStore()
@@ -33,7 +34,10 @@ onMounted(async () => {
 
 <template>
   <div class="purchase-content-details-page">
-    <div class="purchase-content-details-page__head">
+    <div
+      class="purchase-content-details-page__head"
+      :style="{ backgroundColor: secondaryThemeBgColor }"
+    >
       <div class="container">
         <title-back
           path="/purchase-content"

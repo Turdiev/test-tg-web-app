@@ -72,7 +72,7 @@
   }
 
   &__details{
-    @include flex-center;
+    @include flex-start-center;
     gap: 10px;
 
     & span {

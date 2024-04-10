@@ -39,7 +39,7 @@ onBeforeMount(() => {
       >
         <div class="purchase-history-list__info">
           <title-h3>{{ definitionsDate(data.date) }}</title-h3>
-          <span class="purchase-history-list__info-total">{{ data.totalAmount }} ₽</span>
+          <span class="purchase-history-list__info-total">{{ data.totalAmount }} $</span>
         </div>
         <PurchaseHistoryItem
           v-for="(history, index) in data.history"

@@ -2,8 +2,8 @@
 
 import {BalanceAction} from '@/widgets/Balance';
 import {FunctionalityList} from '@/widgets/Functionality';
-import {useProfileStore} from "@/entities/Balance/model";
-import {onBeforeMount} from "vue";
+import {useProfileStore} from '@/entities/Balance/model';
+import {onBeforeMount} from 'vue';
 
 const balanceStorage = useProfileStore()
 const { fetchSubscriberInformation } = balanceStorage

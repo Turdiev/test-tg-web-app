@@ -4,6 +4,9 @@ import {CheckboxBase} from '@/shared/ui/checkbox/CheckboxBase';
 import {usePrivacyPolicyStore} from '@/entities/PrivacyPolicy/ProcessingData/model/privacy-policy';
 import {storeToRefs} from 'pinia';
 import {TitleH2} from '@/shared/ui/title';
+import {useTelegram} from '@/shared/lib/use';
+
+const { secondaryThemeBgColor } = useTelegram()
 
 const privacyPolicyStore = usePrivacyPolicyStore()
 const { privacyPolicyCheckbox, termsOfUseCheckbox } = storeToRefs(privacyPolicyStore)
@@ -18,7 +21,10 @@ const { privacyPolicyCheckbox, termsOfUseCheckbox } = storeToRefs(privacyPolicyS
       <router-link to="" >Политики конфиденциальности сервиса Fidsty</router-link> и
       <router-link to="" >Условия использования сервиса</router-link>
     </p>
-    <div class="processing-data__wrapper">
+    <div
+      class="processing-data__wrapper"
+      :style="{ backgroundColor: secondaryThemeBgColor }"
+    >
       <div class="processing-data__wrapper-item">
         <checkbox-base v-model="privacyPolicyCheckbox"/>
         <p>
@@ -34,7 +40,10 @@ const { privacyPolicyCheckbox, termsOfUseCheckbox } = storeToRefs(privacyPolicyS
         </p>
       </div>
     </div>
-    <div class="processing-data__cookie">
+    <div
+      class="processing-data__cookie"
+      :style="{ backgroundColor: secondaryThemeBgColor }"
+    >
       <p>
         Для корректной работы бота сервис использует технологию cookie.
         Пользуясь ботом, вы соглашаетесь на использование

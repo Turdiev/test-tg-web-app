@@ -5,8 +5,10 @@ $black: #000;
 
 $main-gradient:linear-gradient(116.89deg, #053E8A -2.96%, #2F80ED 61.2%, #2D9EE0 125.36%);
 
-$bg_color: var(--tg-theme-bg-color);
+//$bg_color: var(--tg-theme-bg-color);
+$bg_color: rgba(213, 213, 213, 0.89);
 $secondary_bg_color: var(--tg-theme-secondary-bg-color);
+$secondary_dark_bg_color: #303d4f;
 $section_bg_color: var(--tg-theme-section-bg-color);
 
 $header_bg_color: var(--tg-theme-header-bg-color);

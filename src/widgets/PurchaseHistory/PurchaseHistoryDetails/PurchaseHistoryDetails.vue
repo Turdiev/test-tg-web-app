@@ -18,19 +18,20 @@ const { currentPurchaseHistoryDetails } = storeToRefs(purchaseHistoryStore)
 const { fetchPurchaseHistoryPaymentLink } = purchaseHistoryStore
 
 const accessTo = computed(() => {
-  return currentPurchaseHistoryDetails.value?.type === 'SINGLE_POST' ? 'Доступ к контенту' : 'Доступ к закрытому каналу'
+  return currentPurchaseHistoryDetails.value?.type === 'private' ? 'Доступ к закрытому каналу' : 'Доступ к контенту'
 })
 const isCloseChannel = computed(() => {
   return currentPurchaseHistoryDetails.value?.type === 'private'
 })
 
-const subscriberChannel = computed(() => {
-  return currentPurchaseHistoryDetails.value?.subscribers[0]
-})
-
 const handleRenewSubscription = async (channelId: string) => {
   const paymentLink = await fetchPurchaseHistoryPaymentLink(channelId)
-  webApp.openLink(paymentLink)
+
+  if (paymentLink.text) {
+    webApp.showPopup({ title: 'Подписка', message: paymentLink.text })
+  } else {
+    webApp.openLink(paymentLink.url)
+  }
 }
 
 const openTelegramLink = (link: string) => {
@@ -92,7 +93,7 @@ const openTelegramLink = (link: string) => {
         v-if="isCloseChannel"
         class="purchase-history-details__content-date-expired"
       >
-        <span>Доступно до {{ formatDateTime(subscriberChannel?.dateEnd).split('в')[0] }}</span>
+        <span>Доступно до {{ formatDateTime(currentPurchaseHistoryDetails.subscriptionDateEnd).split('в')[0] }}</span>
         <div
           class="purchase-history-details__content-button"
           @click="handleRenewSubscription(currentPurchaseHistoryDetails.id)"

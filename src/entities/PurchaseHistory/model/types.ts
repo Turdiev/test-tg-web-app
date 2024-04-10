@@ -16,7 +16,7 @@ export interface PurchaseHistory {
     botSellerLink: string,
     amount: number,
     createdAt: string,
-    type: 'SUBSCRIPTION' | 'SINGLE_POST'
+    type: 'SUBSCRIPTION' | 'SINGLE_POST' | 'MULTI_POST' | 'DONATION' | 'DEPOSIT'
 }
 
 export interface PurchaseHistoryPrivateChannel {
@@ -39,8 +39,13 @@ export interface PurchaseHistoryPrivateChannel {
     photo: string | null,
     managerId: string | null,
     categoryId: string | null,
-    subscribers: SubscriberChannel[],
-    paymentLink: string
+    botAdminName: string,
+    botAdminUsername: string,
+    botAdminLink: string,
+    subscriptionId: string,
+    subscriptionCreatedAt: string,
+    subscriptionDateStart: string,
+    subscriptionDateEnd: string
 }
 
 export interface SubscriberChannel {

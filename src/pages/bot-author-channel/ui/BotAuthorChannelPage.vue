@@ -15,7 +15,6 @@ const route = useRoute()
 const { isLoading, startLoading, finishLoading } = useIsLoading()
 
 const botUsername = computed(() => route.params.username)
-const channelId = computed(() => route.query.channelId)
 
 onBeforeMount(async () => {
   startLoading()

@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import {VModal} from "@/shared/ui/modal";
-import {TitleH3} from "@/shared/ui/title";
-import {VInput} from "@/shared/ui/input";
-import {ref} from "vue";
-import {ButtonBase} from "@/shared/ui/button/ButtonBase";
-import {IconCoins} from "@/shared/ui/icons";
-import {useProfileStore} from "@/entities/Balance/model";
-import {useTelegram} from "@/shared/lib/use";
+import {VModal} from '@/shared/ui/modal';
+import {TitleH3} from '@/shared/ui/title';
+import {VInput} from '@/shared/ui/input';
+import {ref} from 'vue';
+import {ButtonBase} from '@/shared/ui/button/ButtonBase';
+import {IconCoins} from '@/shared/ui/icons';
+import {useProfileStore} from '@/entities/Balance/model';
+import {useTelegram} from '@/shared/lib/use';
 
 const { webApp } = useTelegram()
 

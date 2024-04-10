@@ -19,7 +19,7 @@ const emit = defineEmits(['click'])
     path=""
     :post-name="content.postPreview"
     :price="content.amount"
-    :channel-name="content.channelTitle"
+    :channel-name="content.channelTitle || content.botSellerName"
     class="purchase-content-details-item"
     @click="emit('click')"
   />

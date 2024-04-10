@@ -11,7 +11,7 @@ const purchaseContentStorage = usePurchaseContentStore()
 const { purchaseContentData, isShowSearchBar, purchaseContentTabs, activeTab } = storeToRefs(purchaseContentStorage)
 const { fetchPurchaseContentsBot, fetchPurchaseContentsChannel } = purchaseContentStorage
 
-const { webApp } = useTelegram()
+const { webApp, secondaryThemeBgColor } = useTelegram()
 const { isLoading, runWithLoading } = useLoadingWrap()
 
 
@@ -40,7 +40,10 @@ const routeToChannel = (link: string) => {
         v-for="tab in purchaseContentTabs"
         :key="tab.value"
         class="purchase-content-listing__tab"
-        :class="{'purchase-content-listing__tab_active': tab.value === activeTab.value}"
+        :class="[
+          {'purchase-content-listing__tab_secondary-color': secondaryThemeBgColor},
+          {'purchase-content-listing__tab_active': tab.value === activeTab.value}
+        ]"
         @click="activeTab = tab"
       >
         <span>{{ tab.name }}</span>

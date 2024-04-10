@@ -4,6 +4,9 @@ import {TitleH2} from '@/shared/ui/title';
 import {ButtonBase} from '@/shared/ui/button/ButtonBase';
 import {usePrivacyPolicyStore} from '@/entities/PrivacyPolicy/ProcessingData/model/privacy-policy';
 import {storeToRefs} from 'pinia';
+import {useTelegram} from '@/shared/lib/use';
+
+const { secondaryThemeBgColor } = useTelegram()
 
 const privacyPolicyStore = usePrivacyPolicyStore()
 const { verificationAge } = storeToRefs(privacyPolicyStore)
@@ -17,7 +20,10 @@ const { verificationAge } = storeToRefs(privacyPolicyStore)
       который может содержать контент, предназначенный исключительно
       для лиц старше 18 лет
     </p>
-    <div class="verification-age__wrapper">
+    <div
+      class="verification-age__wrapper"
+      :style="{ backgroundColor: secondaryThemeBgColor }"
+    >
       <span>Вам уже есть 18?</span>
       <div class="verification-age__actions">
         <button-base

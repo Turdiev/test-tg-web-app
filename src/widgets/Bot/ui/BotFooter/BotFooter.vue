@@ -3,11 +3,16 @@
 import {ButtonBase} from '@/shared/ui/button/ButtonBase';
 import {ImageAvatar} from '@/shared/ui/image/ImageAvatar';
 import {IconArrowRight} from '@/shared/ui/icons';
+import {useTelegram} from '@/shared/lib/use';
 
+const { secondaryThemeBgColor } = useTelegram()
 </script>
 
 <template>
-	<div class="bot-footer">
+	<div
+    class="bot-footer"
+    :style="{ backgroundColor: secondaryThemeBgColor }"
+  >
     <div class="container">
      <div class="bot-footer__wrapper">
        <div class="bot-footer__left">
@@ -21,13 +26,13 @@ import {IconArrowRight} from '@/shared/ui/icons';
 
          <div class="bot-footer__balance">
            <router-link
-             to="/"
+             to=""
              class="bot-footer__balance-link"
            >
              <span>Fidsty-баланс</span>
              <icon-arrow-right class="bot-footer__balance-link-icon"/>
            </router-link>
-           <span class="bot-footer__balance-text">999 999 ₽</span>
+           <span class="bot-footer__balance-text">999 999 $</span>
          </div>
        </div>
        <div class="bot-footer__right">

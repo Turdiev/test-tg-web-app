@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import type {PurchaseHistory} from '@/entities/PurchaseHistory/model/types';
-import {IconUser} from '@/shared/ui/icons';
+import {IconCoins, IconUser} from '@/shared/ui/icons';
 import {computed} from 'vue';
 import {ImageAvatar} from '@/shared/ui/image/ImageAvatar';
 
@@ -11,13 +11,20 @@ const props = withDefaults(defineProps<{
 
 const types = {
   SUBSCRIPTION: 'Закрытый канал',
-  SINGLE_POST: 'Контент'
+  SINGLE_POST: 'Разовый пост',
+  MULTI_POST: 'Набор постов',
+  DONATION: 'Донат',
+  DEPOSIT: 'Пополнение баланса'
 }
 
 const goTo = computed(() => {
   const routeChannel = `/purchase-history/${props.item.channelId}`
   const routeChannelContent = `${routeChannel}?post_id=${props.item.postId}`
   return props.item.type === 'SUBSCRIPTION' ? routeChannel : routeChannelContent
+})
+
+const isDepositAndDonation  = computed(() => {
+  return ['DONATION', 'DEPOSIT'].includes(props.item.type)
 })
 
 const formattedTitle = (type: string, channelTitle: string, postPreview: string) => {
@@ -32,9 +39,9 @@ const formattedTitle = (type: string, channelTitle: string, postPreview: string)
 
 const formattedName = (type: string, botSellerName: string, channelTitle: string) => {
   if (type === 'SUBSCRIPTION') {
-    return botSellerName
-  } else {
     return channelTitle
+  } else {
+    return botSellerName
   }
 }
 
@@ -42,28 +49,47 @@ const formattedName = (type: string, botSellerName: string, channelTitle: string
 
 <template>
   <router-link
-    :to="goTo"
+    :to="!isDepositAndDonation ? goTo : ''"
     class="purchase-history-item"
   >
     <image-avatar
-      :title="item.channelTitle"
-      background="default"
-    />
+      :title="!isDepositAndDonation ? formattedName(item.type, item.botSellerName, item.channelTitle) : ''"
+      :background="isDepositAndDonation ? 'blue-light' : 'blue' "
+    >
+      <icon-coins v-if="isDepositAndDonation"/>
+    </image-avatar>
     <div class="purchase-history-item__wrapper">
       <div class="purchase-history-item__left">
-        <div class="purchase-history-item__user">
-          <div class="purchase-history-item__user-name" v-html="formattedTitle(item.type, item.channelTitle, item.postPreview)"></div>
+        <div
+          v-if="!isDepositAndDonation"
+          class="purchase-history-item__user"
+        >
+          <div class="purchase-history-item__user-name">
+            <span v-html="formattedTitle(item.type, item.channelTitle, item.postPreview)"></span>
+          </div>
           <div class="purchase-history-item__user-login">
             <icon-user />
             <span>{{ formattedName(item.type, item.botSellerName, item.channelTitle) }}</span>
           </div>
         </div>
+        <div
+          v-else
+          class="purchase-history-item__operation"
+        >
+          <span>{{ types[item.type] }}</span>
+        </div>
       </div>
       <div class="purchase-history-item__right">
-        <span class="purchase-history-item__price">
-          {{ item.amount }} ₽
+        <span
+            class="purchase-history-item__price"
+            :class="{'purchase-history-item__price_deposit': item.type === 'DEPOSIT'}"
+        >
+          {{ item.type === 'DEPOSIT' ? '+' : '-' }}{{ item.amount }} $
         </span>
-        <span class="purchase-history-item__type">
+        <span
+          v-if="!isDepositAndDonation"
+          class="purchase-history-item__type"
+        >
         {{ types[item.type] }}
       </span>
       </div>

@@ -1,7 +1,7 @@
-import {defineStore} from "pinia";
-import {ref} from "vue";
-import type {ProfileInfo} from "@/entities/Balance/model/types";
-import {api} from "@/entities/Balance/api";
+import {defineStore} from 'pinia';
+import {ref} from 'vue';
+import type {ProfileInfo} from '@/entities/Balance/model/types';
+import {api} from '@/entities/Balance/api';
 
 
 const namespace: string = 'profile'

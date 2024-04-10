@@ -21,6 +21,10 @@
     transition: all .3s linear;
     cursor: pointer;
 
+    &_secondary-color {
+      color: $secondary_dark_bg_color;
+    }
+
     &_active {
       background: $text_color;
       color: $bg_color;

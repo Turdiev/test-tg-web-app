@@ -1,6 +1,6 @@
 import {REQUEST} from '@/shared/api'
 
-const API_WEB_BOT_PROFILE: string = `/api/web-bot/profile`
+const API_WEB_BOT_PROFILE: string = '/api/web-bot/profile'
 const API_WEB_BOT_PROFILE_DEPOSIT : string = `${API_WEB_BOT_PROFILE}/deposit`
 
 const getSubscriberInformation = async () => {

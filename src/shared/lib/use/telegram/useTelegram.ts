@@ -7,6 +7,12 @@ export function useTelegram() {
     const themeTelegram = computed(() => {
         return webApp.colorScheme
     })
+
+    const darkThemeBgColor = computed(() => {
+        console.log('bg_color', webApp.themeParams.bg_color)
+        console.log('bg_colorBol', webApp.themeParams.bg_color === '#18222d')
+        return webApp.themeParams && webApp.themeParams.bg_color === '#18222d' ? '#303d4f' : ''
+    })
     const onClose = () => {
         console.log('close')
         webApp.close()
@@ -16,6 +22,7 @@ export function useTelegram() {
         webApp,
         initData,
         themeTelegram,
+        darkThemeBgColor,
         onClose
     }
 }

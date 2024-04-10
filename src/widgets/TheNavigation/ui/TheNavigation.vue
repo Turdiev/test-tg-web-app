@@ -2,6 +2,9 @@
 
 import {useNavigationStore} from '../model/navigation';
 import {storeToRefs} from 'pinia';
+import {useTelegram} from "@/shared/lib/use";
+
+const { darkThemeBgColor } = useTelegram()
 
 const navigationStore = useNavigationStore()
 const { activeNav } = storeToRefs(navigationStore)
@@ -17,6 +20,7 @@ const { handleNavigation, navigationItems } = navigationStore
         :key="item.name"
         class="navigation__item"
         :class="{'navigation__item_active': item.name === activeNav}"
+        :style="{ backgroundColor: darkThemeBgColor }"
         @click="handleNavigation(item.name)"
       >
         <router-link :to="item.path">

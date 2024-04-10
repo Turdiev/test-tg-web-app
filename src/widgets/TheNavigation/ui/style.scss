@@ -1,10 +1,11 @@
 .navigation {
-  position: sticky;
+  position: fixed;
   bottom: 0;
   @include flex-align-center;
   background-color: $secondary_bg_color;
   width: 100%;
   min-height: 84px;
+  z-index: 9999;
 
   & ul {
     @include flex-between-center;

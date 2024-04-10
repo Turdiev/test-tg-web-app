@@ -8,6 +8,14 @@ export function useTelegram() {
         return webApp.colorScheme
     })
 
+    const viewportHeightTelegram = computed(() => {
+        return webApp.viewportHeight
+    })
+
+    const viewportStableHeightTelegram = computed(() => {
+        return webApp.viewportStableHeight
+    })
+
     const darkThemeBgColor = computed(() => {
         console.log('bg_color', webApp.themeParams.bg_color)
         console.log('bg_colorBol', webApp.themeParams.bg_color === `#18222d`)
@@ -24,6 +32,8 @@ export function useTelegram() {
         initData,
         themeTelegram,
         darkThemeBgColor,
+        viewportHeightTelegram,
+        viewportStableHeightTelegram,
         onClose
     }
 }

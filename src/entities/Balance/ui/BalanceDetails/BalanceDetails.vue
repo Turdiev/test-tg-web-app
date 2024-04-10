@@ -3,6 +3,9 @@
 import {useProfileStore} from "@/entities/Balance/model";
 import {storeToRefs} from "pinia";
 import {CurrencyType} from "@/shared/types";
+import {useTelegram} from "@/shared/lib/use";
+
+const { viewportHeightTelegram, viewportStableHeightTelegram  } = useTelegram()
 
 const balanceStorage = useProfileStore()
 const { profileInfo } = storeToRefs(balanceStorage)
@@ -15,6 +18,8 @@ const { profileInfo } = storeToRefs(balanceStorage)
         <h2 class="balance-details__title">
           Fidsty-баланс
         </h2>
+        <p>viewportHeightTelegram: {{ viewportHeightTelegram }}</p>
+        <p>viewportStableHeightTelegram: {{ viewportStableHeightTelegram }}</p>
         <div class="balance-details__amount">
           <span>{{ profileInfo.balance?.amount }} {{ CurrencyType.USD }}</span>
         </div>

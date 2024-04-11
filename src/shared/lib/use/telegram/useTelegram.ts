@@ -15,7 +15,8 @@ export function useTelegram() {
     })
 
     const languageTelegram = computed(() => {
-        return webApp.initDataUnsafe.user?.language_code
+        const lang = webApp.initDataUnsafe.user?.language_code
+        return ['ru', 'en'].includes(lang) ? lang : 'en'
     })
 
     const onClose = () => {

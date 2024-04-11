@@ -17,6 +17,8 @@
   }
 
   &__head-title {
+    width: 89%;
+    overflow: hidden;
     font-size: 15px;
     font-weight: 500;
     color: $text_color;

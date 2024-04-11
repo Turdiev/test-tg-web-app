@@ -6,6 +6,10 @@ import {VSelect} from '@/shared/ui/select';
 import {storeToRefs} from 'pinia';
 import {computed} from 'vue';
 import {useTelegram} from '@/shared/lib/use';
+import {useI18n} from "vue-i18n";
+import {currencyToFormat} from "../../../../shared/lib/helpers";
+
+const { t } = useI18n()
 
 const { secondaryThemeBgColor } = useTelegram()
 
@@ -19,11 +23,11 @@ const { groupPurchaseHistoryByDate, purchaseHistoryData, contentType, totalPurch
 
 const titleExpenses = computed(() => {
   if (activeTag.value?.value === 'POST') {
-    return 'Расходы на покупки платного контента'
+    return t('purchaseHistory.contentPurchasesExpenses')
   } else if (activeTag.value?.value === 'CHANNEL') {
-    return 'Расходы на доступы к закрытым каналам'
+    return t('purchaseHistory.closedChannelsExpenses')
   } else {
-    return 'Всего расходов'
+    return  t('purchaseHistory.totalExpenses')
   }
 })
 
@@ -73,8 +77,8 @@ const handleClickTag = (tag: ITags) => {
     <div class="purchase-history-expenses__balance">
       <span>{{ titleExpenses }}</span>
       <div class="purchase-history-expenses__balance-calc">
-        <p>{{ activeTag ? costCalculation : totalExpenses }} $</p>
-        <p v-if="activeTag && totalPurchaseExpenses > 0" class="purchase-history-expenses__balance-calc_total">из {{ totalPurchaseExpenses }} $</p>
+        <p>{{ currencyToFormat(activeTag ? costCalculation : totalExpenses) }}</p>
+        <p v-if="activeTag && totalPurchaseExpenses > 0" class="purchase-history-expenses__balance-calc_total">из {{ currencyToFormat(totalPurchaseExpenses) }}</p>
       </div>
     </div>
   </div>

@@ -6,8 +6,11 @@ import {storeToRefs} from 'pinia';
 import {onBeforeMount} from 'vue';
 import {useLoadingWrap, useTelegram} from '@/shared/lib/use';
 import {VLoader} from '@/shared/ui/loaders';
+import {useI18n} from "vue-i18n";
 
 const { webApp } = useTelegram()
+const { t } = useI18n()
+
 
 const subscriptionsStorage = useSubscriptionsStore()
 const { channelSubscriptions, isShowSearchBar } = storeToRefs(subscriptionsStorage)
@@ -42,7 +45,7 @@ const routeToChannel = (link: string) => {
       v-if="!isLoading && channelSubscriptions.length === 0"
       class="subscriptions-listing__not-subscribers"
     >
-      <span>Нет подписок</span>
+      <span>{{ t('common.noSubscriptions') }}</span>
     </div>
   </div>
 </template>

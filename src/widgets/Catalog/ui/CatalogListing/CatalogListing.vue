@@ -12,6 +12,9 @@ import {pluralize} from '@/shared/lib/helpers';
 import {onBeforeMount} from 'vue';
 import {useLoadingWrap} from '@/shared/lib/use';
 import {VLoader} from '@/shared/ui/loaders';
+import {useI18n} from "vue-i18n";
+
+const { t } = useI18n()
 
 const catalogStore = useCatalogStore()
 const { creationOfCatalogs, transitionFrom } = storeToRefs(catalogStore)
@@ -59,7 +62,11 @@ const saveTransitionFrom = () => {
               class="catalog-listing__route"
               @click="saveTransitionFrom"
             >
-              <span>{{ pluralize(category.channels.length, 'канал', 'канала', 'каналов') }}</span>
+              <span>{{ pluralize(category.channels.length,
+                  t('common.channel.channel'),
+                  t('common.channel.channel_s'),
+                  t('common.channel.channels'))
+                }}</span>
               <icon-arrow-right />
             </router-link>
           </div>
@@ -91,7 +98,7 @@ const saveTransitionFrom = () => {
       v-if="!isLoading && creationOfCatalogs.length === 0"
       class="catalog-listing__not-results"
     >
-      <span>Каталог пуст!</span>
+      <span>{{ t('catalog.catalogEmpty') }}</span>
     </div>
   </div>
 </template>

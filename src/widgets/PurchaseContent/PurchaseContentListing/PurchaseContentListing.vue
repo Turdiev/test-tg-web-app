@@ -6,10 +6,13 @@ import {useLoadingWrap, useTelegram} from '@/shared/lib/use';
 import {VLoader} from '@/shared/ui/loaders';
 import {PurchaseContentItem} from '@/entities/PurchaseContent/ui';
 import {usePurchaseContentStore} from '@/entities/PurchaseContent/model';
+import {useI18n} from "vue-i18n";
 
 const purchaseContentStorage = usePurchaseContentStore()
 const { purchaseContentData, isShowSearchBar, purchaseContentTabs, activeTab } = storeToRefs(purchaseContentStorage)
 const { fetchPurchaseContentsBot, fetchPurchaseContentsChannel } = purchaseContentStorage
+
+const { t } = useI18n()
 
 const { webApp, secondaryThemeBgColor } = useTelegram()
 const { isLoading, runWithLoading } = useLoadingWrap()
@@ -35,13 +38,15 @@ const routeToChannel = (link: string) => {
 
 <template>
   <div class="purchase-content-listing">
-    <div class="purchase-content-listing__tabs">
+    <div
+      class="purchase-content-listing__tabs"
+      :style="{ backgroundColor: secondaryThemeBgColor }"
+    >
       <div
         v-for="tab in purchaseContentTabs"
         :key="tab.value"
         class="purchase-content-listing__tab"
         :class="[
-          {'purchase-content-listing__tab_secondary-color': secondaryThemeBgColor},
           {'purchase-content-listing__tab_active': tab.value === activeTab.value}
         ]"
         @click="activeTab = tab"
@@ -67,7 +72,7 @@ const routeToChannel = (link: string) => {
         v-if="!isLoading && purchaseContentData.length === 0"
         class="purchase-content-listing__not-subscribers"
       >
-        <span>Нет купленного контента!</span>
+        <span>{{ t('common.noPurchasedContent') }}</span>
       </div>
     </div>
   </div>

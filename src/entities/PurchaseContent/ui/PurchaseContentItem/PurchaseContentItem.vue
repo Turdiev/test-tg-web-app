@@ -1,9 +1,12 @@
 <script setup lang="ts">
 
 import {VCard} from '@/shared/ui/card';
-import {pluralize} from '@/shared/lib/helpers';
+import {currencyToFormat, pluralize} from '@/shared/lib/helpers';
 import type {IPurchaseContentBot, IPurchaseContentChannel} from '@/entities/PurchaseContent/model';
 import {ImageAvatar} from '@/shared/ui/image/ImageAvatar';
+import {useI18n} from "vue-i18n";
+
+const { t } = useI18n()
 
 withDefaults(defineProps<{
   content: IPurchaseContentBot | IPurchaseContentChannel,
@@ -40,13 +43,18 @@ const emit = defineEmits(['click'])
           v-if="isBot"
           class="purchase-content-item__purchase"
         >
-          <span>{{ pluralize(content.purchaseCount, 'покупка', 'покупки', 'покупок') }}</span>
+          <span>{{ pluralize(content.purchaseCount,
+              t('common.purchase.purchase'),
+              t('common.purchase.purchases'),
+              t('common.purchase.purchasesPlural'))
+            }}
+          </span>
         </div>
         <div
           v-else
           class="purchase-content-item__purchase"
         >
-          <span>{{ content.cost || 0 }} {{ content.costType }}/месяц</span>
+          <span>{{ currencyToFormat(content.cost || 0) }}/{{ t('common.month') }}</span>
         </div>
       </div>
     </div>

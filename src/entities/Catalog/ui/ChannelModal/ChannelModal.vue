@@ -6,15 +6,18 @@ import {ButtonBase} from '@/shared/ui/button/ButtonBase';
 import {ImageAvatar} from '@/shared/ui/image/ImageAvatar';
 import {pluralize} from '@/shared/lib/helpers';
 import {useTelegram} from '@/shared/lib/use';
+import {useI18n} from "vue-i18n";
+import type {InfluenceBotChannel} from "@/entities/Bot";
 
 const props = defineProps<{
-  channel: ICatalogChannel,
+  channel: ICatalogChannel | InfluenceBotChannel,
 }>()
 
 const emit = defineEmits<{
   (e: 'update:modelValue', modelValue: boolean): void
 }>()
 
+const { t } = useI18n()
 const { webApp, secondaryThemeBgColor } = useTelegram()
 
 const goToBotPage = () => {
@@ -47,7 +50,11 @@ const goToChannel = () => {
             {{ channel.title }}
           </span>
           <span class="channel-modal__head-amount">
-            {{ pluralize(channel.subscribersCount, 'подписчик', 'подписчика', 'подписчиков') }}
+            {{ pluralize(channel.subscribersCount,
+              t('common.subscriber.subscriber'),
+              t('common.subscriber.subscriber_s'),
+              t('common.subscriber.subscribers'))
+            }}
           </span>
         </div>
       </div>
@@ -60,12 +67,12 @@ const goToChannel = () => {
             class="channel-modal__body-tag"
             :style="{ backgroundColor: secondaryThemeBgColor }"
           >
-            <span>{{ channel.category ? channel.category.name : 'прочее' }}</span>
+            <span>{{ channel.category ? channel.category.name : t('catalog.other') }}</span>
           </div>
         </div>
 
         <div class="channel-modal__body-description">
-          <span>ОПИСАНИЕ</span>
+          <span>{{ t('common.description') }}</span>
           <p>{{ channel.about || channel.preview }}</p>
         </div>
 
@@ -74,14 +81,14 @@ const goToChannel = () => {
             color="default"
             @click="goToChannel"
           >
-            Перейти в канал
+            {{ t('common.goToChannel') }}
           </button-base>
           <button-base
             v-if="channel.botAdmin"
             color="hint"
             @click="goToBotPage"
           >
-            Перейти к боту с материалами
+            {{ t('common.goToBotWithMaterials') }}
           </button-base>
         </div>
       </div>

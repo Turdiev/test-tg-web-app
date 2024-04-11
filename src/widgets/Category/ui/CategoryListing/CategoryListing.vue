@@ -5,6 +5,9 @@ import {storeToRefs} from 'pinia';
 import {VLoader} from '@/shared/ui/loaders';
 import {useLoadingWrap} from '@/shared/lib/use';
 import {onBeforeMount} from 'vue';
+import {useI18n} from "vue-i18n";
+
+const { t } = useI18n()
 
 const catalogStore = useCatalogStore()
 const { fetchCatalogCategories } = catalogStore
@@ -41,7 +44,7 @@ const saveTransitionFrom = () => {
     v-if="!isLoading && categoriesListing.length === 0"
     class="category-listing__not-results"
   >
-    <span>Нет категорий!</span>
+    <span>{{ t('catalog.noCategories') }}</span>
   </div>
 
 </template>

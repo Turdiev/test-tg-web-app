@@ -4,19 +4,22 @@ import {ref} from 'vue';
 import type {ITags} from './types';
 import {MONTHS_LIST_MOCKUPS} from '@/shared/utils';
 import type {OptionItem} from '@/shared/types';
+import {useI18n} from "vue-i18n";
 
 const namespace = 'purchase-history-expenses'
 export const usePurchaseHistoryExpensesStore = defineStore(namespace, () => {
-    const selectOptions = ref<OptionItem[]>(MONTHS_LIST_MOCKUPS)
+    const { t, locale } = useI18n()
+
+    const selectOptions = ref<OptionItem[]>(MONTHS_LIST_MOCKUPS[locale.value])
     const tags: ITags[] = [
         {
             type: 'SINGLE_POST',
-            label: 'Контент',
+            label: t('common.content'),
             value: 'POST'
         },
         {
             type: 'SUBSCRIPTION',
-            label: 'Закрытый канал',
+            label: t('common.closedChannel'),
             value: 'CHANNEL'
         }
     ]

@@ -2,6 +2,9 @@
 
 import {ImageAvatar} from '@/shared/ui/image/ImageAvatar';
 import type {InformationAuthorInfluenceBot} from '@/entities/Bot';
+import {useI18n} from "vue-i18n";
+
+const { t } = useI18n()
 
 withDefaults(defineProps<{
   botAuthor: InformationAuthorInfluenceBot
@@ -27,7 +30,7 @@ withDefaults(defineProps<{
         <span>{{ botAuthor?.firstName }} {{ botAuthor?.lastName }}</span>
       </div>
       <div class="bot-author-card__description">
-        <span>Description About Myself</span>
+        <span>{{ botAuthor?.description || t('bot.noDescription') }}</span>
       </div>
     </div>
 	</div>

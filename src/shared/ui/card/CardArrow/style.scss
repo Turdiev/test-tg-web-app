@@ -29,6 +29,7 @@
   &__content {
     @include flex-start-center;
     gap: 12px;
+    width: 95%;
     height: 100%;
   }
 
@@ -41,6 +42,7 @@
   &__info {
     @include flex-column;
     justify-content: space-between;
+    width: 80%;
     height: 100%;
   }
 
@@ -48,6 +50,9 @@
     font-size: 15px;
     font-weight: 400;
     color: $text_color;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 
     &_font-weight {
       font-weight: 500;
@@ -94,6 +99,7 @@
   &__icons {
     @include flex-center;
     gap: 6px;
+    width: 5%;
   }
 
   &__icon {

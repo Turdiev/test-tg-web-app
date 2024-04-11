@@ -6,6 +6,9 @@ import {usePurchaseHistorySearchStore} from '@/entities/PurchaseHistory/model/pu
 import {ref, watch} from 'vue';
 import {PurchaseHistoryItem} from '@/entities/PurchaseHistory/ui';
 import {useTimeout} from '@/shared/lib/use';
+import {useI18n} from "vue-i18n";
+
+const { t } = useI18n()
 
 const searchBarStore = useSearchBarStore()
 const { searchQuery } = storeToRefs(searchBarStore)
@@ -52,10 +55,10 @@ const closeSearchBar = () => {
           />
         </template>
         <div
-            v-if="isSearch && foundPurchaseHistories.length === 0"
-            class="purchase-history-search__not-results"
+          v-if="isSearch && foundPurchaseHistories.length === 0"
+          class="purchase-history-search__not-results"
         >
-          <span>Нечего не найдено!</span>
+          <span>{{ t('common.nothingFound') }}</span>
         </div>
       </template>
     </search-bar>

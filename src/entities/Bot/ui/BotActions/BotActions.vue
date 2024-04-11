@@ -5,6 +5,9 @@ import {useRoute, useRouter} from 'vue-router';
 import {routeName} from '@/app/providers/router/routes/bot/bot-author-channels';
 import {computed} from 'vue';
 import {useTelegram} from '@/shared/lib/use';
+import {useI18n} from "vue-i18n";
+
+const { t } = useI18n()
 
 const route = useRoute()
 const router = useRouter()
@@ -31,14 +34,14 @@ const goToTelegramChat = () => {
       class="bot-actions__button"
       @click="goToChannel"
     >
-      <span>Каналы автора</span>
+      <span>{{ t('bot.authorChannels') }}</span>
     </button-base>
     <button-base
       color="blue-light"
       class="bot-actions__button"
       @click="goToTelegramChat"
     >
-      <span>Написать автору</span>
+      <span>{{ t('bot.writeToTheAuthor') }}</span>
     </button-base>
     <div class="bot-actions__bookmark">
       <slot name="bookmark"/>

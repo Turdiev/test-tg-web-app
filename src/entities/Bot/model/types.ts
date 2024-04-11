@@ -23,6 +23,7 @@ export interface InformationAuthorInfluenceBot {
 	firstName: string,
 	lastName: string,
 	phone: string,
+	description: string,
 	email: string,
 	isActive: boolean,
 	isEmailConfirmed: boolean,
@@ -210,8 +211,7 @@ export interface BotFavorites {
 }
 
 export interface BueLinkString {
-	url: string,
-	text: string
+	url: string
 }
 
 export enum BotLinkType {

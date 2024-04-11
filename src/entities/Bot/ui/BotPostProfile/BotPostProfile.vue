@@ -1,7 +1,10 @@
 <script setup lang="ts">
 
 import {ImageAvatar} from '@/shared/ui/image/ImageAvatar';
+import {useI18n} from "vue-i18n";
 // import {IconInfoCircle} from '@/shared/ui/icons';
+
+const { t } = useI18n()
 
 withDefaults(defineProps<{
   username: string
@@ -28,7 +31,7 @@ withDefaults(defineProps<{
           <span>{{ username }}</span>
         </div>
         <div class="bot-post-profile__user-channel">
-          <span>Канал: {{ channelName }}</span>
+          <span>{{ t('bot.channel') }}: {{ channelName }}</span>
         </div>
       </div>
     </div>

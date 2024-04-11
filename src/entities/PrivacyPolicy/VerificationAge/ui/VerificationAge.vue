@@ -5,6 +5,10 @@ import {ButtonBase} from '@/shared/ui/button/ButtonBase';
 import {usePrivacyPolicyStore} from '@/entities/PrivacyPolicy/ProcessingData/model/privacy-policy';
 import {storeToRefs} from 'pinia';
 import {useTelegram} from '@/shared/lib/use';
+import {useI18n} from "vue-i18n";
+import {computed} from "vue";
+
+const { t } = useI18n()
 
 const { secondaryThemeBgColor } = useTelegram()
 
@@ -14,31 +18,29 @@ const { verificationAge } = storeToRefs(privacyPolicyStore)
 
 <template>
   <div class="verification-age">
-    <title-h2 class="verification-age__title">Подтверждение возраста</title-h2>
+    <title-h2 class="verification-age__title">{{ t('privacy.ageConfirmation') }}</title-h2>
     <p class="verification-age__description">
-      Бот позволяет получить доступ к пользовательскому контенту,
-      который может содержать контент, предназначенный исключительно
-      для лиц старше 18 лет
+      {{ t('privacy.ageVerificationText') }}
     </p>
     <div
       class="verification-age__wrapper"
       :style="{ backgroundColor: secondaryThemeBgColor }"
     >
-      <span>Вам уже есть 18?</span>
+      <span>{{ t('privacy.alreadyEighteen') }}</span>
       <div class="verification-age__actions">
         <button-base
           color="red"
           class="verification-age__button"
           @click="verificationAge = !verificationAge"
         >
-          Нет
+          {{ t('privacy.no') }}
         </button-base>
         <button-base
           color="green"
           class="verification-age__button"
           @click="verificationAge = !verificationAge"
         >
-          Да
+          {{ t('privacy.yes') }}
         </button-base>
       </div>
     </div>

@@ -4,6 +4,9 @@ import {IconArrowRight} from '@/shared/ui/icons';
 import {computed} from 'vue';
 import {pluralize} from '@/shared/lib/helpers';
 import {ImageAvatar} from '@/shared/ui/image/ImageAvatar';
+import {useI18n} from "vue-i18n";
+
+const { t } = useI18n()
 
 const props = withDefaults(defineProps<{
   title?: string,
@@ -26,8 +29,14 @@ const emit = defineEmits(['click', 'click:bookmark'])
 
 const definitionWord = computed(() => {
   return props.amountChannel !== null ?
-      pluralize(props.amountChannel, 'канал', 'канала', 'каналов') :
-      pluralize(props.subscribers, 'подписчик', 'подписчика', 'подписчиков')
+      pluralize(props.amountChannel,
+          t('common.channel.channel'),
+          t('common.channel.channel_s'),
+          t('common.channel.channels')) :
+      pluralize(props.subscribers,
+          t('common.subscriber.subscriber'),
+          t('common.subscriber.subscriber_s'),
+          t('common.subscriber.subscribers'))
 })
 </script>
 

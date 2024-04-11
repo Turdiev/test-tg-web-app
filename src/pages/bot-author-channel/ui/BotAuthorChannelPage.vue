@@ -7,6 +7,9 @@ import {useRoute} from 'vue-router';
 import {computed, onBeforeMount} from 'vue';
 import {useIsLoading} from '@/shared/lib/use';
 import {VLoader} from '@/shared/ui/loaders';
+import {useI18n} from "vue-i18n";
+
+const { t } = useI18n()
 
 const botStorage = useBotStore()
 const { fetchInfluenceChannels } = botStorage
@@ -28,7 +31,7 @@ onBeforeMount(async () => {
     <div class="container">
       <title-back :path="`/bot/${botUsername}`" text-align="center">
         <div class="bot-author-channel-page__title">
-          <title-h3>Каналы автора</title-h3>
+          <title-h3>{{ t('bot.authorChannels') }}</title-h3>
           <span class="bot-author-channel-page__amount-channel">
             {{ botUsername }}
           </span>

@@ -1,6 +1,7 @@
 .bot-content-post {
   @include flex-column;
   gap: 40px;
+  padding-bottom: 52px;
 
   &__item {
   }

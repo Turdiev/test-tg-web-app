@@ -6,7 +6,9 @@ import {useCatalogStore} from '@/entities/Catalog';
 import {TitleBack, TitleH3} from '@/shared/ui/title';
 import {CategoryDetails} from '@/widgets/Category/ui/CategoryDetails';
 import {pluralize} from '@/shared/lib/helpers';
+import {useI18n} from "vue-i18n";
 
+const { t } = useI18n()
 const route = useRoute()
 
 const catalogStore = useCatalogStore()
@@ -30,7 +32,11 @@ onBeforeMount(() => {
         <div class="category-details-page__title">
           <title-h3>{{ currentCategory.name }}</title-h3>
           <span class="category-details-page__amount-channel">
-            {{ pluralize(currentCategory.channels.length, 'канал', 'канала', 'каналов') }}
+            {{ pluralize(currentCategory.channels.length,
+              t('common.channel.channel'),
+              t('common.channel.channel_s'),
+              t('common.channel.channels'))
+            }}
           </span>
         </div>
       </title-back>

@@ -7,6 +7,9 @@ import {ButtonBase} from '@/shared/ui/button/ButtonBase';
 import {IconCoins} from '@/shared/ui/icons';
 import {useProfileStore} from '@/entities/Balance/model';
 import {useTelegram} from '@/shared/lib/use';
+import {useI18n} from "vue-i18n";
+
+const { t } = useI18n()
 
 const { webApp } = useTelegram()
 
@@ -25,7 +28,7 @@ const upBalance = async () => {
   <v-modal class="balance-modal">
     <template #modal-head>
       <title-h3>
-        Пополнить баланс
+        {{ t('main.topUpBalance') }}
       </title-h3>
     </template>
 
@@ -33,7 +36,7 @@ const upBalance = async () => {
       <div class="balance-modal__body">
         <v-input
           v-model="amountValue"
-          placeholder="Сумма пополнения в $"
+          :placeholder="t('common.topUpAmount')"
           input-type="number"
           class="balance-modal__input"
         >
@@ -48,7 +51,7 @@ const upBalance = async () => {
           class="balance-modal__button"
           @click="upBalance"
         >
-          Пополнить
+          {{ t('common.topUp') }}
         </button-base>
       </div>
     </template>

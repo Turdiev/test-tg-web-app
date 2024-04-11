@@ -8,6 +8,9 @@ import {PurchaseContentSearch} from '@/entities/PurchaseContent/ui';
 import {pluralize} from '@/shared/lib/helpers';
 import {usePurchaseContentStore} from '@/entities/PurchaseContent/model';
 import {onBeforeMount} from 'vue';
+import {useI18n} from "vue-i18n";
+
+const { t } = useI18n()
 
 const purchaseContentStorage = usePurchaseContentStore()
 const { fetchPurchaseContentsCount } = purchaseContentStorage
@@ -28,9 +31,13 @@ const handleSearch = () => {
     <div class="container">
       <title-back path="/" text-align="center">
         <div class="purchase-content-page__title">
-          <title-h3>Купленный контент</title-h3>
+          <title-h3>{{ t('pages.purchasedContent') }}</title-h3>
           <span class="purchase-content-page__amount-channel">
-            {{ pluralize(totalPurchaseContents, 'покупка', 'покупки', 'покупок') }}
+            {{ pluralize(totalPurchaseContents,
+              t('common.purchase.purchase'),
+              t('common.purchase.purchases'),
+              t('common.purchase.purchasesPlural'))
+            }}
           </span>
         </div>
 

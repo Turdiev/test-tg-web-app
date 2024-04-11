@@ -1,4 +1,4 @@
-import {computed} from 'vue';
+import {computed} from "vue";
 
 export function useTelegram() {
     const webApp = window.Telegram.WebApp
@@ -13,6 +13,11 @@ export function useTelegram() {
 
         return themeParams && (themeParams.bg_color === themeParams.secondary_bg_color || themeParams.bg_color === '#18222d') ? '#303d4f' : ''
     })
+
+    const languageTelegram = computed(() => {
+        return webApp.initDataUnsafe.user?.language_code
+    })
+
     const onClose = () => {
         console.log('close')
         webApp.close()
@@ -23,6 +28,7 @@ export function useTelegram() {
         initData,
         themeTelegram,
         secondaryThemeBgColor,
+        languageTelegram,
         onClose
     }
 }

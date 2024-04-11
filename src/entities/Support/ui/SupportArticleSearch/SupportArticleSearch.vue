@@ -6,6 +6,9 @@ import {ref, watch} from 'vue';
 import {useSupportStore} from '@/entities/Support/model/support';
 import {useTimeout} from '@/shared/lib/use';
 import {SupportArticlesItem} from '@/entities/Support/ui/SupportArticleItem';
+import {useI18n} from "vue-i18n";
+
+const { t } = useI18n()
 
 const searchBarStore = useSearchBarStore()
 const { searchQuery } = storeToRefs(searchBarStore)
@@ -57,7 +60,7 @@ const closeSearchBar = () => {
           v-if="isSearch && foundSupportArticles.length === 0"
           class="support-article-search__not-results"
         >
-          <span>Нечего не найдено!</span>
+          <span>{{ t('common.nothingFound') }}</span>
         </div>
       </template>
     </search-bar>

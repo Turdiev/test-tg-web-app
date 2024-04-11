@@ -6,6 +6,10 @@ import {computed} from 'vue';
 import type {InfluenceBotPost} from '@/entities/Bot';
 import {BotPostMedia, BotPostProfile} from '@/entities/Bot';
 import {CurrencyType} from '@/shared/types';
+import {useI18n} from "vue-i18n";
+import {currencyToFormat} from "../../../../shared/lib/helpers";
+
+const { t } = useI18n()
 
 const props = withDefaults(defineProps<{
   post: InfluenceBotPost,
@@ -32,9 +36,6 @@ const mediaPost = computed(() => {
     return props.post.previewMedia
   }
 })
-
-
-
 
 </script>
 <template>
@@ -67,7 +68,7 @@ const mediaPost = computed(() => {
       </v-swiper>
 
       <div
-        v-if="post.fullMedia?.length === 0 && post.fullText !== ''"
+        v-if="!post.fullMedia?.length && post.fullText !== ''"
         class="bot-content-post-item__full-text"
       >
         <span v-html="post.fullText"></span>
@@ -80,10 +81,10 @@ const mediaPost = computed(() => {
           @click="emit('click')"
         >
           <div class="bot-content-post-item__button-base-content">
-            <span>Купить</span>
+            <span>{{ t('bot.buy') }}</span>
 
             <div class="bot-content-post-item__button-base-price">
-              <span>{{ priceFormatted }}</span>
+              <span>{{ currencyToFormat(post.price) }}</span>
             </div>
           </div>
         </button-base>

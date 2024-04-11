@@ -4,6 +4,10 @@ import {ButtonBase} from '@/shared/ui/button/ButtonBase';
 import {ImageAvatar} from '@/shared/ui/image/ImageAvatar';
 import {IconArrowRight} from '@/shared/ui/icons';
 import {useTelegram} from '@/shared/lib/use';
+import {useI18n} from "vue-i18n";
+import {currencyToFormat} from "@/shared/lib/helpers";
+
+const { t } = useI18n()
 
 const { secondaryThemeBgColor } = useTelegram()
 </script>
@@ -29,10 +33,10 @@ const { secondaryThemeBgColor } = useTelegram()
              to=""
              class="bot-footer__balance-link"
            >
-             <span>Fidsty-баланс</span>
+             <span>{{ t('main.fidstyBalance') }}</span>
              <icon-arrow-right class="bot-footer__balance-link-icon"/>
            </router-link>
-           <span class="bot-footer__balance-text">999 999 $</span>
+           <span class="bot-footer__balance-text">{{ currencyToFormat(0) }}</span>
          </div>
        </div>
        <div class="bot-footer__right">
@@ -40,7 +44,7 @@ const { secondaryThemeBgColor } = useTelegram()
            color="blue-light"
            class="bot-footer__button"
          >
-           <span>Донат автору</span>
+           <span>{{ t('bot.donateToAuthor') }}</span>
          </button-base>
        </div>
      </div>

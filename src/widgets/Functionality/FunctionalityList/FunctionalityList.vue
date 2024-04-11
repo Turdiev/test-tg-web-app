@@ -3,32 +3,35 @@
 import {FunctionalityCard} from '@/entities/Functionality/ui';
 import type {FunctionalityList} from '@/entities/Functionality';
 import {IconBookmark, IconFolder, IconSearch, IconUsers} from '@/shared/ui/icons';
+import {useI18n} from "vue-i18n";
+
+const { t } = useI18n()
 
 const functionalityList: FunctionalityList[] = [
   {
-    title: 'Поиск',
-    description: 'по авторам',
+    title: t('common.search'),
+    description: t('main.byAuthors'),
     path: '/',
     type: 'search',
     icon: IconSearch
   },
   {
-    title: 'Подписки',
-    description: 'на каналы',
+    title: t('pages.subscriptions'),
+    description: t('main.channels'),
     path: '/subscriptions',
     type: 'subscriptions',
     icon: IconUsers
   },
   {
-    title: 'Избранное',
-    description: '0 ботов',
+    title: t('pages.favorite'),
+    description: `0 ${t('common.bot.bots')}`,
     path: '/favorites',
     type: 'favorites',
     icon: IconBookmark
   },
   {
-    title: 'Купленный контент',
-    description: '0 покупок',
+    title: t('pages.purchasedContent'),
+    description: `0 ${t('common.purchase.purchasesPlural')}`,
     path: '/purchase-content',
     type: 'purchased-content',
     icon: IconFolder

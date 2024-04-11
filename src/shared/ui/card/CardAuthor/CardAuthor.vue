@@ -3,6 +3,9 @@
 import {VCard} from '@/shared/ui/card';
 import {IconArrowRight, IconUser} from '@/shared/ui/icons';
 import {ImageAvatar} from '@/shared/ui/image/ImageAvatar';
+import {useI18n} from "vue-i18n";
+
+const { t } = useI18n()
 
 withDefaults(defineProps<{
   userName: string
@@ -29,7 +32,7 @@ const emit = defineEmits(['click'])
       <div class="card-author__wrapper">
         <div class="card-author__salesman">
           <icon-user />
-          <span>Продавец контента</span>
+          <span>{{ t('common.contentSeller') }}</span>
         </div>
         <div class="card-author__username">
           <span>{{ userName }}</span>

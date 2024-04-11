@@ -1,0 +1,50 @@
+
+export default {
+    search: 'Поиск',
+    content: 'Контент',
+    singlePost: 'Разовый пост',
+    multiPost: 'Набор постов',
+    closedChannel: 'Закрытый канал',
+    closedChannels: 'Закрытые каналы',
+    contentSeller: 'Продавец контента',
+    goToChannel: 'Перейти в канал',
+    goToBotWithMaterials: 'Перейти к боту с материалами',
+    subscription: 'Подписка',
+    back: 'Назад',
+    at: 'в',
+    purchase: {
+        purchase: 'покупка',
+        purchases: 'покупки',
+        purchasesPlural: 'покупок',
+    },
+    bot: {
+        bot: 'бот',
+        bot_s: 'бота',
+        bots: 'ботов',
+    },
+    channel: {
+        channel: 'канал',
+        channel_s: 'канала',
+        channels: 'каналов'
+    },
+    subscriber: {
+        subscriber: 'подписчик',
+        subscriber_s: 'подписчика',
+        subscribers: 'подписчиков',
+    },
+    noSubscriptions: 'Нет подписок',
+    nothingFound: 'Ничего не найдено!',
+    searchResult: 'РЕЗУЛЬТАТ ПОИСКА',
+    yourPurchases: 'ВАШИ ПОКУПКИ',
+    noPurchasedContent: 'Нет купленного контента!',
+    noPurchased: 'Нет покупок!',
+    month: 'месяц',
+    today: 'Сегодня',
+    yesterday: 'Вчера',
+    description: 'ОПИСАНИЕ',
+    depositOperation: 'Пополнение баланса',
+    donation: 'Донат',
+    topUp: 'Пополнить',
+    topUpAmount: 'Сумма пополнения в $',
+
+}

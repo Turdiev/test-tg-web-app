@@ -2,9 +2,12 @@ import {defineStore} from 'pinia';
 import {computed, ref} from 'vue';
 import type {ICatalogCategories, ICatalogChannel, ICategoryListing} from '@/entities/Catalog';
 import {api} from '@/entities/Catalog/api';
+import {useI18n} from "vue-i18n";
 
 const namespace = 'catalog'
 export const useCatalogStore = defineStore(namespace, () => {
+    const { t } = useI18n()
+
     const transitionFrom = ref('')
     const channelsListing = ref<ICatalogChannel[]>([])
     const foundChannelsListing = ref<ICatalogChannel[]>([])
@@ -30,7 +33,7 @@ export const useCatalogStore = defineStore(namespace, () => {
                 } else {
                     acc?.push({
                         id: 'other',
-                        name: 'Прочее',
+                        name: t('catalog.other'),
                         channels: [curr]
                     });
                 }

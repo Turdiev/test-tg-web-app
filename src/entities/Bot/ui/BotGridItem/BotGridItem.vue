@@ -2,9 +2,9 @@
 import type {InfluenceBotPost} from '@/entities/Bot';
 import {IconAlignCenter, IconPlay} from '@/shared/ui/icons';
 import {computed} from 'vue';
-import {CurrencyType} from '@/shared/types';
 import {useRoute} from 'vue-router';
 import {ImageTelegram} from '@/shared/ui/image/ImageTelegram';
+import {currencyToFormat} from "@/shared/lib/helpers";
 
 const props = withDefaults(defineProps<{
   post: InfluenceBotPost
@@ -17,9 +17,7 @@ const props = withDefaults(defineProps<{
 const route = useRoute()
 
 const botUsername = computed(() => route.params.username)
-const priceFormatted = computed(() => {
-  return `${props.post.price} ${CurrencyType[props.post.currencyType]}`
-})
+
 const mediaPost = computed(() => {
   if (props.post.fullMedia && props.post.fullMedia.length > 0) {
     return props.post.fullMedia[0]
@@ -55,7 +53,7 @@ const mediaPost = computed(() => {
     </div>
 
     <div class="bot-grid-item__price">
-      <span>{{ priceFormatted }}</span>
+      <span>{{ currencyToFormat(post.price) }}</span>
     </div>
 	</router-link>
 </template>

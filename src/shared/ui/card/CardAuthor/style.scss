@@ -13,7 +13,7 @@
   }
 
   &__salesman {
-    @include flex-center;
+    @include flex-start-center;
     gap: 2px;
     color: $hint_color;
 

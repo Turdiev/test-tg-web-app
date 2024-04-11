@@ -7,7 +7,7 @@ import {SearchBar} from '@/shared/ui/search';
 import {useTelegram, useTimeout} from '@/shared/lib/use';
 import {useSearchBarStore} from '@/shared/ui/search';
 import {usePurchaseContentStore} from '@/entities/PurchaseContent/model';
-
+import {useI18n} from "vue-i18n";
 
 const purchaseContentStore = usePurchaseContentStore()
 const { foundPurchaseContents, isShowSearchBar, activeTab } = storeToRefs(purchaseContentStore)
@@ -16,6 +16,7 @@ const { fetchSearchPurchaseContents } = purchaseContentStore
 const searchBarStore = useSearchBarStore()
 const { searchQuery } = storeToRefs(searchBarStore)
 
+const { t } = useI18n()
 const { webApp } = useTelegram()
 
 const {setTimeoutId, clearTimeoutId} = useTimeout(fetchSearchPurchaseContents, 800)
@@ -75,7 +76,7 @@ const closeSearchBar = () => {
             v-if="isSearch && foundPurchaseContents.length === 0"
             class="purchase-content-search__not-results"
           >
-            <span>Нечего не найдено!</span>
+            <span>{{ t('common.nothingFound') }}</span>
           </div>
         </template>
       </search-bar>

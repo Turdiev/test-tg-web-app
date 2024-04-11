@@ -10,7 +10,9 @@ import {ButtonSticky} from '@/shared/ui/button/ButtonSticky';
 import {VLoader} from '@/shared/ui/loaders';
 import {storeToRefs} from 'pinia';
 import {useTelegram} from '@/shared/lib/use';
+import {useI18n} from "vue-i18n";
 
+const { t } = useI18n()
 const { webApp } = useTelegram()
 
 const router = useRoute()
@@ -24,7 +26,7 @@ const isLoadingPage = ref(true);
 const routerParamsId = computed(() => router.params.id)
 const routerQueryPostId = computed(() => router.query.post_id)
 const titleButton = computed(() => {
-  return currentPurchaseHistoryDetails.value?.type === 'private' ? 'Перейти к закрытому каналу' : 'Перейти к материалу'
+  return currentPurchaseHistoryDetails.value?.type === 'private' ? t('purchaseHistory.goToPrivateChannel') : t('purchaseHistory.goToMaterial')
 })
 
 onBeforeMount(() => {
@@ -52,7 +54,7 @@ const goToChannel = () => {
     <div class="container purchase-history-details-page__content">
       <title-back path="/purchase-history" text-align="right">
         <div class="purchase-history-details-page__title">
-<!--          <span>Чек операции</span>-->
+<!--          <span>{{ t('purchaseHistory.checkOperation') }}</span>-->
         </div>
       </title-back>
       <v-loader

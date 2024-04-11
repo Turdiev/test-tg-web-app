@@ -4,6 +4,9 @@ import {IconArrowRight} from '@/shared/ui/icons';
 import {CatalogListing} from '@/widgets/Catalog';
 import {CatalogSearch} from '@/entities/Catalog/ui/CatalogSearch';
 import {ref} from 'vue';
+import {useI18n} from "vue-i18n";
+
+const { t } = useI18n()
 
 const isShowListing = ref(false)
 
@@ -29,9 +32,9 @@ const close = () => {
       <router-link
         v-show="!isShowListing"
         to="/catalog/category"
-class="catalog-page__all-category"
+        class="catalog-page__all-category"
       >
-        <span>Полный список категорий</span>
+        <span>{{ t('catalog.fullListCategories') }}</span>
         <icon-arrow-right />
       </router-link>
     </div>

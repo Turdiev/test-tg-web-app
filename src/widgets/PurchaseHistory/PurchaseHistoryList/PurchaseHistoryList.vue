@@ -5,9 +5,12 @@ import {PurchaseHistoryItem} from '@/entities/PurchaseHistory/ui';
 import {TitleH3} from '@/shared/ui/title';
 import {computed, onBeforeMount} from 'vue';
 import {storeToRefs} from 'pinia';
-import {definitionsDate} from '@/shared/lib/helpers';
+import {currencyToFormat, definitionsDate} from '@/shared/lib/helpers';
 import {VLoader} from '@/shared/ui/loaders';
 import {useLoadingWrap} from '@/shared/lib/use';
+import {useI18n} from "vue-i18n";
+
+const { t } = useI18n()
 
 const purchaseHistoryStore = usePurchaseHistoryStore()
 const { fetchPurchaseHistory } = purchaseHistoryStore
@@ -39,7 +42,7 @@ onBeforeMount(() => {
       >
         <div class="purchase-history-list__info">
           <title-h3>{{ definitionsDate(data.date) }}</title-h3>
-          <span class="purchase-history-list__info-total">{{ data.totalAmount }} $</span>
+          <span class="purchase-history-list__info-total">{{ currencyToFormat(+data.totalAmount) }}</span>
         </div>
         <PurchaseHistoryItem
           v-for="(history, index) in data.history"
@@ -54,7 +57,7 @@ onBeforeMount(() => {
       v-if="!currentLoading && groupPurchaseHistoryByDate.length === 0"
       class="purchase-history-list__empty"
     >
-      <span>Нет покупок</span>
+      <span>{{ t('common.noPurchased') }}</span>
     </div>
   </div>
 </template>

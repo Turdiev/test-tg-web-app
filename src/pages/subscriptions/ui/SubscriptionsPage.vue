@@ -7,6 +7,10 @@ import {useSubscriptionsStore} from '@/entities/Subscriptions/model';
 import {storeToRefs} from 'pinia';
 import {pluralize} from '@/shared/lib/helpers';
 import {SubscriptionsSearch} from '@/entities/Subscriptions/ui';
+import {useI18n} from "vue-i18n";
+import {computed} from "vue";
+
+const { t } = useI18n()
 
 const subscriptionsStorage = useSubscriptionsStore()
 const { channelSubscriptions, isShowSearchBar } = storeToRefs(subscriptionsStorage)
@@ -22,9 +26,13 @@ const handleSearch = () => {
     <div class="container">
       <title-back path="/" text-align="center">
         <div class="subscriptions-page__title">
-          <title-h3>Подписки</title-h3>
+          <title-h3>{{ t('pages.subscriptions') }}</title-h3>
           <span class="subscriptions-page__amount-channel">
-            {{ pluralize(channelSubscriptions.length, 'канал', 'канала', 'каналов') }}
+            {{ pluralize(channelSubscriptions.length,
+              t('common.channel.channel'),
+              t('common.channel.channel_s'),
+              t('common.channel.channels'))
+            }}
           </span>
         </div>
 

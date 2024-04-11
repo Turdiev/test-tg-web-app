@@ -4,17 +4,21 @@ import type {PurchaseHistory} from '@/entities/PurchaseHistory/model/types';
 import {IconCoins, IconUser} from '@/shared/ui/icons';
 import {computed} from 'vue';
 import {ImageAvatar} from '@/shared/ui/image/ImageAvatar';
+import {useI18n} from "vue-i18n";
+import {currencyToFormat} from "@/shared/lib/helpers";
+
+const { t } = useI18n()
 
 const props = withDefaults(defineProps<{
   item: PurchaseHistory
 }>(), {})
 
 const types = {
-  SUBSCRIPTION: 'Закрытый канал',
-  SINGLE_POST: 'Разовый пост',
-  MULTI_POST: 'Набор постов',
-  DONATION: 'Донат',
-  DEPOSIT: 'Пополнение баланса'
+  SUBSCRIPTION: t('common.closedChannel'),
+  SINGLE_POST: t('common.singlePost'),
+  MULTI_POST: t('common.multiPost'),
+  DONATION: t('common.donation'),
+  DEPOSIT: t('common.depositOperation')
 }
 
 const goTo = computed(() => {
@@ -38,11 +42,7 @@ const formattedTitle = (type: string, channelTitle: string, postPreview: string)
 }
 
 const formattedName = (type: string, botSellerName: string, channelTitle: string) => {
-  if (type === 'SUBSCRIPTION') {
-    return channelTitle
-  } else {
-    return botSellerName
-  }
+  return type === 'SUBSCRIPTION' ? channelTitle : botSellerName
 }
 
 </script>
@@ -84,14 +84,14 @@ const formattedName = (type: string, botSellerName: string, channelTitle: string
             class="purchase-history-item__price"
             :class="{'purchase-history-item__price_deposit': item.type === 'DEPOSIT'}"
         >
-          {{ item.type === 'DEPOSIT' ? '+' : '-' }}{{ item.amount }} $
+          {{ item.type === 'DEPOSIT' ? '+' : '-' }}{{ currencyToFormat(item.amount) }}
         </span>
         <span
           v-if="!isDepositAndDonation"
           class="purchase-history-item__type"
         >
-        {{ types[item.type] }}
-      </span>
+          {{ types[item.type] }}
+        </span>
       </div>
     </div>
   </router-link>

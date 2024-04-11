@@ -5,7 +5,9 @@ import {usePrivacyPolicyStore} from '@/entities/PrivacyPolicy/ProcessingData/mod
 import {storeToRefs} from 'pinia';
 import {useRouter} from 'vue-router';
 import {computed} from 'vue';
+import {useI18n} from "vue-i18n";
 
+const { t } = useI18n()
 const router = useRouter()
 const privacyPolicyStore = usePrivacyPolicyStore()
 const { agreementAccepted, privacyPolicyCheckbox, termsOfUseCheckbox } = storeToRefs(privacyPolicyStore)
@@ -28,7 +30,7 @@ const startUsingBot = () => {
       :disabled="!isDisabledButton"
       @click="startUsingBot"
     >
-      Начать пользоваться ботом
+      {{ t('privacy.startUsingBot') }}
     </button-base>
   </div>
 </template>

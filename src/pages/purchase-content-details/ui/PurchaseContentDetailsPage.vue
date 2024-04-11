@@ -11,6 +11,9 @@ import PurchaseContentSalesman
   from '@/entities/PurchaseContent/ui/PurchaseContentSalesman.vue/PurchaseContentSalesman.vue';
 import {PurchaseContentDetailsListing} from '@/widgets/PurchaseContent/PurchaseContentDetailsListing';
 import {AddToFavorite} from '@/features/Favorites/AddToFavorite/ui';
+import {useI18n} from "vue-i18n";
+
+const { t } = useI18n()
 
 const { secondaryThemeBgColor } = useTelegram()
 const router = useRoute()
@@ -42,7 +45,7 @@ onMounted(async () => {
         <title-back
           path="/purchase-content"
           text-align="left"
-          icon-label="Назад"
+          :icon-label="t('common.back')"
         />
 
         <PurchaseContentSalesman
@@ -66,7 +69,9 @@ onMounted(async () => {
       class="purchase-content-details-page__body"
     >
       <div class="container">
-        <span class="purchase-content-details-page__title">ВАШИ ПОКУПКИ</span>
+        <span class="purchase-content-details-page__title">
+          {{ t('common.yourPurchases') }}
+        </span>
 
         <PurchaseContentDetailsListing />
       </div>

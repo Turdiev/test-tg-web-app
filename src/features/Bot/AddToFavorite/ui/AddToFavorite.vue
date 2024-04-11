@@ -3,11 +3,11 @@
 
 import IconBookmark from '@/shared/ui/icons/IconBookmark.vue';
 import {useBotAddToFavorite} from '@/features/Bot/AddToFavorite/model';
-import {computed} from 'vue';
+import {computed, onMounted} from 'vue';
 import {useRoute} from 'vue-router';
 
 withDefaults(defineProps<{
-  isFavorites: boolean
+  isFavorites: boolean | null
 }>(), {})
 
 const route = useRoute()

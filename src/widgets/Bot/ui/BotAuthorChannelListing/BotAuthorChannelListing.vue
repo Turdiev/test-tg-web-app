@@ -6,6 +6,9 @@ import {useRoute} from 'vue-router';
 import {useModal} from 'vue-final-modal';
 import {vfm} from '@/shared/lib/plugins/vue-final-model';
 import {ChannelModal} from '@/entities/Catalog';
+import {useI18n} from "vue-i18n";
+
+const { t } = useI18n()
 
 const botStorage = useBotStore()
 const { allInfluenceBotChannels } = storeToRefs(botStorage)
@@ -49,7 +52,7 @@ const showModal = (channel: InfluenceBotChannel) => {
           v-if="allInfluenceBotChannels.length === 0"
           class="bot-author-channel-listing__not-subscribers"
       >
-        <span>Автор не привязал еще ни один канал к своему профилю Fidsty</span>
+        <span>{{ t('bot.notLinkedChannel') }}</span>
       </div>
     </div>
   </div>

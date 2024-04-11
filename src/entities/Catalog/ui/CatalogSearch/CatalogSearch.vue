@@ -8,8 +8,11 @@ import {useTimeout} from '@/shared/lib/use';
 import {CardArrow} from '@/shared/ui/card/CardArrow';
 import {useModal} from 'vue-final-modal';
 import {vfm} from '@/shared/lib/plugins/vue-final-model';
+import {useI18n} from "vue-i18n";
 
 const emit = defineEmits(['close', 'focus'])
+
+const { t } = useI18n()
 
 const searchBarStore = useSearchBarStore()
 const { searchQuery } = storeToRefs(searchBarStore)
@@ -83,7 +86,7 @@ const focused = () => {
           v-if="isSearch && foundChannelsListing.length === 0"
           class="catalog-search__not-results"
         >
-          <span>Нечего не найдено!</span>
+          <span>{{ t('common.nothingFound') }}</span>
         </div>
       </template>
     </search-bar>

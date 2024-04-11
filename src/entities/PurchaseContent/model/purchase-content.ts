@@ -9,9 +9,12 @@ import type {
 } from '@/entities/PurchaseContent/model/types';
 import {api} from '@/entities/PurchaseContent/api';
 import type {RouteParamValue} from 'vue-router';
+import {useI18n} from "vue-i18n";
 
 const namespace = 'purchase-content'
 export const usePurchaseContentStore = defineStore(namespace, () => {
+    const { t } = useI18n()
+
     const purchaseContentData = ref<IPurchaseContentBot[] | IPurchaseContentChannel[]>([])
     const foundPurchaseContents = ref<IPurchaseContentBot[] | IPurchaseContentChannel[]>([])
     const purchasingBotContent = ref<IPurchaseContentBotById>()
@@ -19,16 +22,16 @@ export const usePurchaseContentStore = defineStore(namespace, () => {
     const isShowSearchBar = ref(false)
     const purchaseContentTabs = ref([
         {
-            name: 'Контент',
+            name: `${t('common.content')}`,
             value: 'content'
         },
         {
-            name: 'Закрытые каналы',
+            name: `${t('common.closedChannels')}`,
             value: 'channel'
         }
     ])
     const activeTab = ref({
-        name: 'Контент',
+        name: `${t('common.content')}`,
         value: 'content'
     })
 

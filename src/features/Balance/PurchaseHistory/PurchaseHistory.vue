@@ -3,7 +3,9 @@
 import {IconClock} from '@/shared/ui/icons';
 import {ButtonRound} from '@/shared/ui/button';
 import {useRouter} from 'vue-router';
+import {useI18n} from "vue-i18n";
 
+const { t } = useI18n()
 const router = useRouter()
 
 const goToPurchaseHistory = () => {
@@ -13,7 +15,7 @@ const goToPurchaseHistory = () => {
 
 <template>
   <ButtonRound
-    label="История покупок"
+    :label="t('pages.purchaseHistory')"
     @click="goToPurchaseHistory"
   >
     <template #icon>

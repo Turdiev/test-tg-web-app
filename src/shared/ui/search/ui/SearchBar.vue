@@ -6,6 +6,9 @@ import {useSearchBarStore} from '@/features/SearchBar';
 import {storeToRefs} from 'pinia';
 import {ref} from 'vue';
 import IconClose from '@/shared/ui/icons/IconClose.vue';
+import {useI18n} from "vue-i18n";
+
+const { t } = useI18n()
 
 const searchBarStore = useSearchBarStore()
 const { searchQuery } = storeToRefs(searchBarStore)
@@ -38,7 +41,7 @@ const onCloseSearchBar = (event: boolean) => {
   >
     <v-input
       v-model="searchQuery"
-      placeholder="Поиск"
+      :placeholder="t('common.search')"
       type="text"
       :is-button-close="isFocusedSearch || isShowBtnClose"
       class="search-bar__input"
@@ -57,7 +60,7 @@ const onCloseSearchBar = (event: boolean) => {
       v-if="isFocusedSearch"
       class="search-bar__body"
     >
-      <span>РЕЗУЛЬТАТ ПОИСКА</span>
+      <span>{{ t('common.searchResult') }}</span>
 
       <div class="search-bar__results">
         <slot name="results"/>

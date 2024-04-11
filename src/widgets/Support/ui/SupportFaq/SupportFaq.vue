@@ -2,6 +2,9 @@
 
 import {TitleH3} from '@/shared/ui/title';
 import {useTelegram} from '@/shared/lib/use';
+import {useI18n} from "vue-i18n";
+
+const { t } = useI18n()
 
 const { secondaryThemeBgColor } = useTelegram()
 </script>
@@ -14,7 +17,7 @@ const { secondaryThemeBgColor } = useTelegram()
   >
     <div class="support-faq__wrapper">
       <title-h3>FAQ</title-h3>
-      <span class="support-faq__text">Часто задаваемые вопросы</span>
+      <span class="support-faq__text">{{ t('support.faq') }}</span>
     </div>
   </router-link>
 </template>

@@ -4,6 +4,9 @@ import {VCard} from '@/shared/ui/card';
 import {pluralize} from '@/shared/lib/helpers';
 import {ImageAvatar} from '@/shared/ui/image/ImageAvatar';
 import type {AllInfluenceBotChannels} from '@/entities/Bot';
+import {useI18n} from "vue-i18n";
+
+const { t } = useI18n()
 
 withDefaults(defineProps<{
   channel: AllInfluenceBotChannels
@@ -36,7 +39,11 @@ const emit = defineEmits(['click'])
           <span>{{ channel.title }}</span>
         </div>
         <div class="bot-author-channel-item__purchase">
-          <span>{{ pluralize(channel.subscribersCount, 'подписчик', 'подписчика', 'подписчиков') }}</span>
+          <span>{{ pluralize(channel.subscribersCount,
+              t('common.subscriber.subscriber'),
+              t('common.subscriber.subscriber_s'),
+              t('common.subscriber.subscribers'))
+          }}</span>
         </div>
       </div>
     </div>

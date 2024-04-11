@@ -5,6 +5,9 @@ import {ButtonRound} from '@/shared/ui/button';
 import {useModal} from 'vue-final-modal';
 import {vfm} from '@/shared/lib/plugins/vue-final-model';
 import {BalanceModal} from '@/entities/Balance';
+import {useI18n} from "vue-i18n";
+
+const { t } = useI18n()
 
 const showModal = () => {
   const { open } = useModal({
@@ -19,7 +22,7 @@ const showModal = () => {
 
 <template>
   <ButtonRound
-    label="Пополнить баланс"
+    :label="t('main.topUpBalance')"
     @click="showModal"
   >
     <template #icon>

@@ -10,6 +10,7 @@ import {VLoader} from '@/shared/ui/loaders';
 import {useIsLoading} from '@/shared/lib/use';
 import {storeToRefs} from 'pinia';
 import {BotEmptyContent} from '@/entities/Bot';
+import {useI18n} from "vue-i18n";
 
 const route = useRoute()
 
@@ -21,6 +22,8 @@ const {
   fetchAllChannelPosts
 } = botStorage
 
+const { t } = useI18n()
+
 const { isLoading, startLoading, finishLoading } = useIsLoading()
 
 const botUsername = computed(() => route.params.username)
@@ -30,12 +33,12 @@ const tabs = [
   {
     icon: IconDashboard,
     key: 'grid',
-    label: 'Сетка'
+    label: t('bot.net')
   },
   {
     icon: IconBulletList,
     key: 'list',
-    label: 'Лента'
+    label: t('bot.ribbon')
   },
 ]
 

@@ -25,13 +25,12 @@ const { secondaryThemeBgColor } = useTelegram()
          />
 
          <div class="bot-footer__balance">
-           <router-link
-             to=""
+           <div
              class="bot-footer__balance-link"
            >
              <span>Fidsty-баланс</span>
              <icon-arrow-right class="bot-footer__balance-link-icon"/>
-           </router-link>
+           </div>
            <span class="bot-footer__balance-text">999 999 $</span>
          </div>
        </div>

@@ -67,10 +67,8 @@ const onClose = () => {
         ref="vInput"
         v-model="inputValue"
         class="v-input__field"
-        :style="{
-          backgroundColor: secondaryThemeBgColor,
-          border: `1px solid ${secondaryThemeBgColor}`
-        }"
+        :class="{'v-input__field_border-color': secondaryThemeBgColor}"
+        :style="{ backgroundColor: secondaryThemeBgColor }"
         :type="inputType"
         :name="name"
         :placeholder="placeholder"

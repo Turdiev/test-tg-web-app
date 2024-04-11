@@ -30,6 +30,10 @@
     font-weight: 400;
     color: $text_color;
 
+    &_border-color {
+      border: 1px solid $secondary_dark_bg_color;
+    }
+
     &::placeholder {
       color: $subtitle_text_color;
     }

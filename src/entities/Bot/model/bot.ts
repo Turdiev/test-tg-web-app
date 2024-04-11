@@ -101,7 +101,7 @@ export const useBotStore = defineStore(namespace, () => {
 				message: string
 			}
 
-			return data.url
+			return data
 		} catch (e) {
 			throw new Error(`ERROR: ${e}`)
 		}

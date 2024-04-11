@@ -17,7 +17,13 @@ const { fetchBotInfluenceBueLink } = botStorage
 const botUsername = computed(() => route.params.username)
 const byuPostChannel = async (postId: string) => {
   const bueLink = await fetchBotInfluenceBueLink(botUsername.value, postId)
-  webApp.openLink(bueLink)
+
+  if (bueLink.text) {
+    webApp.showPopup({ title: 'Подписка', message: bueLink.text })
+  } else {
+    webApp.openLink(bueLink)
+  }
+
 }
 </script>
 

@@ -12,7 +12,7 @@ export const REQUEST = ({ method, url, query = {}, data = {}, headers = {} }) =>
         method,
         url,
         headers: {
-            WebAppInitData: initData || dataAuth,
+            WebAppInitData: initData || dataAuthInfluence,
             ...headers
         }
     }

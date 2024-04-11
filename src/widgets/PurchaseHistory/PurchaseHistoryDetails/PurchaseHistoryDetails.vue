@@ -27,10 +27,10 @@ const isCloseChannel = computed(() => {
 const handleRenewSubscription = async (channelId: string) => {
   const paymentLink = await fetchPurchaseHistoryPaymentLink(channelId)
 
-  if (paymentLink.text) {
-    webApp.showPopup({ title: 'Подписка', message: paymentLink.text })
-  } else {
+  if (paymentLink.url) {
     webApp.openLink(paymentLink.url)
+  } else {
+    webApp.showPopup({ title: 'Подписка', message: paymentLink.text })
   }
 }
 

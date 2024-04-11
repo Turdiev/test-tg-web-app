@@ -3,6 +3,7 @@
   grid-template-columns: repeat(auto-fill, minmax(127px, 1fr));
   grid-gap: 1px;
   justify-items: center;
+  padding-bottom: 51px;
 
   @include adaptive(576) {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
